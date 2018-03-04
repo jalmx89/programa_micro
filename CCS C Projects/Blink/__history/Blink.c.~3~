@@ -1,0 +1,29 @@
+#include <Blink.h>
+
+#use fast_io(B)
+
+void main()
+{
+
+   port_b_pullups(TRUE);      //activo la resistencia de pullup interna
+   set_tris_b(0x01);          //configuro las entras y salidas
+   output_low(PIN_B1);        //pongo el PB.1 a cero
+   
+
+   while(TRUE) //se ejecuta infinitamente
+   {
+      
+      if(input(PIN_B0) == 1){ //si no esta presionado el boton, entra
+         output_low(PIN_B1);  //pongo a cero PB.1 
+      }
+      else{
+         output_high(PIN_B1); //pongo a uno el PB.1
+      }
+      
+      output_low(PIN_B1);
+      delay_ms(250);
+      output_high(PIN_B1);
+      delay_ms(250);
+   }
+
+}

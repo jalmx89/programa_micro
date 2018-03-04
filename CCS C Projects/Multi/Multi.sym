@@ -1,0 +1,64 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     MAIN.@SCRATCH1
+F83     PSP_DATA
+F83     lcd
+F8C     lcdlat
+F95     lcdtris
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @cinit1
+000004  MAIN
+000014  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Documents\CCS C Projects\Multi\
+
+Project Files:
+    Multi.c                                                 [26-feb-18 00:33  CRC=D7BF8FAE]
+    Multi.h                                                 [25-feb-18 23:36  CRC=1C5A6858]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 14:35  CRC=5337E248]
+
+Source signature=EA9E4962
+
+Units:
+    Multi (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Multi.xsym
+    Errors:      Multi.err
+    Ext Symbols: Multi.esym
+    INHX32:      Multi.hex
+    Symbols:     Multi.sym
+    List:        Multi.lst
+    Debug/COFF:  Multi.cof
+    Project:     Multi.ccspjt
+    Call Tree:   Multi.tre
+    Statistics:  Multi.STA

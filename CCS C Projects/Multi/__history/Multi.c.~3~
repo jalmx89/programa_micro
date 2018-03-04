@@ -1,0 +1,15 @@
+#include <Multi.h>
+
+#use fast_io(A)
+#use fast_io(B)
+
+void main()
+{
+  
+   
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

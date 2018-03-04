@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Blink.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=Blink.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Documents\CCS C Projects\Blink\Blink]
+Type=4
+[mru-list]
+1=Blink.c
+[Opened Files]
+1=Blink.c
+2=Blink.h
+3=
+[Blink.c]
+Type=4
+[Units]
+Count=1
+1=Blink (main)

@@ -1,0 +1,13 @@
+#include <Multi.h>
+
+#fuse 
+void main()
+{
+
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
