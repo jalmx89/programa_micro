@@ -1,24 +1,24 @@
 [PROJECT]
-Target=Blink.hex
+Target=patito.hex
 Processor_Text=PIC18F4550
 CCSVerions=5.015
 Compiler=PCH
 CCSVersion=5.015
 [Target Data]
-FileList=Blink.c
+FileList=patito.c
 [Directories]
 Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
-[C:\Users\VAIO\Documents\CCS C Projects\Blink\Blink]
+[C:\Users\VAIO\Documents\class_micro\CCS C Projects\Patito\patito]
 Type=4
 [mru-list]
-1=Blink.c
+1=patito.c
 [Opened Files]
-1=Blink.c
-2=Blink.h
-3=..\Patito\patito.err
+1=patito.c
+2=patito.h
+3=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
 4=
-[Blink.c]
+[patito.c]
 Type=4
 [Units]
 Count=1
-1=Blink (main)
+1=patito (main)

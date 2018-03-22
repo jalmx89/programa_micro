@@ -1,0 +1,12 @@
+#include <patito.h>
+
+
+#use fast_io(B) //configuracion rapido para puerto B
+
+void main()
+{
+   port_b_pullups(TRUE);      //activo la resistencia de pullup interna
+   set_tris_b(0x00);          //configuro las entradas y salidas
+ 
+   output_low(PIN_B1);        //pongo el PB.1 a cero
+}

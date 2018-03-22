@@ -1,0 +1,166 @@
+CCS PCH C Compiler, Version 5.015, 5967               21-mar-18 19:41
+
+               Filename:   C:\Users\VAIO\Documents\class_micro\CCS C Projects\Patito\patito.lst
+
+               ROM used:   152 bytes (0%)
+                           Largest free fragment is 32616
+               RAM used:   5 (0%) at main() level
+                           6 (0%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002A
+.................... #include <patito.h> 
+.................... #include <18F4550.h> 
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES WDT128                	//Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOXINST               	//Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
+....................  
+.................... #use delay(crystal=20000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  06
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    0028
+000E:  MOVLW  06
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  7B
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  DECFSZ FEF,F
+0026:  BRA    000E
+0028:  RETURN 0
+....................  
+....................  
+....................  
+.................... #use fast_io(B) //configuracion rapido para puerto B 
+....................  
+.................... void main() 
+002A:  CLRF   FF8
+002C:  BCF    FD0.7
+002E:  MOVF   FC1,W
+0030:  ANDLW  C0
+0032:  IORLW  0F
+0034:  MOVWF  FC1
+0036:  MOVLW  07
+0038:  MOVWF  FB4
+.................... { 
+....................    set_tris_b(0x00);          //configuro las entradas y salidas 
+003A:  MOVLW  00
+003C:  MOVWF  F93
+....................   
+....................  while(TRUE){ 
+....................     
+....................    output_high(PIN_B0);        //pongo el PB.1 a cero 
+003E:  BSF    F8A.0
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+0040:  MOVLW  02
+0042:  MOVWF  05
+0044:  MOVLW  FA
+0046:  MOVWF  06
+0048:  RCALL  0004
+004A:  DECFSZ 05,F
+004C:  BRA    0044
+....................     
+....................    output_high(PIN_B2);        //pongo el PB.1 a cero 
+004E:  BSF    F8A.2
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+0050:  MOVLW  02
+0052:  MOVWF  05
+0054:  MOVLW  FA
+0056:  MOVWF  06
+0058:  RCALL  0004
+005A:  DECFSZ 05,F
+005C:  BRA    0054
+....................     
+....................    output_high(PIN_B4);        //pongo el PB.1 a cero 
+005E:  BSF    F8A.4
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+0060:  MOVLW  02
+0062:  MOVWF  05
+0064:  MOVLW  FA
+0066:  MOVWF  06
+0068:  RCALL  0004
+006A:  DECFSZ 05,F
+006C:  BRA    0064
+....................  
+....................    output_high(PIN_B6);        //pongo el PB.1 a cero 
+006E:  BSF    F8A.6
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+0070:  MOVLW  02
+0072:  MOVWF  05
+0074:  MOVLW  FA
+0076:  MOVWF  06
+0078:  RCALL  0004
+007A:  DECFSZ 05,F
+007C:  BRA    0074
+....................     
+....................    output_low(PIN_B0); 
+007E:  BCF    F8A.0
+....................    output_low(PIN_B2); 
+0080:  BCF    F8A.2
+....................    output_low(PIN_B4); 
+0082:  BCF    F8A.4
+....................    output_low(PIN_B6); 
+0084:  BCF    F8A.6
+....................     
+....................    delay_ms(500); 
+0086:  MOVLW  02
+0088:  MOVWF  05
+008A:  MOVLW  FA
+008C:  MOVWF  06
+008E:  RCALL  0004
+0090:  DECFSZ 05,F
+0092:  BRA    008A
+0094:  BRA    003E
+....................  } 
+....................     
+....................    /* 
+....................    output_high(PIN_B0);        //pongo el PB.1 a cero 
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+....................     
+....................    output_high(PIN_B2);        //pongo el PB.1 a cero 
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+....................     
+....................    output_high(PIN_B4);        //pongo el PB.1 a cero 
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+....................  
+....................    output_high(PIN_B6);        //pongo el PB.1 a cero 
+....................    delay_ms(500);             //tiempo de retardo en milisegundos 
+....................    */ 
+.................... } 
+0096:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO
+   Word  2: 0E38   PUT NOBROWNOUT BORV21 VREGEN NOWDT WDT128
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

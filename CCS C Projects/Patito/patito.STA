@@ -1,0 +1,46 @@
+
+ROM used:   152/32768 (0%)
+            152/32768 (0%) including unused fragments
+
+            0.2 Average locations per line
+            9.5 Average locations per statement
+
+RAM used:   5/2048 (0%) at main() level
+            6/2048 (0%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   45    16 100  patito.c
+   12     0   0  patito.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  894    16 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38  12    1             @delay_ms1
+0    110  36    1   318  1.9  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              16
+    Comments                173
+    Volume (V)              323
+    Difficulty (D)          1.8
+    Effort to implement (E) 568
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    146
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   148  32616  
+
+
+
