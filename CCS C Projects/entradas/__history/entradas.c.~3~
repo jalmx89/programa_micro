@@ -1,0 +1,16 @@
+#include <entradas.h>
+
+#use fast_io(A)   //configuro el puerto A
+#use fast_io(B)   //configuro el puerto B
+
+void main()
+{
+
+//   set_
+   
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

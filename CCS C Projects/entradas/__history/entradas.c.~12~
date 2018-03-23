@@ -1,0 +1,25 @@
+#include <entradas.h>
+
+#use fast_io(A)   //configuro el puerto A
+#use fast_io(B)   //configuro el puerto B
+
+void main()
+{
+
+   set_tris_a(255); //configuro puerto A como entrada
+   set_tris_b(0); //configuro puerto B como salida
+   
+   while(TRUE)
+   {
+      int8 boton = input(PIN_A0);// leo la entrada en el Pin 0 del puerto A
+      
+      if(boton == 1){ //verifico si fue presionado el boton
+         output_high(PIN_B0); //pongo a 1 la salida del pin 0 del puerto B
+      }
+      else{                   //de lo contrario
+         output_low(PIN_B0); // pongo en 0 la salida del pin 0 del puerto B
+      }
+      
+   }
+
+}

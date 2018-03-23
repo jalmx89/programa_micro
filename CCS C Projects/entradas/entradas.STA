@@ -1,0 +1,45 @@
+
+ROM used:   80/32768 (0%)
+            80/32768 (0%) including unused fragments
+
+            0.1 Average locations per line
+            4.2 Average locations per statement
+
+RAM used:   4/2048 (0%) at main() level
+            7/2048 (0%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   42    19 100  entradas.c
+   12     0   0  entradas.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
+----- -----
+  891    19 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     76  48    0   450  4.0  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              19
+    Comments                171
+    Volume (V)              453
+    Difficulty (D)          3.9
+    Effort to implement (E) 1762
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   3
+    Maintainability (MI)    140
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE    76  32688  
+
+
+

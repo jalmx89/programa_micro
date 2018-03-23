@@ -3,9 +3,6 @@
 #use fast_io(A)
 #use fast_io(B)
 
-void on(int pin){
-
-}
 void main()
 {
    set_tris_a(255);
