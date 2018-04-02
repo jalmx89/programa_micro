@@ -1,0 +1,11 @@
+#include <b_activo.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

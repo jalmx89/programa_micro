@@ -1,0 +1,28 @@
+#include <temperature.h>
+#include "libs/1wire.c"
+#include "libs/ds1820.c"
+
+void main()
+{
+
+   float value = 0.0;
+
+   setup_adc_ports(NO_ANALOGS|VSS_VDD);
+   setup_adc(ADC_OFF);
+   setup_spi(SPI_SS_DISABLED);
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);
+   setup_timer_1(T1_DISABLED);
+   setup_timer_2(T2_DISABLED,0,1);    
+   setup_oscillator(OSC_8MHZ);
+   setup_uart(9600);
+   
+   delay_ms(1000);
+   
+   printf("Starting...\t\n");
+   
+   while(TRUE) {        
+      value = ds1820_read();
+      printf("%f\t\n", value);        
+   }
+   
+}

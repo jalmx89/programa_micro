@@ -1,0 +1,11 @@
+#include <b_pasivo.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

@@ -1,0 +1,17 @@
+#include <b_activo.h>
+
+/* INFORMATION
+Active Buzzer module consists of an active piezoelectric buzzer, it generates a sound of aproximately 2.5kHz when signal is high.
+
+Operating Voltage    3.5V ~ 5.5V
+Maximum Current   30mA / 5VDC
+Resonance Frequency   2500Hz ± 300Hz*/
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

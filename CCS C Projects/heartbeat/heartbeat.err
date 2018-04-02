@@ -1,0 +1,6 @@
+>>> Warning 202 "heartbeat.c" Line 8(10,16): Variable never used:   change
+>>> Warning 202 "heartbeat.c" Line 9(10,16): Variable never used:   minval
+>>> Warning 202 "heartbeat.c" Line 22(11,20): Variable never used:   oldChange
+      Memory usage:   ROM=4%      RAM=1% - 2%
+      0 Errors,  3 Warnings.
+Build Successful.

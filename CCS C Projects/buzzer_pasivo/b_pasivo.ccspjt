@@ -1,0 +1,22 @@
+[PROJECT]
+Target=b_pasivo.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=b_pasivo.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Documents\class_micro\CCS C Projects\buzzer_pasivo\b_pasivo]
+Type=4
+[mru-list]
+1=b_pasivo.c
+[Opened Files]
+1=b_pasivo.c
+2=
+[b_pasivo.c]
+Type=4
+[Units]
+Count=1
+1=b_pasivo (main)

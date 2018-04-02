@@ -1,0 +1,20 @@
+ÀÄtemperature
+   ÀÄMAIN  0/106  Ram=5
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÀÄds1820_read  0/158  Ram=13
+         ÃÄonewire_reset  0/38  Ram=1
+         ³  ÃÄ@delay_us1  0/26  Ram=1
+         ³  ÀÄ@delay_us1  0/26  Ram=1
+         ÃÄonewire_write  0/68  Ram=2
+         ÃÄonewire_write  0/68  Ram=2
+         ÃÄonewire_read  0/72  Ram=2
+         ÃÄonewire_reset  0/38  Ram=1
+         ³  ÀÄ*
+         ÃÄonewire_write  0/68  Ram=2
+         ÃÄonewire_write  0/68  Ram=2
+         ÃÄonewire_read  0/72  Ram=2
+         ÃÄonewire_read  0/72  Ram=2
+         ÃÄ@SITOF  0/74  Ram=2
+         ÃÄ@DIVFF  0/348  Ram=14
+         ÀÄ@delay_ms1  0/38  Ram=1

@@ -1,0 +1,13 @@
+#include <temperature.h>
+#include "libs/1wire.c"
+#include "libs/ds1820.c"
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

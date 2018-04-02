@@ -1,0 +1,97 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005-008 MAIN.value
+009     ds1820_read.busy
+009     MAIN.@SCRATCH1
+00A     ds1820_read.temp1
+00B     ds1820_read.temp2
+00C-00D ds1820_read.temp3
+00E-011 ds1820_read.result
+012     onewire_read.count
+012-013 @SITOF.P1
+012     onewire_write.data
+012     @delay_ms1.P1
+012     onewire_reset.@SCRATCH1
+012     ds1820_read.@SCRATCH1
+013     @delay_us1.P1
+013     onewire_write.count
+013     onewire_read.data
+013     ds1820_read.@SCRATCH2
+014     ds1820_read.@SCRATCH3
+015     ds1820_read.@SCRATCH4
+016-019 @DIVFF.P1
+01A-01D @DIVFF.P1
+01E     @DIVFF.@SCRATCH1
+01F     @DIVFF.@SCRATCH2
+020     @DIVFF.@SCRATCH3
+021     @DIVFF.@SCRATCH4
+022     @DIVFF.@SCRATCH5
+023     @DIVFF.@SCRATCH6
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002A  @delay_us1
+000044  onewire_reset
+00006A  onewire_write
+0000AE  onewire_read
+0000F6  @SITOF
+000140  @DIVFF
+00029C  ds1820_read
+00033A  MAIN
+00033A  @cinit1
+00034A  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Documents\class_micro\CCS C Projects\temperature_dallas\
+
+Project Files:
+    temperature.c                                           [01-abr-18 18:29  CRC=76C88B47]
+    temperature.h                                           [01-abr-18 18:19  CRC=1C5A6858]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
+    libs\1wire.c                                            [01-abr-18 18:17  CRC=6CBA449F]
+    libs\ds1820.c                                           [01-abr-18 18:17  CRC=45EB3F06]
+
+Source signature=DEEB9892
+
+Units:
+    temperature (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   temperature.xsym
+    Errors:      temperature.err
+    Ext Symbols: temperature.esym
+    INHX32:      temperature.hex
+    Symbols:     temperature.sym
+    List:        temperature.lst
+    Debug/COFF:  temperature.cof
+    Project:     temperature.ccspjt
+    Call Tree:   temperature.tre
+    Statistics:  temperature.STA

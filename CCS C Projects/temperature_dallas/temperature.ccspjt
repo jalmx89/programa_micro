@@ -1,0 +1,24 @@
+[PROJECT]
+Target=temperature.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=temperature.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Documents\class_micro\CCS C Projects\temperature_dallas\temperature]
+Type=4
+[mru-list]
+1=temperature.c
+[Opened Files]
+1=temperature.c
+2=libs\1wire.c
+3=libs\ds1820.c
+4=
+[temperature.c]
+Type=4
+[Units]
+Count=1
+1=temperature (main)

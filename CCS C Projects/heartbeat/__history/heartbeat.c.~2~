@@ -1,0 +1,22 @@
+#include <heartbeat.h>
+
+void main()
+{
+
+   while(TRUE)
+   {
+    static double oldValue = 0;
+    static double oldChange = 0;
+ 
+    int rawValue = analogRead (sensorPin);
+    double value = alpha * oldValue + (1 - alpha) * rawValue;
+ 
+ /*   Serial.print (rawValue);
+    Serial.print (",");
+    Serial.println (value);
+    oldValue = value;
+ 
+    delay (period);*/
+   }
+
+}

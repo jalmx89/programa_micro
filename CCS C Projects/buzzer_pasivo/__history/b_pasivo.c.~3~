@@ -1,0 +1,29 @@
+#include <b_pasivo.h>
+#use fast_io(B)
+
+void main()
+{
+
+   set_tris_b(0);
+   
+   while(TRUE)
+   {
+      for (int i = 0; i < 80; i++) {  // make a sound
+      output_high(0);
+      delay_ms(1); // delay 1ms
+      output_low(0);
+      delay_ms(1);
+      }
+      delay(50);
+      
+      for (int j = 0; j < 100; j++) { //make another sound
+         output_high(0);
+         delay_ms(2); // delay 2ms
+         output_low(0);
+         delay_ms(2);
+      }
+      
+      delay(100);
+   }
+
+}

@@ -1,0 +1,97 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005-008 main.alpha
+009     main.period
+00A-00D main.change
+00E-011 main.minval
+012-015 main.oldValue
+016-019 main.oldChange
+01A     main.rawValue
+01B-01E main.value
+01F     @delay_ms1.P1
+01F     main.@SCRATCH1
+020     main.@SCRATCH2
+021     main.@SCRATCH3
+022     main.@SCRATCH4
+023-026 @ADDFF.P1
+023     main.@SCRATCH5
+024     main.@SCRATCH6
+025     main.@SCRATCH7
+026     main.@SCRATCH8
+027-02A @MULFF.P1
+027-02A @ADDFF.P2
+027-028 @ITOF.P3
+02B-02E @MULFF.P1
+02B     @ADDFF.@SCRATCH1
+02C     @ADDFF.@SCRATCH2
+02D     @ADDFF.@SCRATCH3
+02E     @ADDFF.@SCRATCH4
+02F     @MULFF.@SCRATCH1
+02F     @ADDFF.@SCRATCH5
+030     @MULFF.@SCRATCH2
+030     @ADDFF.@SCRATCH6
+031     @MULFF.@SCRATCH3
+031     @ADDFF.@SCRATCH7
+032     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002A  @MULFF
+00011C  @ADDFF
+000386  @ITOF
+0003BE  main
+0003BE  @cinit1
+0003CE  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Documents\class_micro\CCS C Projects\heartbeat\
+
+Project Files:
+    heartbeat.c                                             [01-abr-18 17:00  CRC=69E79412]
+    heartbeat.h                                             [01-abr-18 16:49  CRC=64800AA0]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h [12-nov-13 15:35  CRC=AADC8BF0]
+
+Source signature=2420B692
+
+Units:
+    heartbeat (main)
+
+Compiler Settings:
+    Processor:      PIC18LF4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   heartbeat.xsym
+    Errors:      heartbeat.err
+    Ext Symbols: heartbeat.esym
+    INHX32:      heartbeat.hex
+    Symbols:     heartbeat.sym
+    List:        heartbeat.lst
+    Debug/COFF:  heartbeat.cof
+    Project:     heartbeat.ccspjt
+    Call Tree:   heartbeat.tre
+    Statistics:  heartbeat.STA
