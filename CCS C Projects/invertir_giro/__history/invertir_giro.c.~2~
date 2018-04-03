@@ -1,0 +1,18 @@
+#include <invertir_giro.h>
+
+#use fast_io(B)
+#use fast_io(d)
+
+void main()
+{
+
+   set_tris_b(0x03); 
+   set_tris_d(0x03);
+   
+   if(
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

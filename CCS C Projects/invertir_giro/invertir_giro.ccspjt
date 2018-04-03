@@ -1,0 +1,22 @@
+[PROJECT]
+Target=invertir_giro.hex
+Processor_Text=PIC18LF4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=invertir_giro.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\invertir_giro]
+Type=4
+[mru-list]
+1=invertir_giro.c
+[Opened Files]
+1=invertir_giro.c
+2=
+[invertir_giro.c]
+Type=4
+[Units]
+Count=1
+1=invertir_giro (main)

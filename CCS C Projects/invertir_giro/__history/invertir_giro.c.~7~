@@ -1,0 +1,34 @@
+#include <invertir_giro.h>
+
+#use fast_io(B)
+#use fast_io(D)
+
+void main()
+{
+
+   set_tris_b(255);  //configuración de pines como entrada PORTB
+   set_tris_d(0);    //configuración de pines como salida PORTD
+   output_d(0);      //pongo a cero mi salida del PORT D
+   
+   while(TRUE)
+   {
+      if(input(PIN_B0) == 1 ){
+      
+         output_high(PIN_D0);
+         output_low(PIN_D1);
+         
+      }else{
+         output_d(0);
+      }
+      
+      if(input(PIN_B1) == 1){
+         
+         output_low(PIN_D0);
+         output_high(PIN_D1);
+         
+      }else{
+         output_d(0);
+      }
+   }
+
+}
