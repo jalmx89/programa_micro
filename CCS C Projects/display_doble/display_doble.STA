@@ -1,0 +1,47 @@
+
+ROM used:   196/32768 (1%)
+            196/32768 (1%) including unused fragments
+
+            0.2 Average locations per line
+            9.8 Average locations per statement
+
+RAM used:   5/2048 (0%) at main() level
+            8/2048 (0%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   39    20 100  display_doble.c
+   12     0   0  display_doble.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
+----- -----
+  888    20 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38  10    1             @delay_ms1
+0    128  33    1   735  5.1  main
+0     26   7    0             @const649
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              20
+    Comments                158
+    Volume (V)              743
+    Difficulty (D)          4.8
+    Effort to implement (E) 3585
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   3
+    Maintainability (MI)    117
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   192  32572  
+
+
+

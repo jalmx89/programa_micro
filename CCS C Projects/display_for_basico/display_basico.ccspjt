@@ -1,0 +1,22 @@
+[PROJECT]
+Target=display_basico.hex
+Processor_Text=PIC18LF4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=display_basico.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\display_for_basico\display_basico]
+Type=4
+[mru-list]
+1=display_basico.c
+[Opened Files]
+1=display_basico.c
+2=
+[display_basico.c]
+Type=4
+[Units]
+Count=1
+1=display_basico (main)

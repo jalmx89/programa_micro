@@ -1,0 +1,66 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     main.i
+006     main.@SCRATCH1
+007     @delay_ms1.P1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  numbers.call
+000014  numbers.data
+00001E  @delay_ms1
+000046  main
+000046  @cinit1
+000056  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\display_for_basico\
+
+Project Files:
+    display_basico.c                                        [02-abr-18 22:11  CRC=3CE6DC1B]
+    display_basico.h                                        [02-abr-18 22:10  CRC=64800AA0]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h [12-nov-13 15:35  CRC=AADC8BF0]
+
+Source signature=F71FFE9B
+
+Units:
+    display_basico (main)
+
+Compiler Settings:
+    Processor:      PIC18LF4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   display_basico.xsym
+    Errors:      display_basico.err
+    Ext Symbols: display_basico.esym
+    INHX32:      display_basico.hex
+    Symbols:     display_basico.sym
+    List:        display_basico.lst
+    Debug/COFF:  display_basico.cof
+    Project:     display_basico.ccspjt
+    Call Tree:   display_basico.tre
+    Statistics:  display_basico.STA

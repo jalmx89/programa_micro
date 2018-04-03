@@ -1,0 +1,68 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     main.x
+006     main.i
+007     main.d
+008     @delay_ms1.P1
+008     main.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  numbers.call
+000014  numbers.data
+00001E  @delay_ms1
+000044  main
+000044  @cinit1
+000054  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\display_doble\
+
+Project Files:
+    display_doble.c                                         [02-abr-18 23:55  CRC=9D86BABA]
+    display_doble.h                                         [02-abr-18 21:10  CRC=64800AA0]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h [12-nov-13 15:35  CRC=AADC8BF0]
+
+Source signature=57BFDD3A
+
+Units:
+    display_doble (main)
+
+Compiler Settings:
+    Processor:      PIC18LF4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   display_doble.xsym
+    Errors:      display_doble.err
+    Ext Symbols: display_doble.esym
+    INHX32:      display_doble.hex
+    Symbols:     display_doble.sym
+    List:        display_doble.lst
+    Debug/COFF:  display_doble.cof
+    Project:     display_doble.ccspjt
+    Call Tree:   display_doble.tre
+    Statistics:  display_doble.STA

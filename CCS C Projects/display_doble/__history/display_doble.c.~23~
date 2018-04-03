@@ -1,0 +1,34 @@
+#include <display_doble.h>
+#use fast_io(D)
+#use fast_io(B)
+
+void main()
+{
+   set_tris_d(0); //configuración del PORT D, como salida
+   set_tris_b(0);
+   
+   const int8 numbers[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0xfd, 0x07, 0xff, 0x67};
+   
+   while(TRUE){//inicia while
+      //TODO: User Code
+      output_high(PIN_B0);
+      
+      for(int x=0; x < 99; x++){
+      
+      output_d(numbers[x]);
+      output_high(PIN_B1);
+      output_low(PIN_B0);
+      
+         for(int i=0; i < 0x0a; i++){ //inicia for
+            output_d(numbers[i]);
+            output_high(PIN_B0);
+            output_low(PIN_B1);
+            delay_ms(500);
+         }// fin del for
+         
+      }
+      
+   }//termina while
+
+}
+

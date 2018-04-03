@@ -1,0 +1,11 @@
+#include <display_basico.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}
