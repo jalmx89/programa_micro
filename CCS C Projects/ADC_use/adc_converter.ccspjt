@@ -1,0 +1,16 @@
+[PROJECT]
+Target=C:\Users\VAIO\Desktop\class_micro\CCS C Projects\ADC_use\adc_converter.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+[Target Data]
+FileList=adc_converter.c
+[Directories]
+Include=
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\ADC_use\adc_converter]
+Type=4
+[mru-list]
+1=adc_converter.c
+[Units]
+Count=1
+1=adc_converter (main)

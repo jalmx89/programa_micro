@@ -1,0 +1,22 @@
+#include <lcd_mensaje.h>
+#use fast_io(D)  
+
+#include <lcd.c>
+
+void main()
+{
+
+  set_tris_d(255);
+   lcd_init(); //inicializo la LCD
+   
+   output_d(0);
+   delay_ms(100); //se da ese tiempo para que la LCD se reestablesca
+   
+   printf(lcd_putc,"\\f");
+   printf(lcd_putc, "Hola");
+   
+   while(TRUE)
+   {
+      
+   }
+}

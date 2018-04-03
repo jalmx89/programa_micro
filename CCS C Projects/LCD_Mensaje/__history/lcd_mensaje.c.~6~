@@ -1,0 +1,28 @@
+#include <lcd_mensaje.h>
+#include <lcd.c>
+
+#use fast_io(D)
+
+#define LCD_RS_PIN      PIN_D2   
+#define LCD_RW_PIN      PIN_D3
+
+#define LCD_DATA4       PIN_D4    
+#define LCD_DATA5       PIN_D5   
+#define LCD_DATA6       PIN_D6   
+#define LCD_DATA7       PIN_D7   
+
+void main()
+{
+
+   set_tris_d(255);
+   lcd_init(); //inicializo la LCD
+   delay_ms(100);
+   
+   lcd_putc("\\f");
+   lcd_putc("Hola")
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
