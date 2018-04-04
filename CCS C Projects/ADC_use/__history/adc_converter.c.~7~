@@ -1,0 +1,40 @@
+#include <adc_converter.h>
+
+#use fast_io(D)
+
+void main(){
+
+   set_tris_d(0); //configuro el puerto D como salida
+   output_d(0);   //pongo a 0 todas las salidas del puerto D
+   
+   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que será el relojo interno
+   setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usará uno
+   
+   set_adc_channel(0); //decimos que vamos a leer el canal 0,
+   delay_ms(100);        //el tiempo que viene marcado en el datasshet para esperar la configuración interna
+   
+   while(TRUE){
+      
+      int16 valor = read_adc(); //leemos el canal que acabamos de configurar
+      
+      if (valor < 150){
+         output_d(0x01);      //primero apago todo 
+         delay_ms(10);  //espero un tiempo
+         
+      }else if(valor > 150 && valor < 300){
+                  output_d(0x02);      //primero apago todo 
+                  delay_ms(10);  //espero un tiempo
+         }else if(valor > 300 && valor < 400){
+                   output_d(0x04);      //primero apago todo 
+                  delay_ms(10);  //espero un tiempo
+         
+            }else if (valor >400 && valor < 600 ){
+                        output_d(0x06);      //primero apago todo 
+                        delay_ms(10);  //espero un tiempo
+               }else{
+                  output_d(0);
+               }
+      
+   }
+
+}

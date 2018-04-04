@@ -1,0 +1,63 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005-006 main.valor
+007     @delay_ms1.P1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002A  @cinit1
+00002A  main
+00003A  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\ADC_use\
+
+Project Files:
+    adc_converter.c                                         [04-abr-18 05:31  CRC=5C2D0C98]
+    adc_converter.h                                         [04-abr-18 05:08  CRC=DC7C8500]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
+
+Source signature=DF195628
+
+Units:
+    adc_converter (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   adc_converter.xsym
+    Errors:      adc_converter.err
+    Ext Symbols: adc_converter.esym
+    INHX32:      adc_converter.hex
+    Symbols:     adc_converter.sym
+    List:        adc_converter.lst
+    Debug/COFF:  adc_converter.cof
+    Project:     adc_converter.ccspjt
+    Call Tree:   adc_converter.tre
+    Statistics:  adc_converter.STA

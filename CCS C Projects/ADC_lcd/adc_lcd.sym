@@ -1,0 +1,154 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005-006 MAIN.valor
+007-00A MAIN.voltaje
+00B-00C @PRINTF_LU_672.P1
+00B     @PSTRINGCN_672.P2
+00B-00C @MUL1616.P3
+00B     lcd_init.i
+00B-00E @PRINTF_L32D_672FPFPF.P1
+00B     MAIN.@SCRATCH1
+00B     @PSTRINGC_672.@SCRATCH1
+00C-00F lcd_init.LCD_INIT_STRING
+00C     MAIN.@SCRATCH2
+00C     @PSTRINGC_672.@SCRATCH2
+00C     @PSTRINGCN_672.@SCRATCH1
+00D-00E @ITOF.P1
+00D-00E @MUL1616.P2
+00D-010 @DIVFF.P3
+00D     @PSTRINGCN_672.@SCRATCH2
+00D     @PRINTF_LU_672.@SCRATCH1
+00E     @PRINTF_LU_672.@SCRATCH2
+00F     @PRINTF_L32D_672FPFPF.P1
+00F     @PRINTF_LU_672.@SCRATCH3
+00F     @MUL1616.@SCRATCH1
+010     lcd_init.@SCRATCH1
+010     @PRINTF_LU_672.@SCRATCH4
+010     @PRINTF_L32D_672FPFPF.@SCRATCH1
+011-014 @DIVFF.P1
+011     @PRINTF_LU_672.@SCRATCH5
+011     @PRINTF_L32D_672FPFPF.@SCRATCH2
+012     @PRINTF_LU_672.@SCRATCH6
+012     @PRINTF_L32D_672FPFPF.@SCRATCH3
+013     @PRINTF_LU_672.@SCRATCH7
+013     @PRINTF_L32D_672FPFPF.@SCRATCH4
+014     @PRINTF_L32D_672FPFPF.@SCRATCH5
+015     @DIVFF.@SCRATCH1
+015     @PRINTF_L32D_672FPFPF.@SCRATCH6
+016     @DIVFF.@SCRATCH2
+016     @PRINTF_L32D_672FPFPF.@SCRATCH7
+017     @DIVFF.@SCRATCH3
+017     @PRINTF_L32D_672FPFPF.@SCRATCH8
+018-01B @DIV3232.P1
+018-01B @MULFF.P2
+018-01B @FTOSD.P3
+018     lcd_putc.c
+018     @DIVFF.@SCRATCH4
+019     lcd_gotoxy.x
+019     @delay_ms1.P1
+019     @DIVFF.@SCRATCH5
+01A     lcd_gotoxy.y
+01A     @DIVFF.@SCRATCH6
+01B     lcd_gotoxy.address
+01C-01F @MULFF.P1
+01C-01F @DIV3232.P2
+01C     lcd_gotoxy.@SCRATCH1
+01C     @FTOSD.@SCRATCH1
+01D     lcd_send_byte.address
+01E     lcd_send_byte.n
+01F     lcd_read_byte.low
+01F     lcd_send_byte.@SCRATCH1
+020     lcd_send_nibble.n
+020     lcd_read_byte.high
+020     @MULFF.@SCRATCH1
+020     @DIV3232.@SCRATCH1
+021     lcd_read_byte.@SCRATCH1
+021     @MULFF.@SCRATCH2
+021     @DIV3232.@SCRATCH2
+022     @MULFF.@SCRATCH3
+022     @DIV3232.@SCRATCH3
+023     @DIV3232.@SCRATCH4
+024     @DIV3232.@SCRATCH5
+F81     lcd
+F83     PSP_DATA
+F8A     lcdlat
+F93     lcdtris
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @const689.call
+000012  @const691.call
+00001E  @const704.call
+000030  @delay_ms1
+000056  lcd_send_nibble
+000078  lcd_read_nibble
+000084  lcd_read_byte
+0000C6  lcd_send_byte
+000100  lcd_init
+000178  lcd_gotoxy
+00019A  lcd_putc
+0001EA  @PSTRINGC_672
+00020C  @PSTRINGCN_672
+00022A  @PRINTF_LU_672
+0002E6  @MUL1616
+000306  @ITOF
+00033E  @DIVFF
+00049A  @MULFF
+00058E  @FTOSD
+0005CE  @DIV3232
+00065C  @PRINTF_L32D_672FPFPF
+0007D6  @cinit1
+0007D6  MAIN
+0007E6  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\ADC_lcd\
+
+Project Files:
+    adc_lcd.c                                               [04-abr-18 05:39  CRC=CBA60580]
+    adc_lcd.h                                               [04-abr-18 05:36  CRC=DC7C8500]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sep-13 16:38  CRC=D1A6378A]
+
+Source signature=9EA6DBDC
+
+Units:
+    adc_lcd (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   adc_lcd.xsym
+    Errors:      adc_lcd.err
+    Ext Symbols: adc_lcd.esym
+    INHX32:      adc_lcd.hex
+    Symbols:     adc_lcd.sym
+    List:        adc_lcd.lst
+    Debug/COFF:  adc_lcd.cof
+    Project:     adc_lcd.ccspjt
+    Call Tree:   adc_lcd.tre
+    Statistics:  adc_lcd.STA

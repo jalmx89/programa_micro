@@ -1,0 +1,15 @@
+#include <adc_converter.h>
+
+#use fast_io(D)
+
+void main(){
+
+   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj 
+   
+   
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
