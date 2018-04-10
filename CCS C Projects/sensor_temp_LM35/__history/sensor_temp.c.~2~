@@ -1,0 +1,12 @@
+#include <sensor_temp.h>
+
+#include<lcd.c>
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

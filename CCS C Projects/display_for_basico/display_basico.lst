@@ -1,11 +1,11 @@
-CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 22:11
+CCS PCH C Compiler, Version 5.015, 5967               10-abr-18 13:57
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\display_for_basico\display_basico.lst
 
-               ROM used:   138 bytes (0%)
-                           Largest free fragment is 32630
+               ROM used:   130 bytes (0%)
+                           Largest free fragment is 32638
                RAM used:   5 (0%) at main() level
-                           7 (0%) worst case
+                           6 (0%) worst case
                Stack used: 1 locations
                Stack size: 31
 
@@ -50,7 +50,7 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 22:11
 ....................  
 .................... #use delay(crystal=20000000) 
 001E:  CLRF   FEA
-0020:  MOVLW  07
+0020:  MOVLW  06
 0022:  MOVWF  FE9
 0024:  MOVF   FEF,W
 0026:  BZ    0042
@@ -67,7 +67,7 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 22:11
 003C:  BRA    003A
 003E:  DECFSZ FEF,F
 0040:  BRA    0028
-0042:  GOTO   007E (RETURN)
+0042:  GOTO   007A (RETURN)
 ....................  
 ....................  
 ....................  
@@ -86,18 +86,17 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 22:11
 ....................    set_tris_d(0); 
 0056:  MOVLW  00
 0058:  MOVWF  F95
-....................    
 ....................                           // 0   1      2    3      4    5     6     7     8      9 
 ....................    const int8 numbers[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0xfd, 0x07, 0xff, 0x67}; //array con las posiciones del display 
 ....................     
 ....................    while(TRUE) 
 ....................    { 
 ....................       //TODO: User Code 
-....................       for(int i=0; i < 0x0a; i++){//for llega hasta la antes del 10 
+....................       for(int i=0; i < 0x0A; i++){//for llega hasta la antes del 10 
 005A:  CLRF   05
 005C:  MOVF   05,W
 005E:  SUBLW  09
-0060:  BNC   0086
+0060:  BNC   007E
 ....................          output_d(numbers[i]); 
 0062:  CLRF   03
 0064:  MOVF   05,W
@@ -107,23 +106,19 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 22:11
 006E:  BTFSC  06.7
 0070:  BSF    FF2.7
 0072:  MOVWF  F8C
-....................          delay_ms(500); 
-0074:  MOVLW  02
+....................          delay_ms(250); 
+0074:  MOVLW  FA
 0076:  MOVWF  06
-0078:  MOVLW  FA
-007A:  MOVWF  07
-007C:  BRA    001E
-007E:  DECFSZ 06,F
-0080:  BRA    0078
-0082:  INCF   05,F
-0084:  BRA    005C
+0078:  BRA    001E
+007A:  INCF   05,F
+007C:  BRA    005C
 ....................       } 
-0086:  BRA    005A
+007E:  BRA    005A
 ....................    } 
 ....................  
 .................... } 
 ....................  
-0088:  SLEEP 
+0080:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

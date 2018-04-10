@@ -1,29 +1,29 @@
 
-ROM used:   138/32768 (0%)
-            138/32768 (0%) including unused fragments
+ROM used:   130/32768 (0%)
+            130/32768 (0%) including unused fragments
 
-            0.2 Average locations per line
-            17.3 Average locations per statement
+            0.1 Average locations per line
+            16.3 Average locations per statement
 
 RAM used:   5/2048 (0%) at main() level
-            7/2048 (0%) worst case
+            6/2048 (0%) worst case
 
 Stack used: 1 worst case (1 in main + 0 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   23     8 100  display_basico.c
+   22     8 100  display_basico.c
    12     0   0  display_basico.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
 ----- -----
-  872     8 Total
+  871     8 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     40  14    1             @delay_ms1
-0     68  25    1   315  4.8  main
-0     26   9    0             @const649
+0     40  15    1             @delay_ms1
+0     60  23    1   315  4.8  main
+0     26  10    0             @const649
  Inline         0             @cinit1
 
 Program metrics:
@@ -41,7 +41,7 @@ Program metrics:
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE   134  32630  
+00004-07FFE   126  32638  
 
 
 

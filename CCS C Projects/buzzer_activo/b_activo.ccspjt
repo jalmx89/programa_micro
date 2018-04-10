@@ -14,7 +14,8 @@ Type=4
 1=b_activo.c
 [Opened Files]
 1=b_activo.c
-2=
+2=b_activo.h
+3=
 [b_activo.c]
 Type=4
 [Units]

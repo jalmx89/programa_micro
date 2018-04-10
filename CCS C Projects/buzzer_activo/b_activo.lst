@@ -1,11 +1,11 @@
-CCS PCH C Compiler, Version 5.015, 5967               01-abr-18 17:48
+CCS PCH C Compiler, Version 5.015, 5967               10-abr-18 14:45
 
-               Filename:   C:\Users\VAIO\Documents\class_micro\CCS C Projects\buzzer_activo\b_activo.lst
+               Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\buzzer_activo\b_activo.lst
 
-               ROM used:   100 bytes (0%)
-                           Largest free fragment is 32668
-               RAM used:   5 (0%) at main() level
-                           6 (0%) worst case
+               ROM used:   84 bytes (0%)
+                           Largest free fragment is 32684
+               RAM used:   4 (0%) at main() level
+                           5 (0%) worst case
                Stack used: 1 locations
                Stack size: 31
 
@@ -37,7 +37,7 @@ CCS PCH C Compiler, Version 5.015, 5967               01-abr-18 17:48
 ....................  
 .................... #use delay(crystal=20000000) 
 0004:  CLRF   FEA
-0006:  MOVLW  06
+0006:  MOVLW  05
 0008:  MOVWF  FE9
 000A:  MOVF   FEF,W
 000C:  BZ    0028
@@ -57,7 +57,7 @@ CCS PCH C Compiler, Version 5.015, 5967               01-abr-18 17:48
 0028:  RETURN 0
 ....................  
 ....................  
-.................... # use fast_io(B) 
+.................... # use fast_io(C) 
 ....................  
 .................... /* INFORMATION 
 .................... Active Buzzer module consists of an active piezoelectric buzzer, it generates a sound of aproximately 2.5kHz when signal is high. 
@@ -76,40 +76,33 @@ CCS PCH C Compiler, Version 5.015, 5967               01-abr-18 17:48
 0038:  MOVWF  FB4
 .................... { 
 ....................  
-....................    set_tris_b(0); //configuro como salida el port B 
+....................    set_tris_c(0); //configuro como salida el port B 
 003A:  MOVLW  00
-003C:  MOVWF  F93
-....................    output_b(0);   //pongo 0 todas las salidas del puerto B 
-003E:  CLRF   F8A
+003C:  MOVWF  F94
+....................    output_c(0);   //pongo 0 todas las salidas del puerto B 
+003E:  CLRF   F8B
 ....................     
-....................    while(TRUE) 
-....................    { 
-....................       output_high(PIN_B0); 
-0040:  BSF    F8A.0
-....................       delay_ms(400); 
-0042:  MOVLW  02
+....................    for( ; ; ){ //for infinito 
+....................       output_high(PIN_C0); 
+0040:  BSF    F8B.0
+....................       delay_ms(200); 
+0042:  MOVLW  C8
 0044:  MOVWF  05
-0046:  MOVLW  C8
-0048:  MOVWF  06
-004A:  RCALL  0004
-004C:  DECFSZ 05,F
-004E:  BRA    0046
+0046:  RCALL  0004
 ....................        
-....................       output_low(PIN_B0); 
-0050:  BCF    F8A.0
-....................       delay_ms(400); 
-0052:  MOVLW  02
-0054:  MOVWF  05
-0056:  MOVLW  C8
-0058:  MOVWF  06
-005A:  RCALL  0004
-005C:  DECFSZ 05,F
-005E:  BRA    0056
-0060:  BRA    0040
+....................       output_low(PIN_C0); 
+0048:  BCF    F8B.0
+....................       delay_ms(50); 
+004A:  MOVLW  32
+004C:  MOVWF  05
+004E:  RCALL  0004
+0050:  BRA    0040
 ....................    } 
+....................        
+....................     
 ....................  
 .................... } 
-0062:  SLEEP 
+0052:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

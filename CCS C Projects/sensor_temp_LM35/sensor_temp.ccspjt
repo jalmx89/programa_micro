@@ -1,0 +1,25 @@
+[PROJECT]
+Target=sensor_temp.hex
+Processor_Text=PIC18LF4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=sensor_temp.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\sensor_temp_LM35\sensor_temp]
+Type=4
+[mru-list]
+1=sensor_temp.c
+[Opened Files]
+1=sensor_temp.c
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+3=sensor_temp.h
+4=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
+5=
+[sensor_temp.c]
+Type=4
+[Units]
+Count=1
+1=sensor_temp (main)

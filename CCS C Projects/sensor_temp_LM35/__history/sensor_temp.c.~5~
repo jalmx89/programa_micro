@@ -1,0 +1,31 @@
+#include <sensor_temp.h>
+
+#include <lcd.c>
+
+#define LCD_ENABLE_PIN  PIN_D0                                    ////
+#define LCD_RS_PIN      PIN_D1                                    ////
+#define LCD_RW_PIN      PIN_D2                                    ////
+#define LCD_DATA4       PIN_D4                                    ////
+#define LCD_DATA5       PIN_D5                                    ////
+#define LCD_DATA6       PIN_D6                                    ////
+#define LCD_DATA7       PIN_D7   
+
+void main()
+{
+   lcd_init();
+   delay_ms(10);
+   
+   setup_adc(ADC_CLOCK_INTERNAL);   //enables the a/d module //and sets the clock to internal adc clock
+   setup_adc_ports(AN0);            //sets all the adc pins to analog
+ 
+   set_adc_channel(0);              //the next read_adc call will read channel 0
+   delay_us(10);                     //a small delay is required after setting the channel //and before read
+
+   printf(lcd_putc, "Tomando temperatura");
+   while(TRUE)
+   {
+      
+         //value=read_adc();                //starts the conversion and reads the result
+   }
+
+}

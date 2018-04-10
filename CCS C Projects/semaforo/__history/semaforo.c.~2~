@@ -1,0 +1,16 @@
+#include <semaforo.h>
+#use fast_io(D)
+
+void main()
+{
+
+   set_tris_d(0);
+   output_b(0);
+   
+   
+   while(TRUE)
+   {
+      
+   }
+
+}

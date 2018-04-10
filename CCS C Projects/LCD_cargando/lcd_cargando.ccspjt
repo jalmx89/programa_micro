@@ -1,0 +1,23 @@
+[PROJECT]
+Target=lcd_cargando.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=lcd_cargando.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\LCD_cargando\lcd_cargando]
+Type=4
+[mru-list]
+1=lcd_cargando.c
+[Opened Files]
+1=lcd_cargando.c
+2=
+3=
+[lcd_cargando.c]
+Type=4
+[Units]
+Count=1
+1=lcd_cargando (main)

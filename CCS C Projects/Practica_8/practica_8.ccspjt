@@ -1,0 +1,23 @@
+[PROJECT]
+Target=practica_8.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=practica_8.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\Practica_8\practica_8]
+Type=4
+[mru-list]
+1=practica_8.c
+[Opened Files]
+1=practica_8.c
+2=..\display_for_basico\display_basico.c
+3=
+[practica_8.c]
+Type=4
+[Units]
+Count=1
+1=practica_8 (main)

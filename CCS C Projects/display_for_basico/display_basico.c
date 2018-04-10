@@ -11,9 +11,9 @@ void main()
    while(TRUE)
    {
       //TODO: User Code
-      for(int i=0; i < 0x0a; i++){//for llega hasta la antes del 10
+      for(int i=0; i < 0x0A; i++){//for llega hasta la antes del 10
          output_d(numbers[i]);
-         delay_ms(500);
+         delay_ms(250);
       }
    }
 

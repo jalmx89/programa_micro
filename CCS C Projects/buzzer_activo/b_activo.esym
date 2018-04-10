@@ -1,8 +1,7 @@
-C L "main" 0 4 1 "FUNCTION"
-D G "__PCH__" 0 20 ""5.015""
-D G "__DEVICE__" 0 20 "4550"
-D G "__DATE__" 0 20 ""01-abr-18""
-D G "__TIME__" 0 20 ""17:48:27"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 28 ""5.015""
+D G "__DEVICE__" 0 28 "4550"
+D G "__DATE__" 0 28 ""10-abr-18""
+D G "__TIME__" 0 28 ""14:45:51"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -915,6 +914,7 @@ d G "INT_SPP" 2 833 "0x009D80"
 d G "INT_USB" 2 834 "0x00A020"
 C L "jump_to_irs" 0 4 5 "FUNCTION"
 F G "main" 0 11 "void()" `646 
+C L "main" 0 4 1 "FUNCTION"
 C L "main" 0 4 1 "FUNCTION"
 C L "main" 0 4 1 "FUNCTION"
 F B "reset_cpu" 0 0

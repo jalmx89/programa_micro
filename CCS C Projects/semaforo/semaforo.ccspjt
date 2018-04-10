@@ -1,0 +1,22 @@
+[PROJECT]
+Target=semaforo.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=semaforo.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\semaforo\semaforo]
+Type=4
+[mru-list]
+1=semaforo.c
+[Opened Files]
+1=semaforo.c
+2=
+[semaforo.c]
+Type=4
+[Units]
+Count=1
+1=semaforo (main)

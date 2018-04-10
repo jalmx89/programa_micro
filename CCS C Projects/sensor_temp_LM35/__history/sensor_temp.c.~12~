@@ -1,0 +1,28 @@
+#include <sensor_temp.h>
+
+#define LCD_DATA_PORT getenv("SFR:PORTD") 
+#include <lcd.c>
+
+#define LCD_ENABLE_PIN  PIN_D0                                    ////
+#define LCD_RS_PIN      PIN_D1                                    ////
+#define LCD_RW_PIN      PIN_D2                                    ////
+#define LCD_DATA4       PIN_D4                                    ////
+#define LCD_DATA5       PIN_D5                                    ////
+#define LCD_DATA6       PIN_D6                                    ////
+#define LCD_DATA7       PIN_D7   
+
+void main()
+{
+  
+
+   lcd_init();
+   delay_ms(100);
+   printf(lcd_putc, "\fLeyendo\ntemperatura");
+   
+   while(TRUE)
+   {
+      
+         //value=read_adc();                //starts the conversion and reads the result
+   }
+
+}

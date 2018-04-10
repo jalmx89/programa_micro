@@ -1,5 +1,5 @@
 青display_basico
-   青main  0/68  Ram=1
+   青main  0/60  Ram=1
       団@cinit1  (Inline)  Ram=0
       団@const649  0/26  Ram=0
       青@delay_ms1  0/40  Ram=1

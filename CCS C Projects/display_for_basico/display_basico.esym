@@ -1,9 +1,8 @@
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
-D G "__PCH__" 0 21 ""5.015""
-D G "__DEVICE__" 0 21 "4550"
-D G "__DATE__" 0 21 ""02-abr-18""
-D G "__TIME__" 0 21 ""22:11:51"" "Standard Header file for the PIC18LF4550 device ////////////////"
+d G "INT_USB" 2 834 "0x00A020"
+D G "__PCH__" 0 23 ""5.015""
+D G "__DEVICE__" 0 23 "4550"
+D G "__DATE__" 0 23 ""10-abr-18""
+D G "__TIME__" 0 23 ""13:57:54"" "Standard Header file for the PIC18LF4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -915,12 +914,12 @@ d G "INT_OSCF" 2 832 "0x00A080"
 d G "INT_SPP" 2 833 "0x009D80"
 d G "INT_USB" 2 834 "0x00A020"
 F G "main" 0 6 "void()" `646 
-C L "main" 0 9 1 "FUNCTION"
-V L "numbers" 0 10 "[1]" `649 
-C L "main" 0 9 1 "FUNCTION"
-C L "main" 0 9 1 "FUNCTION"
-V L "i" 0 15 "int8" `652 
-C L "main" 0 9 1 "FUNCTION"
+C L "main" 0 8 1 "FUNCTION"
+V L "numbers" 0 9 "[1]" `649 
+C L "main" 0 8 1 "FUNCTION"
+C L "main" 0 8 1 "FUNCTION"
+V L "i" 0 14 "int8" `652 
+C L "main" 0 8 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

@@ -1,0 +1,11 @@
+#include <lcd_cargando.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}
