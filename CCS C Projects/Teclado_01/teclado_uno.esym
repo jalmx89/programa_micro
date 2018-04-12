@@ -1,8 +1,8 @@
-d G "INT_USB" 2 834 "0x00A020"
-D G "__PCH__" 0 37 ""5.015""
-D G "__DEVICE__" 0 37 "4550"
-D G "__DATE__" 0 37 ""12-abr-18""
-D G "__TIME__" 0 37 ""13:07:30"" "Standard Header file for the PIC18LF4550 device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCH__" 3 136 ""5.015""
+D G "__DEVICE__" 3 136 "4550"
+D G "__DATE__" 3 136 ""12-abr-18""
+D G "__TIME__" 3 136 ""04:56:37"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -913,16 +913,96 @@ d G "INT_EEPROM" 2 831 "0x00A010"
 d G "INT_OSCF" 2 832 "0x00A080"
 d G "INT_SPP" 2 833 "0x009D80"
 d G "INT_USB" 2 834 "0x00A020"
-F G "main" 0 6 "void()" `646 
-C L "main" 0 7 1 "FUNCTION"
-V L "numbers" 0 12 "[1]" `649 
-C L "main" 0 7 1 "FUNCTION"
-V L "x" 0 16 "int8" `652 
-V L "i" 0 18 "int8" `653 
-C L "main" 0 7 1 "FUNCTION"
-V L "d" 0 20 "int8" `654 
-C L "main" 0 7 1 "FUNCTION"
-C L "main" 0 7 1 "FUNCTION"
+D G "LCD_DATA_PORT" 0 3 "getenv("SFR:PORTD")" "defino el puerto de la LCD"
+D G "__LCD_C__" 3 76 ""
+C L "jump_to_irs" 3 2 2 "FUNCTION"
+C L "jump_to_irs" 3 2 1 "FUNCTION"
+C L "jump_to_irs" 3 2 1 "FUNCTION"
+C L "jump_to_irs" 3 2 1 "FUNCTION"
+C L "jump_to_irs" 3 2 1 "FUNCTION"
+C L "jump_to_irs" 3 2 1 "FUNCTION"
+C L "jump_to_irs" 3 2 2 "FUNCTION"
+T G "LCD_PIN_MAP" 3 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `652  "this is to improve compatability with previous LCD drivers that accepted"
+D G "lcd_output_enable" 3 109 "(x) lcdlat.enable=x"
+D G "lcd_enable_tris" 3 110 "()   lcdtris.enable=0"
+D G "lcd_output_rs" 3 117 "(x) lcdlat.rs=x"
+D G "lcd_rs_tris" 3 118 "()   lcdtris.rs=0"
+D G "lcd_output_rw" 3 125 "(x) lcdlat.rw=x"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+V G "lcd" 3 166 "LCD_PIN_MAP" `653 
+V G "lcdlat" 3 166 "LCD_PIN_MAP" `654 
+V G "lcdtris" 3 166 "LCD_PIN_MAP" `655 
+D G "LCD_TYPE" 3 179 "2" "0=5x7, 1=5x10, 2=2 lines"
+D G "LCD_LINE_TWO" 3 183 "0x40" "LCD RAM address for the second line"
+D G "LCD_LINE_LENGTH" 3 187 "20"
+f G "lcd_read_nibble" 3 190 "int8()" `656 
+F G "lcd_read_byte" 3 193 "int8()" `657 
+V L "low" 3 194 "int8" `658 
+V L "high" 3 194 "int8" `659 
+F G "lcd_read_nibble" 3 240 "int8()" `656 
+V L "n" 3 256 "int8" `661 
+F G "lcd_send_nibble" 3 257 "void(int8 n)" `660 
+V L "address" 3 274 "int8" `663 
+V L "n" 3 274 "int8" `664 
+F G "lcd_send_byte" 3 275 "void(int8 address,int8 n)" `662 
+F G "lcd_init" 3 300 "void()" `665 
+V L "i" 3 301 "int8" `666 
+V L "LCD_INIT_STRING" 3 302 "int8[4]" `667 
+C L "lcd_init" 3 2 2 "FUNCTION"
+V L "x" 3 345 "int8" `669 
+V L "y" 3 345 "int8" `670 
+F G "lcd_gotoxy" 3 346 "void(int8 x,int8 y)" `668 
+V L "address" 3 347 "int8" `671 
+V L "c" 3 363 "int8" `673 
+F G "lcd_putc" 3 364 "void(int8 c)" `672 
+V L "x" 3 406 "int8" `675 
+V L "y" 3 406 "int8" `676 
+F G "lcd_getc" 3 407 "int8(int8 x,int8 y)" `674 
+V L "value" 3 408 "int8" `677 
+C L "lcd_getc" 3 2 1 "FUNCTION"
+C L "lcd_set_cgram_char" 3 2 5 "FUNCTION"
+V L "which" 3 424 "int8" `679 
+V L "ptr" 3 424 "*int8" `680 
+F G "lcd_set_cgram_char" 3 425 "void(int8 which,*int8 ptr)" `678 
+V L "i" 3 426 "int8" `681 
+C L "lcd_set_cgram_char" 3 2 1 "FUNCTION"
+V L "on" 3 443 "int8" `683 
+F G "lcd_cursor_on" 3 444 "void(int8 on)" `682 
+C L "lcd_cursor_on" 3 2 1 "FUNCTION"
+C L "lcd_cursor_on" 3 2 1 "FUNCTION"
+D G "LCD_ENABLE_PIN" 0 5 "PIN_D0"
+D G "LCD_RS_PIN" 0 6 "PIN_D1"
+D G "LCD_RW_PIN" 0 7 "PIN_D2"
+D G "LCD_DATA4" 0 8 "PIN_D4"
+D G "LCD_DATA5" 0 9 "PIN_D5"
+D G "LCD_DATA6" 0 10 "PIN_D6"
+D G "LCD_DATA7" 0 11 "PIN_D7"
+D G "use_portb_kbd" 0 14 "TRUE"
+D G "set_tris_kbd" 4 36 "(x) set_tris_b(x)"
+D G "COL0" 4 55 " (1 << 5)"
+D G "COL1" 4 56 " (1 << 6)"
+D G "COL2" 4 57 " (1 << 7)"
+D G "ROW0" 4 59 " (1 << 1)"
+D G "ROW1" 4 60 " (1 << 2)"
+D G "ROW2" 4 61 " (1 << 3)"
+D G "ROW3" 4 62 " (1 << 4)"
+D G "ALL_ROWS" 4 66 " (ROW0|ROW1|ROW2|ROW3)"
+D G "ALL_PINS" 4 67 " (ALL_ROWS|COL0|COL1|COL2)"
+V G "KEYS" 4 70 "[4][3]" `685 
+D G "KBD_DEBOUNCE_FACTOR" 4 75 "33" "Set this number to apx n/333 where"
+C L "kbd_init" 4 2 2 "FUNCTION"
+F G "kbd_init" 4 80 "void()" `689 
+F G "kbd_getc" 4 83 "int8()" `690 
+V L "kbd_call_count" 4 84 "int8" `691 
+V L "kbd_down" 4 85 "int1" `692 
+V L "last_key" 4 86 "int8" `693 
+V L "col" 4 87 "int8" `694 
+V L "kchar" 4 89 "int8" `695 
+V L "row" 4 90 "int8" `696 
+F G "MAIN" 0 18 "void()" `697 
+C L "MAIN" 0 22 1 "FUNCTION"
+C L "MAIN" 0 22 1 "FUNCTION"
+V L "tecla" 0 30 "int8" `703 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

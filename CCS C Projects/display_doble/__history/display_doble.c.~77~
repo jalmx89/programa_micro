@@ -17,7 +17,7 @@ void main()
       
          for(int i=0; i < 0x0A; i++){ //inicia for
          
-            for(int d=0; d<5; d++){ 
+            for(int d10=0; d<5; d++){
             
                output_b(0x01); //activo display de unidades
                output_d(numbers[i]); //se ve en el display la unidad
@@ -26,9 +26,9 @@ void main()
                output_b(0x02);
                output_d(numbers[x]);
                delay_ms(100);
-            }//ultimo for
-         }// fin del segundo for
-      }//fin del primer for
+            }
+         }// fin del for
+      }
    }//termina while
 
 }

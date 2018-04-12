@@ -1,0 +1,12 @@
+#include <teclado_uno.h>
+#include <kbd.c>
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

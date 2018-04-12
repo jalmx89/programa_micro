@@ -1,9 +1,9 @@
-CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 23:55
+CCS PCH C Compiler, Version 5.015, 5967               12-abr-18 13:07
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\display_doble\display_doble.lst
 
-               ROM used:   196 bytes (1%)
-                           Largest free fragment is 32572
+               ROM used:   190 bytes (1%)
+                           Largest free fragment is 32578
                RAM used:   5 (0%) at main() level
                            8 (0%) worst case
                Stack used: 1 locations
@@ -93,7 +93,7 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 23:55
 ....................    output_d(0); 
 005C:  CLRF   F8C
 ....................     
-....................    byte const numbers[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0xfd, 0x07, 0xff, 0x67}; 
+....................    const int8 numbers[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0xfd, 0x07, 0xff, 0x67}; 
 ....................     
 ....................    while(TRUE){//inicia while 
 ....................        
@@ -101,74 +101,68 @@ CCS PCH C Compiler, Version 5.015, 5967               02-abr-18 23:55
 005E:  CLRF   05
 0060:  MOVF   05,W
 0062:  SUBLW  09
-0064:  BNC   00C0
-....................   
-....................          for(int i=0; i < 0x0a; i++){ //inicia for 
+0064:  BNC   00BA
+....................        
+....................          for(int i=0; i < 0x0A; i++){ //inicia for 
 0066:  CLRF   06
 0068:  MOVF   06,W
 006A:  SUBLW  09
-006C:  BNC   00BC
-....................              
-....................             delay_ms(10); 
-006E:  MOVLW  0A
-0070:  MOVWF  08
-0072:  RCALL  001E
-....................             for(int d=0; d<10; d++){ 
-0074:  CLRF   07
-0076:  MOVF   07,W
-0078:  SUBLW  09
-007A:  BNC   00B8
+006C:  BNC   00B6
+....................           
+....................             for(int d=0; d<5; d++){ 
+006E:  CLRF   07
+0070:  MOVF   07,W
+0072:  SUBLW  04
+0074:  BNC   00B2
 ....................              
 ....................                output_b(0x01); //activo display de unidades 
-007C:  MOVLW  01
-007E:  MOVWF  F8A
+0076:  MOVLW  01
+0078:  MOVWF  F8A
 ....................                output_d(numbers[i]); //se ve en el display la unidad 
-0080:  CLRF   03
-0082:  MOVF   06,W
-0084:  MOVFF  FF2,08
-0088:  BCF    FF2.7
-008A:  RCALL  0004
-008C:  BTFSC  08.7
-008E:  BSF    FF2.7
-0090:  MOVWF  F8C
+007A:  CLRF   03
+007C:  MOVF   06,W
+007E:  MOVFF  FF2,08
+0082:  BCF    FF2.7
+0084:  RCALL  0004
+0086:  BTFSC  08.7
+0088:  BSF    FF2.7
+008A:  MOVWF  F8C
 ....................                delay_ms(100); 
-0092:  MOVLW  64
-0094:  MOVWF  08
-0096:  RCALL  001E
+008C:  MOVLW  64
+008E:  MOVWF  08
+0090:  RCALL  001E
 ....................                 
 ....................                output_b(0x02); 
-0098:  MOVLW  02
-009A:  MOVWF  F8A
+0092:  MOVLW  02
+0094:  MOVWF  F8A
 ....................                output_d(numbers[x]); 
-009C:  CLRF   03
-009E:  MOVF   05,W
-00A0:  MOVFF  FF2,08
-00A4:  BCF    FF2.7
-00A6:  RCALL  0004
-00A8:  BTFSC  08.7
-00AA:  BSF    FF2.7
-00AC:  MOVWF  F8C
+0096:  CLRF   03
+0098:  MOVF   05,W
+009A:  MOVFF  FF2,08
+009E:  BCF    FF2.7
+00A0:  RCALL  0004
+00A2:  BTFSC  08.7
+00A4:  BSF    FF2.7
+00A6:  MOVWF  F8C
 ....................                delay_ms(100); 
-00AE:  MOVLW  64
-00B0:  MOVWF  08
-00B2:  RCALL  001E
-00B4:  INCF   07,F
-00B6:  BRA    0076
-....................             } 
-00B8:  INCF   06,F
-00BA:  BRA    0068
-....................          }// fin del for 
-00BC:  INCF   05,F
-00BE:  BRA    0060
-....................           
-....................       } 
-00C0:  BRA    005E
-....................        
+00A8:  MOVLW  64
+00AA:  MOVWF  08
+00AC:  RCALL  001E
+00AE:  INCF   07,F
+00B0:  BRA    0070
+....................             }//ultimo for 
+00B2:  INCF   06,F
+00B4:  BRA    0068
+....................          }// fin del segundo for 
+00B6:  INCF   05,F
+00B8:  BRA    0060
+....................       }//fin del primer for 
+00BA:  BRA    005E
 ....................    }//termina while 
 ....................  
 .................... } 
 ....................  
-00C2:  SLEEP 
+00BC:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

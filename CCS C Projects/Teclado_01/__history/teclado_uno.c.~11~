@@ -1,0 +1,42 @@
+#include <teclado_uno.h>
+
+#define LCD_DATA_PORT getenv("SFR:PORTD") //defino el puerto de la LCD
+#include <lcd.c> //libreria de la LCD
+#define LCD_ENABLE_PIN  PIN_D0                                    ////
+#define LCD_RS_PIN      PIN_D1                                    ////
+#define LCD_RW_PIN      PIN_D2                                    ////
+#define LCD_DATA4       PIN_D4                                    ////
+#define LCD_DATA5       PIN_D5                                    ////
+#define LCD_DATA6       PIN_D6                                    ////
+#define LCD_DATA7       PIN_D7  
+
+
+#define use_portb_kbd TRUE
+#include <kbd.c> //libreria del teclado
+
+void main()
+{
+   lcd_init();
+   delay_ms(100);
+   
+   port_b_pullups(TRUE); //es necesario activar las resistencias pull up del puerto B
+   kbd_init();//inicializo el teclado, comienza a leer
+   
+   printf(lcd_putc, "\fComenzando");
+   delay_ms(500);
+   printf(lcd_putc, "\fPresiona alguna\ntecla");
+   delay_ms(500);
+   
+   while(TRUE)
+   {
+      char tecla = kbd_getc();
+      delay_ms(100);
+      
+      if(tecla != 0){
+         printf(lcd_putc, "\fTelca pulsada: %c", tecla);
+      }  
+      
+      delay_ms(100);
+   }
+
+}

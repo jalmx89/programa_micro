@@ -1,0 +1,14 @@
+#include <teclado_uno.h>
+#include <kbd.c> //libreria del teclado
+
+#include <lcd.c> //libreria de la LCD
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
