@@ -1,9 +1,9 @@
 
-ROM used:   910/32768 (3%)
-            910/32768 (3%) including unused fragments
+ROM used:   948/32768 (3%)
+            948/32768 (3%) including unused fragments
 
             0.6 Average locations per line
-            6.5 Average locations per statement
+            6.7 Average locations per statement
 
 RAM used:   9/2048 (0%) at main() level
             22/2048 (1%) worst case
@@ -13,51 +13,52 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   44    16  11  teclado_uno.c
+   42    15  11  teclado_uno.c
    12     0   0  teclado_uno.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
-  456    84  60  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-  135    40  29  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
+  456    84  59  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  115    43  30  keypad4x4.c
 ----- -----
- 1484   140 Total
+ 1462   142 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     38   2    1             @delay_ms1
-0     66   4    3   596  5.9  lcd_read_byte
+0     66   3    3   596  5.9  lcd_read_byte
 0     12   1    0    59  4.2  lcd_read_nibble
 0     34   2    1   179  3.3  lcd_send_nibble
 0     58   3    3   460  4.7  lcd_send_byte
-0    120   7    6   814  7.2  lcd_init
+0    120   6    6   814  7.2  lcd_init
 0     34   2    4   208  6.3  lcd_gotoxy
 0     80   4    1   354  4.7  lcd_putc
-0     28   2    0   238  4.0  @const685
+0     32   2    0   351  3.6  @const685
 0      4   0    0     3  0.0  kbd_init
-0    186  10    4  4540 10.2  kbd_getc
-0    126   7    1   351  3.6  MAIN
-0     12   1    0             @const700
+0    192  10    4  5861 10.2  kbd_getc
+0     34   2    0   351  3.6  @goto10684
+0    120   6    1   325  3.6  MAIN
+0     12   1    0             @const701
 0     32   2    2             @PSTRINGC_672
-0     24   1    0             @const702
-0     20   1    0             @const704
+0     24   1    0             @const703
+0     20   1    0             @const705
 0     32   2    3             @PSTRINGCN_672
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               11
-    Statements              140
-    Comments                283
-    Volume (V)              10840
-    Difficulty (D)          52.8
-    Effort to implement (E) 571995
-    Time to implement (T)   8 hours, 50 minutes
-    Est Delivered Bugs (B)  2
-    Cyclomatic Complexity   21
-    Maintainability (MI)    144
+    Functions               12
+    Statements              142
+    Comments                267
+    Volume (V)              13190
+    Difficulty (D)          56.1
+    Effort to implement (E) 740386
+    Time to implement (T)   11 hours, 26 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   24
+    Maintainability (MI)    137
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE   906  31858  
+00004-07FFE   944  31820  
 
 
 

@@ -13,7 +13,6 @@ void main()
    
    while(TRUE)
    {
-      
       if(input(PIN_B0) == 1){
          output_high(PIN_C0);
          output_low(PIN_C1);
@@ -36,6 +35,8 @@ void main()
       if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código
          output_low(PIN_C0);
          output_low(PIN_C1);
+         
+         while(input(PIN_B0) == 1 && input(PIN_B1) == 1){}
       }
    }
 

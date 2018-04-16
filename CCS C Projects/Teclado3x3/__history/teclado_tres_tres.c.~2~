@@ -1,0 +1,14 @@
+#include <teclado_tres_tres.h>
+
+#include <lcd.c>
+#include <kbd.c>
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

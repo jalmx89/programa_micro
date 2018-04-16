@@ -1,0 +1,11 @@
+#include <teclado_tres_tres.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

@@ -14,11 +14,14 @@ Type=4
 1=teclado_uno.c
 [Opened Files]
 1=teclado_uno.c
-2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
+2=keypad4x4.c
 3=
 4=
 [teclado_uno.c]
 Type=4
+[ExtraIncludes]
+Count=1
+1=teclado_uno=c:\users\vaio\desktop\class_micro\ccs c projects\teclado_01\keypad4x4.c
 [Units]
 Count=1
 1=teclado_uno (main)

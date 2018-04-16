@@ -1,0 +1,41 @@
+#include <invertir_giro.h>
+
+#use fast_io(B)
+#use fast_io(C)
+
+void main()
+{
+   
+   set_tris_b(255);  //configuración de pines como entrada PORTB
+   set_tris_c(0);    //configuración de pines como salida PORTC
+   output_b(0);
+   output_c(0);      //pongo a cero mi salida del PORT C
+   
+   while(TRUE)
+   {
+      if(input(PIN_B0) == 1){
+         output_high(PIN_C0);
+         output_low(PIN_C1);
+         
+         delay_ms(5);
+      }
+      else{
+         output_c(0);
+      }
+      
+      if(input(PIN_B1) == 1 ){
+         output_low(PIN_C0);
+         output_high(PIN_C1);
+         delay_ms(5);
+         
+      }else{
+         output_c(0);
+      }
+      
+      /*if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código
+         output_low(PIN_C0);
+         output_low(PIN_C1);
+      }*/
+   }
+
+}

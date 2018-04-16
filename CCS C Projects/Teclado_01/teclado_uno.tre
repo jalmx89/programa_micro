@@ -1,5 +1,5 @@
 ÀÄteclado_uno
-   ÀÄMAIN  0/126  Ram=1
+   ÀÄMAIN  0/120  Ram=1
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/120  Ram=6
       ³  ÃÄ@delay_ms1  0/38  Ram=1
@@ -33,11 +33,11 @@
       ÃÄ@PSTRINGC_672  0/32  Ram=2
       ³  ÀÄ*
       ÃÄ@delay_ms1  0/38  Ram=1
-      ÃÄkbd_getc  0/186  Ram=4
-      ³  ÀÄ@const685  0/28  Ram=0
+      ÃÄkbd_getc  0/192  Ram=4
+      ³  ÃÄ@goto10684  0/34  Ram=0
+      ³  ÀÄ@const685  0/32  Ram=0
       ÃÄ@PSTRINGCN_672  0/32  Ram=3
       ³  ÀÄlcd_putc  0/80  Ram=1
       ³     ÀÄ*
-      ÃÄlcd_putc  0/80  Ram=1
-      ³  ÀÄ*
-      ÀÄ@delay_ms1  0/38  Ram=1
+      ÀÄlcd_putc  0/80  Ram=1
+         ÀÄ*

@@ -22,8 +22,8 @@
 00C     lcd_putc.c
 00C     kbd_getc.@SCRATCH2
 00D     lcd_gotoxy.x
-00E     lcd_gotoxy.y
 00E     @delay_ms1.P1
+00E     lcd_gotoxy.y
 00E     lcd_init.@SCRATCH1
 00F     lcd_gotoxy.address
 010     lcd_gotoxy.@SCRATCH1
@@ -35,14 +35,14 @@
 014     lcd_read_byte.high
 015     lcd_read_byte.@SCRATCH1
 F81     kbd
-F83     lcd
 F83     PSP_DATA
+F83     lcd
 F8C     lcdlat
 F95     lcdtris
 FB4.6   C1OUT
 FB4.7   C2OUT
-FBB     CCP_2_LOW
 FBB     CCP_2
+FBB     CCP_2_LOW
 FBC     CCP_2_HIGH
 FBE     CCP_1_LOW
 FBE     CCP_1
@@ -50,8 +50,8 @@ FBF     CCP_1_HIGH
 FE1-FE2 @READ_PACKED_MEMORY.P1
 FE1-FE2 @WRITE_PACKED_MEMORY.P2
 FE9-FEA @READ_PROGRAM_MEMORY.P1
-FE9-FEA @WRITE_PROGRAM_MEMORY.P2
-FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
 FE9-FEA @WRITE_PACKED_MEMORY.P4
 FF6-FF8 @READ_PROGRAM_MEMORY.P1
 FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
@@ -59,36 +59,37 @@ FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
 ROM Allocation:
 000004  KEYS.call
 000014  KEYS.data
-000020  @const700.call
-00002C  @const702.call
-000044  @const704.call
-000058  @delay_ms1
-00007E  lcd_send_nibble
-0000A0  lcd_read_nibble
-0000AC  lcd_read_byte
-0000EE  lcd_send_byte
-000128  lcd_init
-0001A0  kbd_init
-0001A4  lcd_gotoxy
-0001C6  lcd_putc
-000216  @PSTRINGC_672
-000236  kbd_getc
-0002F0  @PSTRINGCN_672
-000310  MAIN
-000310  @cinit1
-000320  @cinit2
+000024  @const701.call
+000030  @const703.call
+000048  @const705.call
+00005C  @delay_ms1
+000082  lcd_send_nibble
+0000A4  lcd_read_nibble
+0000B0  lcd_read_byte
+0000F2  lcd_send_byte
+00012C  lcd_init
+0001A4  kbd_init
+0001A8  lcd_gotoxy
+0001CA  lcd_putc
+00021A  @PSTRINGC_672
+00023A  kbd_getc
+0002FA  @goto10684
+00031C  @PSTRINGCN_672
+00033C  MAIN
+00033C  @cinit1
+00034C  @cinit2
 
 Project Directory:
     C:\Users\VAIO\Desktop\class_micro\CCS C Projects\Teclado_01\
 
 Project Files:
-    teclado_uno.c                                           [12-abr-18 04:56  CRC=22F31A54]
+    teclado_uno.c                                           [13-abr-18 04:47  CRC=AF3FB967]
     teclado_uno.h                                           [12-abr-18 03:59  CRC=1C5A6858]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sep-13 16:38  CRC=D1A6378A]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [23-sep-10 10:09  CRC=8814BCFC]
+    keypad4x4.c                                             [13-abr-18 04:35  CRC=A67AAA59]
 
-Source signature=74551676
+Source signature=3D6D9043
 
 Units:
     teclado_uno (main)

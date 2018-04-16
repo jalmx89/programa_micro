@@ -1,9 +1,9 @@
 
-ROM used:   122/32768 (0%)
-            122/32768 (0%) including unused fragments
+ROM used:   130/32768 (0%)
+            130/32768 (0%) including unused fragments
 
             0.1 Average locations per line
-            5.1 Average locations per statement
+            5.0 Average locations per statement
 
 RAM used:   6/2048 (0%) at main() level
             6/2048 (0%) worst case
@@ -13,34 +13,34 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   43    24 100  invertir_giro.c
+   44    26 100  invertir_giro.c
    12     0   0  invertir_giro.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
 ----- -----
-  892    24 Total
+  893    26 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     38  16    1             @delay_ms1
-0     80  33    2   545  3.8  main
+0     38  15    1             @delay_ms1
+0     88  34    2   642  3.8  main
  Inline         0             @cinit1
 
 Program metrics:
     Functions               1
-    Statements              24
+    Statements              26
     Comments                155
-    Volume (V)              550
-    Difficulty (D)          3.6
-    Effort to implement (E) 2004
+    Volume (V)              647
+    Difficulty (D)          3.7
+    Effort to implement (E) 2385
     Time to implement (T)   2 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   3
-    Maintainability (MI)    107
+    Maintainability (MI)    105
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE   118  32646  
+00004-07FFE   126  32638  
 
 
 

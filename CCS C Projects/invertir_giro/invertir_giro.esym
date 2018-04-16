@@ -1,8 +1,8 @@
 d G "INT_USB" 2 834 "0x00A020"
-D G "__PCH__" 0 44 ""5.015""
-D G "__DEVICE__" 0 44 "4550"
-D G "__DATE__" 0 44 ""03-abr-18""
-D G "__TIME__" 0 44 ""02:51:14"" "Standard Header file for the PIC18LF4550 device ////////////////"
+D G "__PCH__" 0 45 ""5.015""
+D G "__DEVICE__" 0 45 "4550"
+D G "__DATE__" 0 45 ""16-abr-18""
+D G "__TIME__" 0 45 ""17:57:49"" "Standard Header file for the PIC18LF4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 

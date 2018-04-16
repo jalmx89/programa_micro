@@ -1,9 +1,9 @@
-CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 02:51
+CCS PCH C Compiler, Version 5.015, 5967               16-abr-18 17:57
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\invertir_giro\invertir_giro.lst
 
-               ROM used:   122 bytes (0%)
-                           Largest free fragment is 32646
+               ROM used:   130 bytes (0%)
+                           Largest free fragment is 32638
                RAM used:   6 (0%) at main() level
                            6 (0%) worst case
                Stack used: 1 locations
@@ -85,7 +85,6 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 02:51
 ....................     
 ....................    while(TRUE) 
 ....................    { 
-....................        
 ....................       if(input(PIN_B0) == 1){ 
 0046:  BTFSS  F81.0
 0048:  BRA    0056
@@ -125,19 +124,25 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 02:51
 ....................        
 ....................       if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código 
 006A:  BTFSS  F81.0
-006C:  BRA    0076
+006C:  BRA    007E
 006E:  BTFSS  F81.1
-0070:  BRA    0076
+0070:  BRA    007E
 ....................          output_low(PIN_C0); 
 0072:  BCF    F8B.0
 ....................          output_low(PIN_C1); 
 0074:  BCF    F8B.1
+....................           
+....................          while(input(PIN_B0) == 1 && input(PIN_B1) == 1){} 
+0076:  BTFSS  F81.0
+0078:  BRA    007E
+007A:  BTFSC  F81.1
+007C:  BRA    0076
 ....................       } 
-0076:  BRA    0046
+007E:  BRA    0046
 ....................    } 
 ....................  
 .................... } 
-0078:  SLEEP 
+0080:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO
