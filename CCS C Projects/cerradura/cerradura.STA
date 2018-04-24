@@ -1,33 +1,33 @@
 
-ROM used:   1228/32768 (4%)
-            1228/32768 (4%) including unused fragments
+ROM used:   1226/32768 (4%)
+            1226/32768 (4%) including unused fragments
 
             0.8 Average locations per line
             7.1 Average locations per statement
 
 RAM used:   14/2048 (1%) at main() level
-            29/2048 (1%) worst case
+            28/2048 (1%) worst case
 
 Stack used: 6 worst case (6 in main + 0 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   84    47  27  cerradura.c
+   81    45  26  cerradura.c
    12     0   0  cerradura.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
   115    43  25  keypad4x4.c
-  456    84  48  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  456    84  49  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1504   174 Total
+ 1501   172 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     38   2    1             @delay_ms1
-0     32   1    0             @const647
+0     32   1    0   596  5.9  @const647
 0      4   0    0     3  0.0  kbd_init
 0    192   8    4  5869 10.1  kbd_getc
-0     34   1    0             @goto10591
+0     34   1    0   460  4.7  @goto10591
 0     66   3    3   596  5.9  lcd_read_byte
 0     12   0    0    59  4.2  lcd_read_nibble
 0     34   1    1   179  3.3  lcd_send_nibble
@@ -35,34 +35,34 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    120   5    6   814  7.2  lcd_init
 0     34   1    4   208  6.3  lcd_gotoxy
 0     80   3    1   354  4.7  lcd_putc
-0     20   1    0   262  3.1  @const698
-0    320  13    2  1492  7.5  MAIN
+0     20   1    0   325  3.6  @const698
+0    318  13    2  1436  7.5  MAIN
 0     28   1    0             @const705
 0     32   1    2             @PSTRINGC_686
-0      6   0    0             @const711
+0      6   0    0             @const710
+0     20   1    0             @const714
 0     20   1    0             @const715
-0     20   1    0             @const716
-0     28   1    0             @const717
-0     18   1    0             @const718
-0     28   1    0             @const719
+0     28   1    0             @const716
+0     18   1    0             @const717
+0     28   1    0             @const718
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               11
-    Statements              174
-    Comments                274
-    Volume (V)              14017
-    Difficulty (D)          55.0
-    Effort to implement (E) 770348
-    Time to implement (T)   11 hours, 53 minutes
+    Functions               13
+    Statements              172
+    Comments                290
+    Volume (V)              16129
+    Difficulty (D)          66.1
+    Effort to implement (E) 1066025
+    Time to implement (T)   16 hours, 27 minutes
     Est Delivered Bugs (B)  3
     Cyclomatic Complexity   28
-    Maintainability (MI)    138
+    Maintainability (MI)    135
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE  1224  31540  
+00004-07FFE  1222  31542  
 
 
 

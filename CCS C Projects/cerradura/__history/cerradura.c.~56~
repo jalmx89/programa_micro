@@ -13,7 +13,7 @@
 
 #use fast_io(C)
 
-const char clave[] = {'5','6', '7', '8'};
+const char clave[] = {'1','2', '3', '4'};
 char claveRecibida[4];//array vacio con 4 espacios
 
 void main()

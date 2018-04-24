@@ -1,5 +1,5 @@
 ÀÄcerradura
-   ÀÄMAIN  0/320  Ram=2
+   ÀÄMAIN  0/318  Ram=2
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/120  Ram=6
       ³  ÃÄ@delay_ms1  0/38  Ram=1

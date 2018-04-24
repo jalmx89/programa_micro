@@ -13,7 +13,7 @@
 
 #use fast_io(C)
 
-const char clave[] = {'5','6', '7', '8'};
+const char clave[] = {'1','2', '3', '4'};
 char claveRecibida[4];//array vacio con 4 espacios
 
 void main()
@@ -61,13 +61,13 @@ void main()
             if(claveOk == 1){ //si la clave fue correcta, entra a esta seccion
                claveOk = 1;// reinicio la variable que dice si la clave es correcta o no
                printf(lcd_putc, "\fAbriendo\nescotilla");
-               output_high(PIN_C0);//activando motor
+               output_high(PIN_C0);
                delay_ms(1000);
-               output_low(PIN_C0);//apago el motor
+               output_low(PIN_C0);
                printf(lcd_putc, "\fEl tesoro\nes tuyo");
                delay_ms(1000);
                printf(lcd_putc,"\fBienvenido\nDigite la clave");
-            }else{//entra al else si la contraseña fue incorrecta
+            }else{
                printf(lcd_putc, "\fClave Incorrecta");
                delay_ms(300);
                printf(lcd_putc,"\fBienvenido\nDigite la clave");

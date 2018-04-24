@@ -1,11 +1,11 @@
-CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
+CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 15:22
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\cerradura\cerradura.lst
 
-               ROM used:   1228 bytes (4%)
-                           Largest free fragment is 31540
+               ROM used:   1226 bytes (4%)
+                           Largest free fragment is 31542
                RAM used:   14 (1%) at main() level
-                           29 (1%) worst case
+                           28 (1%) worst case
                Stack used: 6 locations
                Stack size: 31
 
@@ -48,8 +48,8 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 002E:  TBLRD*+
 0030:  MOVF   FF5,W
 0032:  RETURN 0
-0034:  DATA 31,32
-0036:  DATA 33,34
+0034:  DATA 35,36
+0036:  DATA 37,38
 0038:  DATA 0C,42
 003A:  DATA 69,65
 003C:  DATA 6E,76
@@ -128,12 +128,12 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 028A:  TBLRD*+
 028C:  MOVF   FF5,F
 028E:  BZ    02A8
-0290:  MOVFF  FF6,11
-0294:  MOVFF  FF7,12
-0298:  MOVFF  FF5,13
+0290:  MOVFF  FF6,10
+0294:  MOVFF  FF7,11
+0298:  MOVFF  FF5,12
 029C:  RCALL  023A
-029E:  MOVFF  11,FF6
-02A2:  MOVFF  12,FF7
+029E:  MOVFF  10,FF6
+02A2:  MOVFF  11,FF7
 02A6:  BRA    028A
 02A8:  RETURN 0
 *
@@ -168,7 +168,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 .................... #use delay(crystal=20000000) 
 *
 00CC:  CLRF   FEA
-00CE:  MOVLW  16
+00CE:  MOVLW  15
 00D0:  MOVWF  FE9
 00D2:  MOVF   FEF,W
 00D4:  BZ    00F0
@@ -261,7 +261,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................  
 ....................    kchar='\0'; 
 *
-02AA:  CLRF   11
+02AA:  CLRF   10
 ....................    if(++kbd_call_count>KBD_DEBOUNCE_FACTOR) { 
 02AC:  INCF   04,F
 02AE:  MOVF   04,W
@@ -313,7 +313,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................            kbd_down=false; 
 02EA:  BCF    05.0
 ....................            kchar=last_key; 
-02EC:  MOVFF  06,11
+02EC:  MOVFF  06,10
 ....................            last_key='\0'; 
 02F0:  CLRF   06
 ....................          } 
@@ -329,7 +329,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 02FE:  ANDLW  10
 0300:  BNZ   0306
 ....................                row=0; 
-0302:  CLRF   12
+0302:  CLRF   11
 0304:  BRA    0328
 ....................              else if((kbd & ROW1)==0) 
 0306:  MOVF   F81,W
@@ -337,7 +337,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 030A:  BNZ   0312
 ....................                row=1; 
 030C:  MOVLW  01
-030E:  MOVWF  12
+030E:  MOVWF  11
 0310:  BRA    0328
 ....................              else if((kbd & ROW2)==0) 
 0312:  MOVF   F81,W
@@ -345,7 +345,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 0316:  BNZ   031E
 ....................                row=2; 
 0318:  MOVLW  02
-031A:  MOVWF  12
+031A:  MOVWF  11
 031C:  BRA    0328
 ....................              else if((kbd & ROW3)==0) 
 031E:  MOVF   F81,W
@@ -353,24 +353,24 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 0322:  BNZ   0328
 ....................                row=3; 
 0324:  MOVLW  03
-0326:  MOVWF  12
+0326:  MOVWF  11
 ....................              last_key =KEYS[row][col]; 
-0328:  MOVF   12,W
+0328:  MOVF   11,W
 032A:  MULLW  04
 032C:  MOVF   FF3,W
-032E:  CLRF   14
-0330:  MOVWF  13
+032E:  CLRF   13
+0330:  MOVWF  12
 0332:  CLRF   03
 0334:  MOVF   07,W
-0336:  ADDWF  13,W
+0336:  ADDWF  12,W
 0338:  MOVWF  01
-033A:  MOVF   14,W
+033A:  MOVF   13,W
 033C:  ADDWFC 03,F
 033E:  MOVF   01,W
-0340:  MOVFF  FF2,13
+0340:  MOVFF  FF2,12
 0344:  BCF    FF2.7
 0346:  RCALL  0004
-0348:  BTFSC  13.7
+0348:  BTFSC  12.7
 034A:  BSF    FF2.7
 034C:  MOVWF  06
 ....................              kbd_down = true; 
@@ -394,8 +394,8 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 035E:  MOVLW  FF
 0360:  MOVWF  F93
 ....................   return(kchar); 
-0362:  MOVFF  11,01
-0366:  GOTO   03C8 (RETURN)
+0362:  MOVFF  10,01
+0366:  GOTO   03C6 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -624,7 +624,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 012E:  NOP   
 ....................    high = lcd_read_nibble(); 
 0130:  RCALL  0114
-0132:  MOVFF  01,1B
+0132:  MOVFF  01,1A
 ....................        
 ....................    lcd_output_enable(0); 
 0136:  BCF    F8C.0
@@ -638,7 +638,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 0140:  NOP   
 ....................    low = lcd_read_nibble(); 
 0142:  RCALL  0114
-0144:  MOVFF  01,1A
+0144:  MOVFF  01,19
 ....................        
 ....................    lcd_output_enable(0); 
 0148:  BCF    F8C.0
@@ -660,12 +660,12 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................  #endif 
 ....................  
 ....................    return( (high<<4) | low); 
-0150:  SWAPF  1B,W
+0150:  SWAPF  1A,W
 0152:  MOVWF  00
 0154:  MOVLW  F0
 0156:  ANDWF  00,F
 0158:  MOVF   00,W
-015A:  IORWF  1A,W
+015A:  IORWF  19,W
 015C:  MOVWF  01
 015E:  GOTO   016C (RETURN)
 .................... } 
@@ -705,7 +705,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................   #else       
 ....................    lcdlat.data = n; 
 *
-00F2:  SWAPF  1B,W
+00F2:  SWAPF  1A,W
 00F4:  ANDLW  F0
 00F6:  MOVWF  00
 00F8:  MOVLW  0F
@@ -748,12 +748,12 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 0168:  BCF    F8C.1
 ....................    while ( bit_test(lcd_read_byte(),7) ) ; 
 016A:  BRA    0120
-016C:  MOVFF  01,1A
+016C:  MOVFF  01,19
 0170:  BTFSC  01.7
 0172:  BRA    016A
 ....................    lcd_output_rs(address); 
 0174:  BCF    F8C.1
-0176:  BTFSC  18.0
+0176:  BTFSC  17.0
 0178:  BSF    F8C.1
 ....................    delay_cycles(1); 
 017A:  NOP   
@@ -764,17 +764,17 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................    lcd_output_enable(0); 
 0180:  BCF    F8C.0
 ....................    lcd_send_nibble(n >> 4); 
-0182:  SWAPF  19,W
-0184:  MOVWF  1A
+0182:  SWAPF  18,W
+0184:  MOVWF  19
 0186:  MOVLW  0F
-0188:  ANDWF  1A,F
-018A:  MOVFF  1A,1B
+0188:  ANDWF  19,F
+018A:  MOVFF  19,1A
 018E:  RCALL  00F2
 ....................    lcd_send_nibble(n & 0xf); 
-0190:  MOVF   19,W
+0190:  MOVF   18,W
 0192:  ANDLW  0F
-0194:  MOVWF  1A
-0196:  MOVWF  1B
+0194:  MOVWF  19
+0196:  MOVWF  1A
 0198:  RCALL  00F2
 019A:  RETURN 0
 .................... } 
@@ -788,13 +788,13 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................    unsigned int8 i; 
 ....................    unsigned int8 LCD_INIT_STRING[4] = {0x20 | (LCD_TYPE << 2), 0xc, 1, 6}; 
 019C:  MOVLW  28
-019E:  MOVWF  12
+019E:  MOVWF  11
 01A0:  MOVLW  0C
-01A2:  MOVWF  13
+01A2:  MOVWF  12
 01A4:  MOVLW  01
-01A6:  MOVWF  14
+01A6:  MOVWF  13
 01A8:  MOVLW  06
-01AA:  MOVWF  15
+01AA:  MOVWF  14
 ....................                              // These bytes need to be sent to the LCD 
 ....................                              // to start it up. 
 ....................     
@@ -830,55 +830,55 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................      
 ....................    delay_ms(15); 
 01BE:  MOVLW  0F
-01C0:  MOVWF  16
+01C0:  MOVWF  15
 01C2:  RCALL  00CC
 ....................    for(i=1;i<=3;++i) 
 01C4:  MOVLW  01
-01C6:  MOVWF  11
-01C8:  MOVF   11,W
+01C6:  MOVWF  10
+01C8:  MOVF   10,W
 01CA:  SUBLW  03
 01CC:  BNC   01DE
 ....................    { 
 ....................        lcd_send_nibble(3); 
 01CE:  MOVLW  03
-01D0:  MOVWF  1B
+01D0:  MOVWF  1A
 01D2:  RCALL  00F2
 ....................        delay_ms(5); 
 01D4:  MOVLW  05
-01D6:  MOVWF  16
+01D6:  MOVWF  15
 01D8:  RCALL  00CC
-01DA:  INCF   11,F
+01DA:  INCF   10,F
 01DC:  BRA    01C8
 ....................    } 
 ....................     
 ....................    lcd_send_nibble(2); 
 01DE:  MOVLW  02
-01E0:  MOVWF  1B
+01E0:  MOVWF  1A
 01E2:  RCALL  00F2
 ....................    delay_ms(5); 
 01E4:  MOVLW  05
-01E6:  MOVWF  16
+01E6:  MOVWF  15
 01E8:  RCALL  00CC
 ....................    for(i=0;i<=3;++i) 
-01EA:  CLRF   11
-01EC:  MOVF   11,W
+01EA:  CLRF   10
+01EC:  MOVF   10,W
 01EE:  SUBLW  03
 01F0:  BNC   0210
 ....................       lcd_send_byte(0,LCD_INIT_STRING[i]); 
 01F2:  CLRF   03
-01F4:  MOVF   11,W
-01F6:  ADDLW  12
+01F4:  MOVF   10,W
+01F6:  ADDLW  11
 01F8:  MOVWF  FE9
 01FA:  MOVLW  00
 01FC:  ADDWFC 03,W
 01FE:  MOVWF  FEA
-0200:  MOVFF  FEF,16
-0204:  CLRF   18
-0206:  MOVFF  16,19
+0200:  MOVFF  FEF,15
+0204:  CLRF   17
+0206:  MOVFF  15,18
 020A:  RCALL  0162
 ....................  
 ....................   #if defined(LCD_EXTENDED_NEWLINE) 
-020C:  INCF   11,F
+020C:  INCF   10,F
 020E:  BRA    01EC
 0210:  GOTO   03A8 (RETURN)
 ....................    g_LcdX = 0; 
@@ -892,27 +892,27 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................     
 ....................    if(y!=1) 
 *
-0218:  DECFSZ 15,W
+0218:  DECFSZ 14,W
 021A:  BRA    021E
 021C:  BRA    0224
 ....................       address=LCD_LINE_TWO; 
 021E:  MOVLW  40
-0220:  MOVWF  16
+0220:  MOVWF  15
 0222:  BRA    0226
 ....................    else 
 ....................       address=0; 
-0224:  CLRF   16
+0224:  CLRF   15
 ....................       
 ....................    address+=x-1; 
 0226:  MOVLW  01
-0228:  SUBWF  14,W
-022A:  ADDWF  16,F
+0228:  SUBWF  13,W
+022A:  ADDWF  15,F
 ....................    lcd_send_byte(0,0x80|address); 
-022C:  MOVF   16,W
+022C:  MOVF   15,W
 022E:  IORLW  80
-0230:  MOVWF  17
-0232:  CLRF   18
-0234:  MOVWF  19
+0230:  MOVWF  16
+0232:  CLRF   17
+0234:  MOVWF  18
 0236:  RCALL  0162
 ....................  
 ....................   #if defined(LCD_EXTENDED_NEWLINE) 
@@ -925,7 +925,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 .................... void lcd_putc(char c) 
 .................... { 
 ....................    switch (c) 
-023A:  MOVF   13,W
+023A:  MOVF   12,W
 023C:  XORLW  07
 023E:  BZ    024E
 0240:  XORLW  0B
@@ -938,19 +938,19 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................    { 
 ....................       case '\a'   :  lcd_gotoxy(1,1);     break; 
 024E:  MOVLW  01
-0250:  MOVWF  14
-0252:  MOVWF  15
+0250:  MOVWF  13
+0252:  MOVWF  14
 0254:  RCALL  0218
 0256:  BRA    0288
 ....................  
 ....................       case '\f'   :  lcd_send_byte(0,1); 
-0258:  CLRF   18
+0258:  CLRF   17
 025A:  MOVLW  01
-025C:  MOVWF  19
+025C:  MOVWF  18
 025E:  RCALL  0162
 ....................                      delay_ms(2); 
 0260:  MOVLW  02
-0262:  MOVWF  16
+0262:  MOVWF  15
 0264:  RCALL  00CC
 ....................                     #if defined(LCD_EXTENDED_NEWLINE) 
 ....................                      g_LcdX = 0; 
@@ -971,17 +971,17 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................      #else 
 ....................       case '\n'   : lcd_gotoxy(1,2);        break; 
 0268:  MOVLW  01
-026A:  MOVWF  14
+026A:  MOVWF  13
 026C:  MOVLW  02
-026E:  MOVWF  15
+026E:  MOVWF  14
 0270:  RCALL  0218
 0272:  BRA    0288
 ....................      #endif 
 ....................       
 ....................       case '\b'   : lcd_send_byte(0,0x10);  break; 
-0274:  CLRF   18
+0274:  CLRF   17
 0276:  MOVLW  10
-0278:  MOVWF  19
+0278:  MOVWF  18
 027A:  RCALL  0162
 027C:  BRA    0288
 ....................       
@@ -996,8 +996,8 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................      #else 
 ....................       default     : lcd_send_byte(1,c);     break; 
 027E:  MOVLW  01
-0280:  MOVWF  18
-0282:  MOVFF  13,19
+0280:  MOVWF  17
+0282:  MOVFF  12,18
 0286:  RCALL  0162
 ....................      #endif 
 ....................    } 
@@ -1065,8 +1065,8 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 ....................  
 .................... #use fast_io(C) 
 ....................  
-.................... const char clave[] = {'1','2', '3', '4'}; 
-.................... char claveRecibida[4]; 
+.................... const char clave[] = {'5','6', '7', '8'}; 
+.................... char claveRecibida[4];//array vacio con 4 espacios 
 ....................  
 .................... void main() 
 *
@@ -1088,7 +1088,7 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 03A6:  BRA    019C
 ....................    delay_ms(100); //espero el tiempo de configuración 
 03A8:  MOVLW  64
-03AA:  MOVWF  16
+03AA:  MOVWF  15
 03AC:  RCALL  00CC
 ....................     
 ....................    kbd_init(); //inicializo el teclado 
@@ -1110,187 +1110,183 @@ CCS PCH C Compiler, Version 5.015, 5967               23-abr-18 21:26
 03C0:  RCALL  028A
 ....................     
 ....................    char tecla; 
-....................    unsigned int8 position = 0, into = 0; 
+....................    unsigned int8 position = 0; 
 03C2:  CLRF   0D
-03C4:  CLRF   0E
 ....................     
-....................     
-....................    while(TRUE) 
-....................    { 
+....................    while(TRUE){ 
 ....................       tecla = kbd_getc(); 
-03C6:  BRA    02AA
-03C8:  MOVFF  01,0C
+03C4:  BRA    02AA
+03C6:  MOVFF  01,0C
 ....................        
 ....................       if(tecla != 0){ 
-03CC:  MOVF   0C,F
-03CE:  BTFSC  FD8.2
-03D0:  BRA    04C8
+03CA:  MOVF   0C,F
+03CC:  BTFSC  FD8.2
+03CE:  BRA    04C6
 ....................           
-....................          if(position == 0){ 
-03D2:  MOVF   0D,F
-03D4:  BNZ   03F2
-....................             printf(lcd_putc, "\f"); 
-03D6:  MOVLW  0C
-03D8:  MOVWF  13
-03DA:  RCALL  023A
-....................             lcd_gotoxy(5,1); 
-03DC:  MOVLW  05
-03DE:  MOVWF  14
-03E0:  MOVLW  01
-03E2:  MOVWF  15
-03E4:  RCALL  0218
-....................             printf(lcd_putc, "Clave"); 
-03E6:  MOVLW  54
-03E8:  MOVWF  FF6
-03EA:  MOVLW  00
-03EC:  MOVWF  FF7
-03EE:  RCALL  028A
-....................             into++; 
-03F0:  INCF   0E,F
+....................          if(position == 0){//se ejecuta la primera vez que se presiona una tecla 
+03D0:  MOVF   0D,F
+03D2:  BNZ   03EE
+....................             printf(lcd_putc, "\f");//borra lo que hay en pantalla 
+03D4:  MOVLW  0C
+03D6:  MOVWF  12
+03D8:  RCALL  023A
+....................             lcd_gotoxy(5,1);//se coloca al centro de la pantalla 
+03DA:  MOVLW  05
+03DC:  MOVWF  13
+03DE:  MOVLW  01
+03E0:  MOVWF  14
+03E2:  RCALL  0218
+....................             printf(lcd_putc, "Clave");//escribe la palabra "Clave" 
+03E4:  MOVLW  54
+03E6:  MOVWF  FF6
+03E8:  MOVLW  00
+03EA:  MOVWF  FF7
+03EC:  RCALL  028A
 ....................          } 
+....................           
 ....................          claveRecibida[position] = tecla; //guardo el caracter que presionaron en el teclado 
-03F2:  CLRF   03
-03F4:  MOVF   0D,W
-03F6:  ADDLW  08
-03F8:  MOVWF  FE9
-03FA:  MOVLW  00
-03FC:  ADDWFC 03,W
-03FE:  MOVWF  FEA
-0400:  MOVFF  0C,FEF
+03EE:  CLRF   03
+03F0:  MOVF   0D,W
+03F2:  ADDLW  08
+03F4:  MOVWF  FE9
+03F6:  MOVLW  00
+03F8:  ADDWFC 03,W
+03FA:  MOVWF  FEA
+03FC:  MOVFF  0C,FEF
 ....................           
 ....................          position++; //incremento la posicion para saber en cual voy 
-0404:  INCF   0D,F
-....................          lcd_gotoxy(position+5,2); 
-0406:  MOVLW  05
-0408:  ADDWF  0D,W
-040A:  MOVWF  11
+0400:  INCF   0D,F
+....................          lcd_gotoxy(position+5,2);//se va la posicion 
+0402:  MOVLW  05
+0404:  ADDWF  0D,W
+0406:  MOVWF  10
+0408:  MOVWF  13
+040A:  MOVLW  02
 040C:  MOVWF  14
-040E:  MOVLW  02
-0410:  MOVWF  15
-0412:  RCALL  0218
-....................          printf(lcd_putc, "*"); 
-0414:  MOVLW  2A
-0416:  MOVWF  13
-0418:  RCALL  023A
-....................           
-....................          unsigned int8 claveOk = 1; 
-041A:  MOVLW  01
-041C:  MOVWF  0F
+040E:  RCALL  0218
+....................          printf(lcd_putc, "*");//pone un * en la siguiente  
+0410:  MOVLW  2A
+0412:  MOVWF  12
+0414:  RCALL  023A
 ....................           
 ....................          if(position == 4){      
-041E:  MOVF   0D,W
-0420:  SUBLW  04
-0422:  BNZ   04C8
-....................             delay_ms(150); //para que se vea por un instante todos los **** 
-0424:  MOVLW  96
-0426:  MOVWF  16
-0428:  RCALL  00CC
-....................             for(int x = 0; x <4; x++){ 
-042A:  CLRF   10
-042C:  MOVF   10,W
-042E:  SUBLW  03
-0430:  BNC   045E
-....................                if(clave[x] != claveRecibida[x]){ 
-0432:  CLRF   03
-0434:  MOVF   10,W
-0436:  MOVFF  FF2,11
-043A:  BCF    FF2.7
-043C:  RCALL  0024
-043E:  BTFSC  11.7
-0440:  BSF    FF2.7
-0442:  MOVWF  11
-0444:  CLRF   03
-0446:  MOVF   10,W
-0448:  ADDLW  08
-044A:  MOVWF  FE9
-044C:  MOVLW  00
-044E:  ADDWFC 03,W
-0450:  MOVWF  FEA
-0452:  MOVF   FEF,W
-0454:  SUBWF  11,W
-0456:  BZ    045A
-....................                   claveOk = 0; 
-0458:  CLRF   0F
+0416:  MOVF   0D,W
+0418:  SUBLW  04
+041A:  BNZ   04C6
+....................             unsigned int8 claveOk = 1;//con esta variable defino que es correcta la contraseña 
+041C:  MOVLW  01
+041E:  MOVWF  0E
+....................             delay_ms(150); //para que se vea por un instante todos los **** de la lcd 
+0420:  MOVLW  96
+0422:  MOVWF  15
+0424:  RCALL  00CC
+....................             for(int x = 0; x <4; x++){//recorro los array, revisando su contenido 
+0426:  CLRF   0F
+0428:  MOVF   0F,W
+042A:  SUBLW  03
+042C:  BNC   045A
+....................                if(clave[x] != claveRecibida[x]){//en caso que un digito sea diferente, entra y 
+042E:  CLRF   03
+0430:  MOVF   0F,W
+0432:  MOVFF  FF2,10
+0436:  BCF    FF2.7
+0438:  RCALL  0024
+043A:  BTFSC  10.7
+043C:  BSF    FF2.7
+043E:  MOVWF  10
+0440:  CLRF   03
+0442:  MOVF   0F,W
+0444:  ADDLW  08
+0446:  MOVWF  FE9
+0448:  MOVLW  00
+044A:  ADDWFC 03,W
+044C:  MOVWF  FEA
+044E:  MOVF   FEF,W
+0450:  SUBWF  10,W
+0452:  BZ    0456
+....................                   claveOk = 0;// si la clave no es correcta, se asigna un 0 
+0454:  CLRF   0E
 ....................                } 
-045A:  INCF   10,F
-045C:  BRA    042C
+0456:  INCF   0F,F
+0458:  BRA    0428
 ....................             } 
 ....................              
-....................             if(claveOk == 1){ 
-045E:  DECFSZ 0F,W
-0460:  BRA    04A4
-....................                claveOk = 0; 
-0462:  CLRF   0F
+....................             if(claveOk == 1){ //si la clave fue correcta, entra a esta seccion 
+045A:  DECFSZ 0E,W
+045C:  BRA    04A2
+....................                claveOk = 1;// reinicio la variable que dice si la clave es correcta o no 
+045E:  MOVLW  01
+0460:  MOVWF  0E
 ....................                printf(lcd_putc, "\fAbriendo\nescotilla"); 
-0464:  MOVLW  5A
-0466:  MOVWF  FF6
-0468:  MOVLW  00
-046A:  MOVWF  FF7
-046C:  RCALL  028A
-....................                output_high(PIN_C0); 
-046E:  BSF    F8B.0
+0462:  MOVLW  5A
+0464:  MOVWF  FF6
+0466:  MOVLW  00
+0468:  MOVWF  FF7
+046A:  RCALL  028A
+....................                output_high(PIN_C0);//activando motor 
+046C:  BSF    F8B.0
 ....................                delay_ms(1000); 
-0470:  MOVLW  04
-0472:  MOVWF  11
-0474:  MOVLW  FA
-0476:  MOVWF  16
-0478:  RCALL  00CC
-047A:  DECFSZ 11,F
-047C:  BRA    0474
-....................                output_low(PIN_C0); 
-047E:  BCF    F8B.0
+046E:  MOVLW  04
+0470:  MOVWF  10
+0472:  MOVLW  FA
+0474:  MOVWF  15
+0476:  RCALL  00CC
+0478:  DECFSZ 10,F
+047A:  BRA    0472
+....................                output_low(PIN_C0);//apago el motor 
+047C:  BCF    F8B.0
 ....................                printf(lcd_putc, "\fEl tesoro\nes tuyo"); 
-0480:  MOVLW  6E
-0482:  MOVWF  FF6
-0484:  MOVLW  00
-0486:  MOVWF  FF7
-0488:  RCALL  028A
+047E:  MOVLW  6E
+0480:  MOVWF  FF6
+0482:  MOVLW  00
+0484:  MOVWF  FF7
+0486:  RCALL  028A
 ....................                delay_ms(1000); 
-048A:  MOVLW  04
-048C:  MOVWF  11
-048E:  MOVLW  FA
-0490:  MOVWF  16
-0492:  RCALL  00CC
-0494:  DECFSZ 11,F
-0496:  BRA    048E
+0488:  MOVLW  04
+048A:  MOVWF  10
+048C:  MOVLW  FA
+048E:  MOVWF  15
+0490:  RCALL  00CC
+0492:  DECFSZ 10,F
+0494:  BRA    048C
 ....................                printf(lcd_putc,"\fBienvenido\nDigite la clave"); 
-0498:  MOVLW  82
-049A:  MOVWF  FF6
-049C:  MOVLW  00
-049E:  MOVWF  FF7
-04A0:  RCALL  028A
-....................             }else{ 
-04A2:  BRA    04C6
+0496:  MOVLW  82
+0498:  MOVWF  FF6
+049A:  MOVLW  00
+049C:  MOVWF  FF7
+049E:  RCALL  028A
+....................             }else{//entra al else si la contraseña fue incorrecta 
+04A0:  BRA    04C4
 ....................                printf(lcd_putc, "\fClave Incorrecta"); 
-04A4:  MOVLW  9E
-04A6:  MOVWF  FF6
-04A8:  MOVLW  00
-04AA:  MOVWF  FF7
-04AC:  RCALL  028A
+04A2:  MOVLW  9E
+04A4:  MOVWF  FF6
+04A6:  MOVLW  00
+04A8:  MOVWF  FF7
+04AA:  RCALL  028A
 ....................                delay_ms(300); 
-04AE:  MOVLW  02
-04B0:  MOVWF  11
-04B2:  MOVLW  96
-04B4:  MOVWF  16
-04B6:  RCALL  00CC
-04B8:  DECFSZ 11,F
-04BA:  BRA    04B2
+04AC:  MOVLW  02
+04AE:  MOVWF  10
+04B0:  MOVLW  96
+04B2:  MOVWF  15
+04B4:  RCALL  00CC
+04B6:  DECFSZ 10,F
+04B8:  BRA    04B0
 ....................                printf(lcd_putc,"\fBienvenido\nDigite la clave"); 
-04BC:  MOVLW  B0
-04BE:  MOVWF  FF6
-04C0:  MOVLW  00
-04C2:  MOVWF  FF7
-04C4:  RCALL  028A
+04BA:  MOVLW  B0
+04BC:  MOVWF  FF6
+04BE:  MOVLW  00
+04C0:  MOVWF  FF7
+04C2:  RCALL  028A
 ....................             } 
 ....................             position = 0; 
-04C6:  CLRF   0D
+04C4:  CLRF   0D
 ....................          } 
 ....................       } 
-04C8:  BRA    03C6
+04C6:  BRA    03C4
 ....................    } 
 ....................  
 .................... } 
-04CA:  SLEEP 
+04C8:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

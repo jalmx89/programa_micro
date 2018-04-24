@@ -1,8 +1,7 @@
-D G "LCD_DATA7" 0 12 "PIN_D7"
-D G "__PCH__" 0 85 ""5.015""
-D G "__DEVICE__" 0 85 "4550"
-D G "__DATE__" 0 85 ""23-abr-18""
-D G "__TIME__" 0 85 ""21:26:22"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 82 ""5.015""
+D G "__DEVICE__" 0 82 "4550"
+D G "__DATE__" 0 82 ""24-abr-18""
+D G "__TIME__" 0 82 ""15:22:47"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -1000,7 +999,7 @@ D G "LCD_DATA5" 0 10 "PIN_D5"
 D G "LCD_DATA6" 0 11 "PIN_D6"
 D G "LCD_DATA7" 0 12 "PIN_D7"
 V G "clave" 0 16 "[1]" `698 
-V G "claveRecibida" 0 17 "int8[4]" `701 
+V G "claveRecibida" 0 17 "int8[4]" `701  "array vacio con 4 espacios"
 F G "MAIN" 0 20 "void()" `702 
 C L "MAIN" 0 21 1 "FUNCTION"
 C L "MAIN" 0 21 1 "FUNCTION"
@@ -1010,12 +1009,26 @@ C L "MAIN" 0 21 1 "FUNCTION"
 C L "MAIN" 0 21 1 "FUNCTION"
 V L "tecla" 0 32 "int8" `707 
 V L "position" 0 33 "int8" `708 
-V L "into" 0 33 "int8" `709 
 C L "MAIN" 0 21 1 "FUNCTION"
 C L "MAIN" 0 21 1 "FUNCTION"
-V L "claveOk" 0 54 "int8" `713 
 C L "MAIN" 0 21 1 "FUNCTION"
-V L "x" 0 58 "int8" `714 
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+V L "claveOk" 0 53 "int8" `712 
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+V L "x" 0 55 "int8" `713 
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
+C L "MAIN" 0 21 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
