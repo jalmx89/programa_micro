@@ -1,5 +1,11 @@
 ÀÄmotor_pap
-   ÀÄmain  0/62  Ram=1
+   ÀÄmain  0/230  Ram=1
       ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@const649  0/20  Ram=0
+      ÃÄ@delay_ms1  0/38  Ram=1
       ÃÄ@const646  0/20  Ram=0
-      ÀÄ@delay_ms1  0/40  Ram=1
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄ@const655  0/24  Ram=0
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄ@const652  0/20  Ram=0
+      ÀÄ@delay_ms1  0/38  Ram=1

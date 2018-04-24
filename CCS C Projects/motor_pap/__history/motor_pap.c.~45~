@@ -2,7 +2,13 @@
 
 #use fast_io(D)
 
-const int8 positions[] = {0x01, 0x05, 0x04, 0x06};
+const byte forward[] = {
+                           0x01,
+                           0x02,
+                           0x04,
+                           0x08
+                           };
+
 void main()
 {
    set_tris_d(0);

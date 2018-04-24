@@ -1,16 +1,16 @@
-CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 00:55
+CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\motor_pap\motor_pap.lst
 
-               ROM used:   126 bytes (0%)
-                           Largest free fragment is 32642
+               ROM used:   356 bytes (1%)
+                           Largest free fragment is 32412
                RAM used:   5 (0%) at main() level
-                           6 (0%) worst case
+                           10 (0%) worst case
                Stack used: 1 locations
                Stack size: 31
 
 *
-0000:  GOTO   0040
+0000:  GOTO   007E
 .................... #include <motor_pap.h> 
 .................... #include <18F4550.h> 
 .................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
@@ -34,6 +34,38 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 00:55
 0012:  RETURN 0
 0014:  DATA 01,02
 0016:  DATA 04,08
+0018:  CLRF   FF7
+001A:  ADDLW  28
+001C:  MOVWF  FF6
+001E:  MOVLW  00
+0020:  ADDWFC FF7,F
+0022:  TBLRD*+
+0024:  MOVF   FF5,W
+0026:  RETURN 0
+0028:  DATA 08,04
+002A:  DATA 02,01
+002C:  CLRF   FF7
+002E:  ADDLW  3C
+0030:  MOVWF  FF6
+0032:  MOVLW  00
+0034:  ADDWFC FF7,F
+0036:  TBLRD*+
+0038:  MOVF   FF5,W
+003A:  RETURN 0
+003C:  DATA 03,06
+003E:  DATA 0A,09
+0040:  CLRF   FF7
+0042:  ADDLW  50
+0044:  MOVWF  FF6
+0046:  MOVLW  00
+0048:  ADDWFC FF7,F
+004A:  TBLRD*+
+004C:  MOVF   FF5,W
+004E:  RETURN 0
+0050:  DATA 01,03
+0052:  DATA 02,06
+0054:  DATA 04,0C
+0056:  DATA 08,09
 ....................  
 .................... #list 
 ....................  
@@ -46,82 +78,189 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 00:55
 .................... #FUSES NOXINST               	//Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
 ....................  
 .................... #use delay(crystal=20000000) 
-0018:  CLRF   FEA
-001A:  MOVLW  06
-001C:  MOVWF  FE9
-001E:  MOVF   FEF,W
-0020:  BZ    003C
-0022:  MOVLW  06
-0024:  MOVWF  01
-0026:  CLRF   00
-0028:  DECFSZ 00,F
-002A:  BRA    0028
-002C:  DECFSZ 01,F
-002E:  BRA    0026
-0030:  MOVLW  7B
-0032:  MOVWF  00
-0034:  DECFSZ 00,F
-0036:  BRA    0034
-0038:  DECFSZ FEF,F
-003A:  BRA    0022
-003C:  GOTO   0076 (RETURN)
+0058:  CLRF   FEA
+005A:  MOVLW  0A
+005C:  MOVWF  FE9
+005E:  MOVF   FEF,W
+0060:  BZ    007C
+0062:  MOVLW  06
+0064:  MOVWF  01
+0066:  CLRF   00
+0068:  DECFSZ 00,F
+006A:  BRA    0068
+006C:  DECFSZ 01,F
+006E:  BRA    0066
+0070:  MOVLW  7B
+0072:  MOVWF  00
+0074:  DECFSZ 00,F
+0076:  BRA    0074
+0078:  DECFSZ FEF,F
+007A:  BRA    0062
+007C:  RETURN 0
 ....................  
 ....................  
 ....................  
 .................... #use fast_io(D) 
+.................... #use fast_io(B) 
 ....................  
-.................... const byte positions[] = { 
-....................                            0b00000001, 
-....................                            0b00000010, 
-....................                            0b00000100, 
-....................                            0b00001000 
-....................                            }; 
+.................... #define time 500 //variable defina para el tiempo de retardo 
+....................  
+.................... const byte backward[] = {0x01, 0x02, 0x04, 0x08 }; 
+.................... const byte forward[] = {0x08, 0x04, 0x02, 0x01 }; 
+.................... const byte full[] = {0x03, 0x06, 0x0A, 0x09 }; 
+.................... const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0C, 0x08, 0x09}; 
 ....................  
 .................... void main() 
-0040:  CLRF   FF8
-0042:  BCF    FD0.7
-0044:  MOVF   FC1,W
-0046:  ANDLW  C0
-0048:  IORLW  0F
-004A:  MOVWF  FC1
-004C:  MOVLW  07
-004E:  MOVWF  FB4
+007E:  CLRF   FF8
+0080:  BCF    FD0.7
+0082:  MOVF   FC1,W
+0084:  ANDLW  C0
+0086:  IORLW  0F
+0088:  MOVWF  FC1
+008A:  MOVLW  07
+008C:  MOVWF  FB4
 .................... { 
 ....................    set_tris_d(0); 
-0050:  MOVLW  00
-0052:  MOVWF  F95
+008E:  MOVLW  00
+0090:  MOVWF  F95
 ....................    output_d(0); 
-0054:  CLRF   F8C
+0092:  CLRF   F8C
+....................     
+....................    set_tris_b(0xff); 
+0094:  MOVLW  FF
+0096:  MOVWF  F93
+....................    output_b(0); 
+0098:  CLRF   F8A
 ....................     
 ....................    while(TRUE) 
 ....................    { 
-....................       for(int x=0; x < 4; x++){ 
-0056:  CLRF   05
-0058:  MOVF   05,W
-005A:  SUBLW  03
-005C:  BNC   007A
-....................          output_d(positions[x]); 
-005E:  CLRF   03
-0060:  MOVF   05,W
-0062:  MOVFF  FF2,06
-0066:  BCF    FF2.7
-0068:  RCALL  0004
-006A:  BTFSC  06.7
-006C:  BSF    FF2.7
-006E:  MOVWF  F8C
-....................          delay_ms(50); 
-0070:  MOVLW  32
-0072:  MOVWF  06
-0074:  BRA    0018
-0076:  INCF   05,F
-0078:  BRA    0058
+....................       if(input_b() == 0x01){ 
+009A:  DECFSZ F81,W
+009C:  BRA    00CA
+....................          for(int x=0; x <4; x++){ 
+009E:  CLRF   05
+00A0:  MOVF   05,W
+00A2:  SUBLW  03
+00A4:  BNC   00CA
+....................          output_d(forward[x]); 
+00A6:  CLRF   03
+00A8:  MOVF   05,W
+00AA:  MOVFF  FF2,09
+00AE:  BCF    FF2.7
+00B0:  RCALL  0018
+00B2:  BTFSC  09.7
+00B4:  BSF    FF2.7
+00B6:  MOVWF  F8C
+....................          delay_ms(time); 
+00B8:  MOVLW  02
+00BA:  MOVWF  09
+00BC:  MOVLW  FA
+00BE:  MOVWF  0A
+00C0:  RCALL  0058
+00C2:  DECFSZ 09,F
+00C4:  BRA    00BC
+00C6:  INCF   05,F
+00C8:  BRA    00A0
+....................         } 
 ....................       } 
-007A:  BRA    0056
 ....................        
+....................       if(input_b() == 0x02){ 
+00CA:  MOVF   F81,W
+00CC:  SUBLW  02
+00CE:  BNZ   00FC
+....................          for(int x=0; x <4; x++){ 
+00D0:  CLRF   06
+00D2:  MOVF   06,W
+00D4:  SUBLW  03
+00D6:  BNC   00FC
+....................          output_d(backward[x]); 
+00D8:  CLRF   03
+00DA:  MOVF   06,W
+00DC:  MOVFF  FF2,09
+00E0:  BCF    FF2.7
+00E2:  RCALL  0004
+00E4:  BTFSC  09.7
+00E6:  BSF    FF2.7
+00E8:  MOVWF  F8C
+....................          delay_ms(time); 
+00EA:  MOVLW  02
+00EC:  MOVWF  09
+00EE:  MOVLW  FA
+00F0:  MOVWF  0A
+00F2:  RCALL  0058
+00F4:  DECFSZ 09,F
+00F6:  BRA    00EE
+00F8:  INCF   06,F
+00FA:  BRA    00D2
+....................         } 
+....................       } 
+....................        
+....................       if(input_b() == 0x04){ 
+00FC:  MOVF   F81,W
+00FE:  SUBLW  04
+0100:  BNZ   012E
+....................          for(int x=0; x <8; x++){ 
+0102:  CLRF   07
+0104:  MOVF   07,W
+0106:  SUBLW  07
+0108:  BNC   012E
+....................          output_d(half[x]); 
+010A:  CLRF   03
+010C:  MOVF   07,W
+010E:  MOVFF  FF2,09
+0112:  BCF    FF2.7
+0114:  RCALL  0040
+0116:  BTFSC  09.7
+0118:  BSF    FF2.7
+011A:  MOVWF  F8C
+....................          delay_ms(time); 
+011C:  MOVLW  02
+011E:  MOVWF  09
+0120:  MOVLW  FA
+0122:  MOVWF  0A
+0124:  RCALL  0058
+0126:  DECFSZ 09,F
+0128:  BRA    0120
+012A:  INCF   07,F
+012C:  BRA    0104
+....................         } 
+....................       } 
+....................        
+....................        if(input_b() == 0x08){ 
+012E:  MOVF   F81,W
+0130:  SUBLW  08
+0132:  BNZ   0160
+....................          for(int x=0; x <8; x++){ 
+0134:  CLRF   08
+0136:  MOVF   08,W
+0138:  SUBLW  07
+013A:  BNC   0160
+....................          output_d(full[x]); 
+013C:  CLRF   03
+013E:  MOVF   08,W
+0140:  MOVFF  FF2,09
+0144:  BCF    FF2.7
+0146:  RCALL  002C
+0148:  BTFSC  09.7
+014A:  BSF    FF2.7
+014C:  MOVWF  F8C
+....................          delay_ms(time); 
+014E:  MOVLW  02
+0150:  MOVWF  09
+0152:  MOVLW  FA
+0154:  MOVWF  0A
+0156:  RCALL  0058
+0158:  DECFSZ 09,F
+015A:  BRA    0152
+015C:  INCF   08,F
+015E:  BRA    0136
+....................         } 
+....................       } 
+0160:  BRA    009A
 ....................    } 
 ....................  
 .................... } 
-007C:  SLEEP 
+0162:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

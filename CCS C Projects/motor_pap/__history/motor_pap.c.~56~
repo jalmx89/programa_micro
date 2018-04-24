@@ -3,11 +3,10 @@
 #use fast_io(D)
 #use fast_io(B)
 
-#define time 500 //variable defina para el tiempo de retardo
-const byte backward[] = {0x01, 0x02, 0x04, 0x08 }; //secuencia para ir adelante
-const byte forward[] = {0x08, 0x04, 0x02, 0x01 }; //secuencia para reversa
-const byte full[] = {0x03, 0x06, 0x0A, 0x09 }; //secuencia para full, de 45 en 45°
-const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0C, 0x08, 0x09}; //secuencia de medio paso
+const byte backward[] = {0x01, 0x02, 0x04, 0x08 };
+const byte forward[] = {0x08, 0x04, 0x02, 0x01 };
+const byte full[] = {0x03, 0x06, 0x0A, 0x09 };
+const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0A, 0x08, 0x09};
 
 void main()
 {
@@ -22,28 +21,28 @@ void main()
       if(input_b() == 0x01){
          for(int x=0; x <4; x++){
          output_d(forward[x]);
-         delay_ms(time);
+         delay_ms(100);
         }
       }
       
       if(input_b() == 0x02){
          for(int x=0; x <4; x++){
          output_d(backward[x]);
-         delay_ms(time);
+         delay_ms(100);
         }
       }
       
       if(input_b() == 0x04){
          for(int x=0; x <8; x++){
          output_d(half[x]);
-         delay_ms(time);
+         delay_ms(100);
         }
       }
       
        if(input_b() == 0x08){
          for(int x=0; x <8; x++){
          output_d(full[x]);
-         delay_ms(time);
+         delay_ms(100);
         }
       }
    }

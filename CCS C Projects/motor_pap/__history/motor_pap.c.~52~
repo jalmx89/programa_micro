@@ -1,0 +1,28 @@
+#include <motor_pap.h>
+
+#use fast_io(D)
+#use fast_io(B)
+
+const byte backward[] = {0x01, 0x02, 0x04, 0x08 };
+const byte forward[] = {0x08, 0x04, 0x02, 0x01 };
+const byte full[] = {0x03, 0x06, 0x0A, 0x09 };
+const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0A, 0x08, 0x09};
+
+void main()
+{
+   set_tris_d(0);
+   output_d(0);
+   
+   port_b_pullups(TRUE);
+   
+   
+   while(TRUE)
+   {
+      for(int x=0; x <4; x++){
+         output_d(backward[x]);
+         delay_ms(100);
+      }
+      
+   }
+
+}

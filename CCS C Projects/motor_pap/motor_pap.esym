@@ -1,7 +1,7 @@
-D G "__PCH__" 0 28 ""5.015""
-D G "__DEVICE__" 0 28 "4550"
-D G "__DATE__" 0 28 ""24-abr-18""
-D G "__TIME__" 0 28 ""00:55:59"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 0 54 ""5.015""
+D G "__DEVICE__" 0 54 "4550"
+D G "__DATE__" 0 54 ""24-abr-18""
+D G "__TIME__" 0 54 ""01:40:05"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -912,9 +912,16 @@ d G "INT_EEPROM" 2 831 "0x00A010"
 d G "INT_OSCF" 2 832 "0x00A080"
 d G "INT_SPP" 2 833 "0x009D80"
 d G "INT_USB" 2 834 "0x00A020"
-V G "positions" 0 5 "[1]" `646 
-F G "main" 0 13 "void()" `649 
-V L "x" 0 19 "int8" `652 
+D G "time" 0 6 "500" "variable defina para el tiempo de retardo"
+V G "backward" 0 8 "[1]" `646 
+V G "forward" 0 9 "[1]" `649 
+V G "full" 0 10 "[1]" `652 
+V G "half" 0 11 "[1]" `655 
+F G "main" 0 14 "void()" `658 
+V L "x" 0 24 "int8" `661 
+V L "x" 0 31 "int8" `662 
+V L "x" 0 38 "int8" `663 
+V L "x" 0 45 "int8" `664 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

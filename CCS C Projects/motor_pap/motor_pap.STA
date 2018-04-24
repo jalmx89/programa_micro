@@ -1,47 +1,50 @@
 
-ROM used:   126/32768 (0%)
-            126/32768 (0%) including unused fragments
+ROM used:   356/32768 (1%)
+            356/32768 (1%) including unused fragments
 
-            0.1 Average locations per line
-            15.8 Average locations per statement
+            0.4 Average locations per line
+            11.9 Average locations per statement
 
 RAM used:   5/2048 (0%) at main() level
-            6/2048 (0%) worst case
+            10/2048 (0%) worst case
 
 Stack used: 1 worst case (1 in main + 0 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   27     8 100  motor_pap.c
+   53    30 100  motor_pap.c
    12     0   0  motor_pap.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
 ----- -----
-  876     8 Total
+  902    30 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     40  16    1             @delay_ms1
-0     20   8    0             @const646
-0     62  25    1   181  4.0  main
- Inline         0   181  4.0  @cinit1
+0     38   5    1             @delay_ms1
+0     20   3    0             @const646
+0     20   3    0   181  4.0  @const649
+0     20   3    0   181  4.0  @const652
+0     24   3    0   181  4.0  @const655
+0    230  32    1   898  5.6  main
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               2
-    Statements              8
+    Functions               4
+    Statements              30
     Comments                151
-    Volume (V)              441
-    Difficulty (D)          7.6
-    Effort to implement (E) 3345
-    Time to implement (T)   3 minutes
+    Volume (V)              1892
+    Difficulty (D)          17.7
+    Effort to implement (E) 33486
+    Time to implement (T)   31 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   2
-    Maintainability (MI)    159
+    Cyclomatic Complexity   11
+    Maintainability (MI)    101
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE   122  32642  
+00004-07FFE   352  32412  
 
 
 

@@ -2,7 +2,9 @@
 
 #use fast_io(D)
 
-const int8 positions[] = {0x01, 0x05, 0x04, 0x06};
+const byte forward[] = {0x01, 0x02, 0x04, 0x08 };
+const byte full[] = {0x03, 0x06, 0x0A, 0x09 };
+
 void main()
 {
    set_tris_d(0);
@@ -11,8 +13,8 @@ void main()
    while(TRUE)
    {
       for(int x=0; x < 4; x++){
-         output_d(positions[x]);
-         delay_ms(100);
+         output_d(full[x]);
+         delay_ms(50);
       }
       
    }
