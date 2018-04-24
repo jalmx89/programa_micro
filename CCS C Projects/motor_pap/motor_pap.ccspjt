@@ -1,0 +1,22 @@
+[PROJECT]
+Target=motor_pap.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=motor_pap.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\motor_pap\motor_pap]
+Type=4
+[mru-list]
+1=motor_pap.c
+[Opened Files]
+1=motor_pap.c
+2=
+[motor_pap.c]
+Type=4
+[Units]
+Count=1
+1=motor_pap (main)

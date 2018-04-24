@@ -14,9 +14,9 @@ Type=4
 1=sensor_temp.c
 [Opened Files]
 1=sensor_temp.c
-2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+2=
 3=sensor_temp.h
-4=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18LF4550.h
+4=
 5=
 [sensor_temp.c]
 Type=4

@@ -1,11 +1,11 @@
-CCS PCH C Compiler, Version 5.015, 5967               16-abr-18 17:57
+CCS PCH C Compiler, Version 5.015, 5967               19-abr-18 13:29
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\invertir_giro\invertir_giro.lst
 
-               ROM used:   130 bytes (0%)
-                           Largest free fragment is 32638
-               RAM used:   6 (0%) at main() level
-                           6 (0%) worst case
+               ROM used:   118 bytes (0%)
+                           Largest free fragment is 32650
+               RAM used:   5 (0%) at main() level
+                           5 (0%) worst case
                Stack used: 1 locations
                Stack size: 31
 
@@ -85,64 +85,58 @@ CCS PCH C Compiler, Version 5.015, 5967               16-abr-18 17:57
 ....................     
 ....................    while(TRUE) 
 ....................    { 
-....................       if(input(PIN_B0) == 1){ 
+....................       if(input(PIN_B0) == 1 && !input(PIN_B1) ){ 
 0046:  BTFSS  F81.0
-0048:  BRA    0056
+0048:  BRA    005A
+004A:  BTFSC  F81.1
+004C:  BRA    005A
 ....................          output_high(PIN_C0); 
-004A:  BSF    F8B.0
+004E:  BSF    F8B.0
 ....................          output_low(PIN_C1); 
-004C:  BCF    F8B.1
+0050:  BCF    F8B.1
 ....................           
 ....................          delay_ms(5); 
-004E:  MOVLW  05
-0050:  MOVWF  05
-0052:  RCALL  0004
+0052:  MOVLW  05
+0054:  MOVWF  05
+0056:  RCALL  0004
 ....................       } 
-0054:  BRA    0058
+0058:  BRA    005C
 ....................       else{ 
 ....................          output_c(0); 
-0056:  CLRF   F8B
+005A:  CLRF   F8B
 ....................       } 
 ....................        
-....................       if(input(PIN_B1) == 1 ){ 
-0058:  BTFSS  F81.1
-005A:  BRA    0068
+....................       if(input(PIN_B1) == 1 && !input(PIN_B0) ){ 
+005C:  BTFSS  F81.1
+005E:  BRA    0070
+0060:  BTFSC  F81.0
+0062:  BRA    0070
 ....................          output_low(PIN_C0); 
-005C:  BCF    F8B.0
+0064:  BCF    F8B.0
 ....................          output_high(PIN_C1); 
-005E:  BSF    F8B.1
+0066:  BSF    F8B.1
 ....................          delay_ms(5); 
-0060:  MOVLW  05
-0062:  MOVWF  05
-0064:  RCALL  0004
+0068:  MOVLW  05
+006A:  MOVWF  05
+006C:  RCALL  0004
 ....................           
 ....................       }else{ 
-0066:  BRA    006A
+006E:  BRA    0072
 ....................          output_c(0); 
-0068:  CLRF   F8B
+0070:  CLRF   F8B
 ....................       } 
+0072:  BRA    0046
 ....................        
-....................       if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código 
-006A:  BTFSS  F81.0
-006C:  BRA    007E
-006E:  BTFSS  F81.1
-0070:  BRA    007E
+....................      /* if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código 
 ....................          output_low(PIN_C0); 
-0072:  BCF    F8B.0
 ....................          output_low(PIN_C1); 
-0074:  BCF    F8B.1
 ....................           
 ....................          while(input(PIN_B0) == 1 && input(PIN_B1) == 1){} 
-0076:  BTFSS  F81.0
-0078:  BRA    007E
-007A:  BTFSC  F81.1
-007C:  BRA    0076
-....................       } 
-007E:  BRA    0046
+....................       }*/ 
 ....................    } 
 ....................  
 .................... } 
-0080:  SLEEP 
+0074:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

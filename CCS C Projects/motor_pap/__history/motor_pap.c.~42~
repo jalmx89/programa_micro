@@ -1,0 +1,26 @@
+#include <motor_pap.h>
+
+#use fast_io(D)
+
+const byte positions[] = {
+                           0b00000001,
+                           0b00000010,
+                           0b00000100,
+                           0b00001000
+                           };
+
+void main()
+{
+   set_tris_d(0);
+   output_d(0);
+   
+   while(TRUE)
+   {
+      for(int x=0; x < 4; x++){
+         output_d(positions[x]);
+         delay_ms(100);
+      }
+      
+   }
+
+}

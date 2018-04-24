@@ -14,7 +14,8 @@ Type=4
 1=adc_lcd.c
 [Opened Files]
 1=adc_lcd.c
-2=
+2=adc_lcd.h
+3=
 [adc_lcd.c]
 Type=4
 [Units]

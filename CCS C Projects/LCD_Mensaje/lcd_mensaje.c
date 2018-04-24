@@ -1,7 +1,7 @@
 #include <lcd_mensaje.h>
 #include <lcd.c>
 
-#use fast_io(D)  
+#define LCD_DATA_PORT getenv("SFR:PORTD") //seleccionamos el puerto
 
 #define LCD_ENABLE_PIN  PIN_D0                                    ////
 #define LCD_RS_PIN      PIN_D1                                    ////
@@ -22,9 +22,11 @@ void main()
    while(TRUE)
    {
       printf(lcd_putc, "\fHola  :)");
-      delay_ms(250);
-      lcd_gotoxy(1,2);
+      delay_ms(500);
+      lcd_gotoxy(4,2);
       printf(lcd_putc, "Desconocido ");
       delay_ms(800);
+      printf(lcd_putc,"\f");
+      delay_ms(250);
    }
 }

@@ -1,8 +1,7 @@
-d G "ADC_READ_ONLY" 2 570 "6"
-D G "__PCH__" 2 736 ""5.015""
-D G "__DEVICE__" 2 736 "4550"
-D G "__DATE__" 2 736 ""04-abr-18""
-D G "__TIME__" 2 736 ""17:23:52"" "Standard Header file for the PIC18F4550 device ////////////////"
+D G "__PCH__" 2 46 ""5.015""
+D G "__DEVICE__" 2 46 "4550"
+D G "__DATE__" 2 46 ""17-abr-18""
+D G "__TIME__" 2 46 ""13:49:00"" "Standard Header file for the PIC18F4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -913,7 +912,7 @@ d G "INT_EEPROM" 2 831 "0x00A010"
 d G "INT_OSCF" 2 832 "0x00A080"
 d G "INT_SPP" 2 833 "0x009D80"
 d G "INT_USB" 2 834 "0x00A020"
-D G "LCD_DATA_PORT" 0 2 "getenv("SFR:PORTB")"
+D G "LCD_DATA_PORT" 0 3 "getenv("SFR:PORTB")"
 D G "__LCD_C__" 3 76 ""
 C L "jump_to_irs" 3 2 2 "FUNCTION"
 C L "jump_to_irs" 3 2 1 "FUNCTION"
@@ -970,16 +969,17 @@ V L "on" 3 443 "int8" `683
 F G "lcd_cursor_on" 3 444 "void(int8 on)" `682 
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
-D G "LCD_ENABLE_PIN" 0 5 "PIN_B0"
-D G "LCD_RS_PIN" 0 6 "PIN_B1"
-D G "LCD_RW_PIN" 0 7 "PIN_B2"
-D G "LCD_DATA4" 0 8 "PIN_B4"
-D G "LCD_DATA5" 0 9 "PIN_B5"
-D G "LCD_DATA6" 0 10 "PIN_B6"
-D G "LCD_DATA7" 0 11 "PIN_B7"
-F G "MAIN" 0 14 "void()" `684 
-V L "i" 0 19 "int8" `687 
-C L "MAIN" 0 23 1 "FUNCTION"
+D G "LCD_ENABLE_PIN" 0 6 "PIN_B0"
+D G "LCD_RS_PIN" 0 7 "PIN_B1"
+D G "LCD_RW_PIN" 0 8 "PIN_B2"
+D G "LCD_DATA4" 0 9 "PIN_B4"
+D G "LCD_DATA5" 0 10 "PIN_B5"
+D G "LCD_DATA6" 0 11 "PIN_B6"
+D G "LCD_DATA7" 0 12 "PIN_B7"
+F G "MAIN" 0 15 "void()" `684 
+C L "MAIN" 0 22 1 "FUNCTION"
+V L "i" 0 25 "int8" `689 
+C L "MAIN" 0 22 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

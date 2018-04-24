@@ -20,8 +20,8 @@
 00E     lcd_send_byte.n
 00F     lcd_read_byte.low
 00F     lcd_send_byte.@SCRATCH1
-010     lcd_read_byte.high
 010     lcd_send_nibble.n
+010     lcd_read_byte.high
 011     lcd_read_byte.@SCRATCH1
 F81     lcd
 F83     PSP_DATA
@@ -41,35 +41,36 @@ FE9-FEA @READ_PROGRAM_MEMORY.P1
 FE9-FEA @WRITE_PACKED_MEMORY.P2
 FE9-FEA @READ_PACKED_MEMORY.P3
 FE9-FEA @WRITE_PROGRAM_MEMORY.P4
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
-FF6-FF8 @READ_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
 
 ROM Allocation:
-000004  @const688.call
+000004  @const687.call
 00000E  @const690.call
-000010  @delay_ms1
-000036  lcd_send_nibble
-000058  lcd_read_nibble
-000064  lcd_read_byte
-0000A6  lcd_send_byte
-0000E0  lcd_init
-000158  lcd_gotoxy
-00017A  lcd_putc
-0001CC  @PSTRINGC_672
-0001EC  MAIN
-0001EC  @cinit1
-0001FC  @cinit2
+000010  @const691.call
+000012  @delay_ms1
+000038  lcd_send_nibble
+00005A  lcd_read_nibble
+000066  lcd_read_byte
+0000A8  lcd_send_byte
+0000E2  lcd_init
+00015A  lcd_gotoxy
+00017C  lcd_putc
+0001CE  @PSTRINGC_672
+0001EE  @cinit1
+0001EE  MAIN
+0001FE  @cinit2
 
 Project Directory:
     C:\Users\VAIO\Desktop\class_micro\CCS C Projects\LCD_cargando\
 
 Project Files:
-    lcd_cargando.c                                          [04-abr-18 17:23  CRC=F32A31C4]
+    lcd_cargando.c                                          [17-abr-18 13:48  CRC=C93EED38]
     lcd_cargando.h                                          [04-abr-18 06:28  CRC=1C5A6858]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-sep-13 16:38  CRC=D1A6378A]
 
-Source signature=0608EB78
+Source signature=DC1DA6EC
 
 Units:
     lcd_cargando (main)

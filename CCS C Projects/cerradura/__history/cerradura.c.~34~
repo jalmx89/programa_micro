@@ -1,0 +1,81 @@
+#include <cerradura.h>
+#include "keypad4x4.c"
+
+#define LCD_DATA_PORT getenv("SFR:PORTD")
+#include <lcd.c>
+#define LCD_ENABLE_PIN  PIN_D0                                    ////
+#define LCD_RS_PIN      PIN_D1                                    ////
+#define LCD_RW_PIN      PIN_D2                                    ////
+#define LCD_DATA4       PIN_D4                                    ////
+#define LCD_DATA5       PIN_D5                                    ////
+#define LCD_DATA6       PIN_D6                                    ////
+#define LCD_DATA7       PIN_D7  
+
+#use fast_io(C)
+
+const char clave[] = {'1', '2', '3', '4'};
+char claveRecibida[4];
+
+void main()
+{
+   lcd_init(); //inicio la LCD
+   delay_ms(100); //espero el tiempo de configuración
+   
+   kbd_init(); //inicializo el teclado
+   port_b_pullups(TRUE); //activo las resistencias pull_up del puerto B
+   
+   set_tris_c(0); //defino como salida el port C
+   output_c(0); //mando a cero el port C  
+   
+   printf(lcd_putc,"\fBienvenido\nDigite la clave");
+   
+   char tecla;
+   unsigned int8 position = 0, into = 0;
+   
+   
+   while(TRUE)
+   {
+      tecla = kbd_getc();
+      
+      if(tecla != 0){
+         
+         if(position == 0){
+            printf(lcd_putc, "\f");
+            lcd_gotoxy(4,1);
+            printf(lcd_putc, "Clave");
+            into++;
+         }
+         position++; //incremento la posicion para saber en cual voy
+         
+         lcd_gotoxy(position+3,2);
+         printf(lcd_putc, "%c", tecla);
+         claveRecibida[position] = tecla; //guardo el caracter que presionaron en el teclado
+         
+         unsigned int8 claveOk = 0;
+         if(position == 4){
+            delay_ms(200);
+            for(int x = 0; x <=4; x++){
+               if(clave[x] == claveRecibida[x]){
+                  claveOk = 1;
+               }
+            }
+            
+            if(claveOk == 1){
+               claveOk = 0;
+               printf(lcd_putc, "\fAbriendo\nescotilla");
+               output_high(PIN_C0);
+               delay_ms(1000);
+               output_low(PIN_C0);
+               printf(lcd_putc, "\fEl tesoro\nes tuyo");
+               delay_ms(2000);
+            }else{
+               printf(lcd_putc, "\fContrasenia\nIncorrecta");
+               delay_ms(500);
+               printf(lcd_putc,"\fBienvenido\nDigite la clave");
+            }
+            position = 0;
+         }
+      }
+   }
+
+}

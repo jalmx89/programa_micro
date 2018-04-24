@@ -11,20 +11,25 @@
 #define LCD_DATA6       PIN_B6                                    ////
 #define LCD_DATA7       PIN_B7
 
+#use fast_io(D)
+
 void main(){
-   unsigned int16 valor = 0;
+   unsigned int16 valor = 0;//leer valor analogico
    float voltaje = 0;
+   
+   set_tris_d(0);
+   output_d(0);
    
    lcd_init();    //inicio lcd
    delay_ms(10);  //tiempo de espera de configuracion de lcd
    
    ///////////////////configuracion de ADC
-   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que será el relojo interno
-   setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usará uno
+   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que serï¿½ el relojo interno
+   setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usarï¿½ uno
    
    set_adc_channel(0); //decimos que vamos a leer el canal 0,
-   delay_ms(100);        //el tiempo que viene marcado en el datasshet para esperar la configuración interna
-   //////////////////////termina la configuración de ADC
+   delay_ms(100);        //el tiempo que viene marcado en el datasshet para esperar la configuraciï¿½n interna
+   //////////////////////termina la configuraciï¿½n de ADC
    
    lcd_putc("\fLeyendo ADC");
    delay_ms(900);
@@ -32,12 +37,13 @@ void main(){
    while(TRUE){
       
       valor = read_adc(); //leemos el canal que acabamos de configurar
+      output_d(valor);
       
       printf(lcd_putc, "\fADC: %4Lu", valor);  //pongo en la lcd en parte superior el valor del ADC
       
-      voltaje = (5 * valor)/1024.0; //convierto los bits en valor del voltaje
+      voltaje = (5 * valor)/1023.0; //convierto los bits en valor del voltaje
       //lcd_gotoxy(1,2); //mando al segundo renglon el cursor
-      printf(lcd_putc, "\nVoltaje: %1.2fV", voltaje); //pongo en la lcd el texto con el valor del voltaje
+      printf(lcd_putc, "\nVoltaje: %1.4fV", voltaje); //pongo en la lcd el texto con el valor del voltaje
       
       delay_ms(50);  //tiempo de espera para repetir el proceso
    }

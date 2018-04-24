@@ -16,21 +16,28 @@ void main()
 
    lcd_init();
    delay_ms(10);   
-   
-   int8 i=1;
-   
+  
    while(TRUE)
    {
-      lcd_putc("\fCargando"); //Limpio toda la lcd y se vizualiza "cargando" en posicion (1,1)
-      delay_ms(10);
-   
+     lcd_putc("\fCargando"); //Limpio toda la lcd y se vizualiza "cargando" en posicion (1,1)
+     delay_ms(10);
+        
+      int8 i=1;
+      
       for(; i <= 16; i++){
          lcd_gotoxy(i,2);
          lcd_putc("*");
          delay_ms(500);
       }
      
-      i = 0; //reset    
-   }
+      i = 1; //reset    
+      
+      for(; i <= 16; i++){
+         lcd_gotoxy(i,2);
+         lcd_putc("+");
+         delay_ms(500);
+      }
+      
+   }//termina el while
 
 }

@@ -13,8 +13,8 @@ Type=4
 [mru-list]
 1=lcd_mensaje.c
 [Opened Files]
-1=lcd_mensaje.c
-2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+1=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+2=lcd_mensaje.c
 3=
 [lcd_mensaje.c]
 Type=4

@@ -1,0 +1,47 @@
+
+ROM used:   126/32768 (0%)
+            126/32768 (0%) including unused fragments
+
+            0.1 Average locations per line
+            15.8 Average locations per statement
+
+RAM used:   5/2048 (0%) at main() level
+            6/2048 (0%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   27     8 100  motor_pap.c
+   12     0   0  motor_pap.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  876     8 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40  16    1             @delay_ms1
+0     20   8    0             @const646
+0     62  25    1   181  4.0  main
+ Inline         0   181  4.0  @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              8
+    Comments                151
+    Volume (V)              441
+    Difficulty (D)          7.6
+    Effort to implement (E) 3345
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    159
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   122  32642  
+
+
+

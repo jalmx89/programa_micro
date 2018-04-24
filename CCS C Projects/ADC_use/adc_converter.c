@@ -8,17 +8,14 @@ void main(){
    set_tris_d(0); //configuro el puerto D como salida
    output_d(0);   //pongo a 0 todas las salidas del puerto D
    
-   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que será el relojo interno
-   setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usará uno
-   
+   setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que serï¿½ el relojo interno
+   setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usarï¿½ uno
    set_adc_channel(0); //decimos que vamos a leer el canal 0,
-   delay_ms(10);        //el tiempo que viene marcado en el datasshet para esperar la configuración interna
-  
+   delay_ms(10);        //el tiempo que viene marcado en el datasshet para esperar la configuraciï¿½n interna
    
    while(TRUE){
       valor = read_adc(); //leemos el canal que acabamos de configurar
       output_d(valor);
       delay_ms(10);
-   }
-
+   }//termina while
 }

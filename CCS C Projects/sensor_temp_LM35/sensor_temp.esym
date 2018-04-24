@@ -1,7 +1,8 @@
-D G "__PCH__" 0 47 ""5.015""
-D G "__DEVICE__" 0 47 "4550"
-D G "__DATE__" 0 47 ""04-abr-18""
-D G "__TIME__" 0 47 ""19:40:56"" "Standard Header file for the PIC18LF4550 device ////////////////"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "__PCH__" 3 136 ""5.015""
+D G "__DEVICE__" 3 136 "4550"
+D G "__DATE__" 3 136 ""19-abr-18""
+D G "__TIME__" 3 136 ""12:31:50"" "Standard Header file for the PIC18LF4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -976,7 +977,7 @@ D G "LCD_DATA4" 0 9 "PIN_D4"
 D G "LCD_DATA5" 0 10 "PIN_D5"
 D G "LCD_DATA6" 0 11 "PIN_D6"
 D G "LCD_DATA7" 0 12 "PIN_D7"
-F G "MAIN" 0 15 "void()" `684  "configuración del ADC"
+F G "MAIN" 0 15 "void()" `684  "configuraciï¿½n del ADC"
 C L "MAIN" 0 21 2 "FUNCTION"
 C L "MAIN" 0 21 1 "FUNCTION"
 V L "valor" 0 31 "int16" `689 

@@ -1,9 +1,9 @@
-CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
+CCS PCH C Compiler, Version 5.015, 5967               17-abr-18 15:42
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\ADC_lcd\adc_lcd.lst
 
-               ROM used:   2284 bytes (7%)
-                           Largest free fragment is 30484
+               ROM used:   2298 bytes (7%)
+                           Largest free fragment is 30470
                RAM used:   12 (1%) at main() level
                            36 (2%) worst case
                Stack used: 6 locations
@@ -43,7 +43,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 0024:  DATA 6A,65
 0026:  DATA 3A,20
 0028:  DATA 25,31
-002A:  DATA 2E,32
+002A:  DATA 2E,34
 002C:  DATA 66,56
 002E:  DATA 00,00
 *
@@ -57,7 +57,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 01FE:  MOVFF  0B,FF6
 0202:  MOVFF  0C,FF7
 0206:  BRA    01EA
-0208:  GOTO   082A (RETURN)
+0208:  GOTO   0830 (RETURN)
 020C:  TBLRD*+
 020E:  MOVFF  FF6,0C
 0212:  MOVFF  FF7,0D
@@ -153,7 +153,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 02DC:  MOVF   FEE,W
 02DE:  BTFSS  12.6
 02E0:  BRA    029C
-02E2:  GOTO   0864 (RETURN)
+02E2:  GOTO   086E (RETURN)
 02E6:  MOVF   0B,W
 02E8:  MULWF  0D
 02EA:  MOVFF  FF3,01
@@ -166,7 +166,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 02FC:  MOVF   FF3,W
 02FE:  ADDWFC 00,W
 0300:  MOVWF  02
-0302:  GOTO   0874 (RETURN)
+0302:  GOTO   087E (RETURN)
 0306:  MOVLW  8E
 0308:  MOVWF  00
 030A:  MOVFF  0E,01
@@ -190,7 +190,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 0334:  DECF   00,F
 0336:  BRA    032A
 0338:  BCF    01.7
-033A:  GOTO   0886 (RETURN)
+033A:  GOTO   0890 (RETURN)
 033E:  MOVF   0D,W
 0340:  BTFSC  FD8.2
 0342:  BRA    048E
@@ -358,7 +358,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 0490:  CLRF   01
 0492:  CLRF   02
 0494:  CLRF   03
-0496:  GOTO   08A2 (RETURN)
+0496:  GOTO   08B0 (RETURN)
 049A:  MOVF   18,W
 049C:  BTFSC  FD8.2
 049E:  BRA    0582
@@ -727,7 +727,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 07CA:  MOVFF  00,14
 07CE:  DECFSZ 12,F
 07D0:  BRA    06F0
-07D2:  GOTO   08DA (RETURN)
+07D2:  GOTO   08E8 (RETURN)
 ....................  
 .................... #list 
 ....................  
@@ -1244,7 +1244,7 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 ....................   #if defined(LCD_EXTENDED_NEWLINE) 
 0170:  INCF   0B,F
 0172:  BRA    0150
-0174:  GOTO   07F4 (RETURN)
+0174:  GOTO   07FA (RETURN)
 ....................    g_LcdX = 0; 
 ....................    g_LcdY = 0; 
 ....................   #endif 
@@ -1427,6 +1427,8 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 .................... #define LCD_DATA6       PIN_B6                                    //// 
 .................... #define LCD_DATA7       PIN_B7 
 ....................  
+.................... #use fast_io(D) 
+....................  
 .................... void main(){ 
 *
 07D6:  CLRF   FF8
@@ -1443,137 +1445,146 @@ CCS PCH C Compiler, Version 5.015, 5967               04-abr-18 05:39
 07EC:  CLRF   09
 07EE:  CLRF   08
 07F0:  CLRF   07
-....................    unsigned int16 valor = 0; 
+....................    unsigned int16 valor = 0;//leer valor analogico 
 ....................    float voltaje = 0; 
 ....................     
+....................    set_tris_d(0); 
+07F2:  MOVLW  00
+07F4:  MOVWF  F95
+....................    output_d(0); 
+07F6:  CLRF   F8C
+....................     
 ....................    lcd_init();    //inicio lcd 
-07F2:  BRA    0100
+07F8:  BRA    0100
 ....................    delay_ms(10);  //tiempo de espera de configuracion de lcd 
-07F4:  MOVLW  0A
-07F6:  MOVWF  19
-07F8:  RCALL  0030
+07FA:  MOVLW  0A
+07FC:  MOVWF  19
+07FE:  RCALL  0030
 ....................     
 ....................    ///////////////////configuracion de ADC 
-....................    setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que será el relojo interno 
-07FA:  MOVF   FC0,W
-07FC:  ANDLW  C0
-07FE:  IORLW  07
-0800:  MOVWF  FC0
-0802:  BSF    FC0.7
-0804:  BSF    FC2.0
-....................    setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usará uno 
-0806:  MOVF   FC1,W
-0808:  ANDLW  C0
-080A:  IORLW  0E
-080C:  MOVWF  FC1
+....................    setup_adc(ADC_CLOCK_INTERNAL); //configuramos el reloj para el ADC, le decimos que serï¿½ el relojo interno 
+0800:  MOVF   FC0,W
+0802:  ANDLW  C0
+0804:  IORLW  07
+0806:  MOVWF  FC0
+0808:  BSF    FC0.7
+080A:  BSF    FC2.0
+....................    setup_adc_ports(AN0); //elegimos el puerto del cual vamos a usar el ADC, en este caso el PORTA => AN0, por que solo se usarï¿½ uno 
+080C:  MOVF   FC1,W
+080E:  ANDLW  C0
+0810:  IORLW  0E
+0812:  MOVWF  FC1
 ....................     
 ....................    set_adc_channel(0); //decimos que vamos a leer el canal 0, 
-080E:  MOVLW  00
-0810:  MOVWF  01
-0812:  MOVF   FC2,W
-0814:  ANDLW  C3
-0816:  IORWF  01,W
-0818:  MOVWF  FC2
-....................    delay_ms(100);        //el tiempo que viene marcado en el datasshet para esperar la configuración interna 
-081A:  MOVLW  64
-081C:  MOVWF  19
-081E:  RCALL  0030
-....................    //////////////////////termina la configuración de ADC 
+0814:  MOVLW  00
+0816:  MOVWF  01
+0818:  MOVF   FC2,W
+081A:  ANDLW  C3
+081C:  IORWF  01,W
+081E:  MOVWF  FC2
+....................    delay_ms(100);        //el tiempo que viene marcado en el datasshet para esperar la configuraciï¿½n interna 
+0820:  MOVLW  64
+0822:  MOVWF  19
+0824:  RCALL  0030
+....................    //////////////////////termina la configuraciï¿½n de ADC 
 ....................     
 ....................    lcd_putc("\fLeyendo ADC"); 
-0820:  MOVLW  04
-0822:  MOVWF  FF6
-0824:  MOVLW  00
-0826:  MOVWF  FF7
-0828:  BRA    01EA
+0826:  MOVLW  04
+0828:  MOVWF  FF6
+082A:  MOVLW  00
+082C:  MOVWF  FF7
+082E:  BRA    01EA
 ....................    delay_ms(900); 
-082A:  MOVLW  04
-082C:  MOVWF  0B
-082E:  MOVLW  E1
-0830:  MOVWF  19
-0832:  CALL   0030
-0836:  DECFSZ 0B,F
-0838:  BRA    082E
+0830:  MOVLW  04
+0832:  MOVWF  0B
+0834:  MOVLW  E1
+0836:  MOVWF  19
+0838:  CALL   0030
+083C:  DECFSZ 0B,F
+083E:  BRA    0834
 ....................     
 ....................    while(TRUE){ 
 ....................        
 ....................       valor = read_adc(); //leemos el canal que acabamos de configurar 
-083A:  BSF    FC2.1
-083C:  BTFSC  FC2.1
-083E:  BRA    083C
-0840:  MOVFF  FC3,05
-0844:  MOVFF  FC4,06
-....................        
+0840:  BSF    FC2.1
+0842:  BTFSC  FC2.1
+0844:  BRA    0842
+0846:  MOVFF  FC3,05
+084A:  MOVFF  FC4,06
+....................       output_d(valor); 
+084E:  MOVFF  05,F8C
 ....................       printf(lcd_putc, "\fADC: %4Lu", valor);  //pongo en la lcd en parte superior el valor del ADC 
-0848:  MOVLW  12
-084A:  MOVWF  FF6
-084C:  MOVLW  00
-084E:  MOVWF  FF7
-0850:  MOVLW  06
-0852:  MOVWF  0B
-0854:  RCALL  020C
-0856:  MOVLW  01
-0858:  MOVWF  FE9
-085A:  MOVFF  06,0C
-085E:  MOVFF  05,0B
-0862:  BRA    022A
+0852:  MOVLW  12
+0854:  MOVWF  FF6
+0856:  MOVLW  00
+0858:  MOVWF  FF7
+085A:  MOVLW  06
+085C:  MOVWF  0B
+085E:  RCALL  020C
+0860:  MOVLW  01
+0862:  MOVWF  FE9
+0864:  MOVFF  06,0C
+0868:  MOVFF  05,0B
+086C:  BRA    022A
 ....................        
-....................       voltaje = (5 * valor)/1024.0; //convierto los bits en valor del voltaje 
-0864:  CLRF   0C
-0866:  MOVLW  05
-0868:  MOVWF  0B
-086A:  MOVFF  06,0E
-086E:  MOVFF  05,0D
-0872:  BRA    02E6
-0874:  MOVFF  02,0C
-0878:  MOVFF  01,0B
-087C:  MOVFF  02,0E
-0880:  MOVFF  01,0D
-0884:  BRA    0306
-0886:  MOVFF  03,10
-088A:  MOVFF  02,0F
-088E:  MOVFF  01,0E
-0892:  MOVFF  00,0D
-0896:  CLRF   14
-0898:  CLRF   13
-089A:  CLRF   12
-089C:  MOVLW  89
-089E:  MOVWF  11
-08A0:  BRA    033E
-08A2:  MOVFF  03,0A
-08A6:  MOVFF  02,09
-08AA:  MOVFF  01,08
-08AE:  MOVFF  00,07
+....................       voltaje = (5 * valor)/1023.0; //convierto los bits en valor del voltaje 
+086E:  CLRF   0C
+0870:  MOVLW  05
+0872:  MOVWF  0B
+0874:  MOVFF  06,0E
+0878:  MOVFF  05,0D
+087C:  BRA    02E6
+087E:  MOVFF  02,0C
+0882:  MOVFF  01,0B
+0886:  MOVFF  02,0E
+088A:  MOVFF  01,0D
+088E:  BRA    0306
+0890:  MOVFF  03,10
+0894:  MOVFF  02,0F
+0898:  MOVFF  01,0E
+089C:  MOVFF  00,0D
+08A0:  CLRF   14
+08A2:  MOVLW  C0
+08A4:  MOVWF  13
+08A6:  MOVLW  7F
+08A8:  MOVWF  12
+08AA:  MOVLW  88
+08AC:  MOVWF  11
+08AE:  BRA    033E
+08B0:  MOVFF  03,0A
+08B4:  MOVFF  02,09
+08B8:  MOVFF  01,08
+08BC:  MOVFF  00,07
 ....................       //lcd_gotoxy(1,2); //mando al segundo renglon el cursor 
-....................       printf(lcd_putc, "\nVoltaje: %1.2fV", voltaje); //pongo en la lcd el texto con el valor del voltaje 
-08B2:  MOVLW  1E
-08B4:  MOVWF  FF6
-08B6:  MOVLW  00
-08B8:  MOVWF  FF7
-08BA:  MOVLW  0A
-08BC:  MOVWF  0B
-08BE:  RCALL  020C
-08C0:  MOVLW  89
-08C2:  MOVWF  FE9
-08C4:  MOVFF  0A,0E
-08C8:  MOVFF  09,0D
-08CC:  MOVFF  08,0C
-08D0:  MOVFF  07,0B
-08D4:  MOVLW  02
-08D6:  MOVWF  0F
-08D8:  BRA    065C
-08DA:  MOVLW  56
-08DC:  MOVWF  18
-08DE:  RCALL  019A
+....................       printf(lcd_putc, "\nVoltaje: %1.4fV", voltaje); //pongo en la lcd el texto con el valor del voltaje 
+08C0:  MOVLW  1E
+08C2:  MOVWF  FF6
+08C4:  MOVLW  00
+08C6:  MOVWF  FF7
+08C8:  MOVLW  0A
+08CA:  MOVWF  0B
+08CC:  RCALL  020C
+08CE:  MOVLW  89
+08D0:  MOVWF  FE9
+08D2:  MOVFF  0A,0E
+08D6:  MOVFF  09,0D
+08DA:  MOVFF  08,0C
+08DE:  MOVFF  07,0B
+08E2:  MOVLW  04
+08E4:  MOVWF  0F
+08E6:  BRA    065C
+08E8:  MOVLW  56
+08EA:  MOVWF  18
+08EC:  RCALL  019A
 ....................        
 ....................       delay_ms(50);  //tiempo de espera para repetir el proceso 
-08E0:  MOVLW  32
-08E2:  MOVWF  19
-08E4:  CALL   0030
-08E8:  BRA    083A
+08EE:  MOVLW  32
+08F0:  MOVWF  19
+08F2:  CALL   0030
+08F6:  BRA    0840
 ....................    } 
 .................... } 
-08EA:  SLEEP 
+08F8:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

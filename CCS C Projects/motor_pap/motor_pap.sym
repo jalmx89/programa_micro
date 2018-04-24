@@ -1,0 +1,66 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     main.x
+006     @delay_ms1.P1
+006     main.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  positions.call
+000014  positions.data
+000018  @delay_ms1
+000040  main
+000040  @cinit1
+000050  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\motor_pap\
+
+Project Files:
+    motor_pap.c                                             [24-abr-18 00:56  CRC=F817D64F]
+    motor_pap.h                                             [23-abr-18 21:52  CRC=1C5A6858]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
+
+Source signature=BAE20337
+
+Units:
+    motor_pap (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   motor_pap.xsym
+    Errors:      motor_pap.err
+    Ext Symbols: motor_pap.esym
+    INHX32:      motor_pap.hex
+    Symbols:     motor_pap.sym
+    List:        motor_pap.lst
+    Debug/COFF:  motor_pap.cof
+    Project:     motor_pap.ccspjt
+    Call Tree:   motor_pap.tre
+    Statistics:  motor_pap.STA

@@ -1,16 +1,16 @@
-CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
+CCS PCH C Compiler, Version 5.015, 5967               17-abr-18 13:33
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\LCD_Mensaje\lcd_mensaje.lst
 
-               ROM used:   582 bytes (2%)
-                           Largest free fragment is 32186
+               ROM used:   600 bytes (2%)
+                           Largest free fragment is 32168
                RAM used:   5 (0%) at main() level
                            16 (1%) worst case
                Stack used: 6 locations
                Stack size: 31
 
 *
-0000:  GOTO   01F8
+0000:  GOTO   01F6
 .................... #include <lcd_mensaje.h> 
 .................... #include <18LF4550.h> 
 .................... //////////// Standard Header file for the PIC18LF4550 device //////////////// 
@@ -37,17 +37,17 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
 0018:  DATA 6F,20
 001A:  DATA 00,00
 *
-01D8:  TBLRD*+
-01DA:  MOVF   FF5,F
-01DC:  BZ    01F6
-01DE:  MOVFF  FF6,05
-01E2:  MOVFF  FF7,06
-01E6:  MOVFF  FF5,07
-01EA:  BRA    0186
-01EC:  MOVFF  05,FF6
-01F0:  MOVFF  06,FF7
-01F4:  BRA    01D8
-01F6:  RETURN 0
+01D6:  TBLRD*+
+01D8:  MOVF   FF5,F
+01DA:  BZ    01F4
+01DC:  MOVFF  FF6,05
+01E0:  MOVFF  FF7,06
+01E4:  MOVFF  FF5,07
+01E8:  RCALL  0186
+01EA:  MOVFF  05,FF6
+01EE:  MOVFF  06,FF7
+01F2:  BRA    01D6
+01F4:  RETURN 0
 ....................  
 .................... #list 
 ....................  
@@ -562,7 +562,7 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
 ....................   #if defined(LCD_EXTENDED_NEWLINE) 
 015C:  INCF   05,F
 015E:  BRA    013C
-0160:  GOTO   020A (RETURN)
+0160:  GOTO   0208 (RETURN)
 ....................    g_LcdX = 0; 
 ....................    g_LcdY = 0; 
 ....................   #endif 
@@ -682,7 +682,7 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
 01D2:  RCALL  00B2
 ....................      #endif 
 ....................    } 
-01D4:  GOTO   01EC (RETURN)
+01D4:  RETURN 0
 .................... } 
 ....................   
 .................... char lcd_getc(unsigned int8 x, unsigned int8 y) 
@@ -737,7 +737,7 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
 .................... #endif 
 ....................  
 ....................  
-.................... #use fast_io(D)   
+.................... #define LCD_DATA_PORT getenv("SFR:PORTD") //seleccionamos el puerto 
 ....................  
 .................... #define LCD_ENABLE_PIN  PIN_D0                                    //// 
 .................... #define LCD_RS_PIN      PIN_D1                                    //// 
@@ -750,60 +750,72 @@ CCS PCH C Compiler, Version 5.015, 5967               03-abr-18 06:16
 ....................  
 .................... void main() 
 *
-01F8:  CLRF   FF8
-01FA:  BCF    FD0.7
-01FC:  MOVF   FC1,W
-01FE:  ANDLW  C0
-0200:  IORLW  0F
-0202:  MOVWF  FC1
-0204:  MOVLW  07
-0206:  MOVWF  FB4
+01F6:  CLRF   FF8
+01F8:  BCF    FD0.7
+01FA:  MOVF   FC1,W
+01FC:  ANDLW  C0
+01FE:  IORLW  0F
+0200:  MOVWF  FC1
+0202:  MOVLW  07
+0204:  MOVWF  FB4
 .................... { 
 ....................    
 ....................    lcd_init(); //inicializo la LCD 
-0208:  BRA    00EC
+0206:  BRA    00EC
 ....................     
 ....................    delay_ms(100); //se da ese tiempo para que la LCD se reestablesca 
-020A:  MOVLW  64
-020C:  MOVWF  0A
-020E:  RCALL  001C
+0208:  MOVLW  64
+020A:  MOVWF  0A
+020C:  RCALL  001C
 ....................     
 ....................    while(TRUE) 
 ....................    { 
 ....................       printf(lcd_putc, "\fHola  :)"); 
-0210:  MOVLW  04
-0212:  MOVWF  FF6
-0214:  MOVLW  00
-0216:  MOVWF  FF7
-0218:  RCALL  01D8
-....................       delay_ms(250); 
-021A:  MOVLW  FA
-021C:  MOVWF  0A
-021E:  RCALL  001C
-....................       lcd_gotoxy(1,2); 
-0220:  MOVLW  01
-0222:  MOVWF  08
-0224:  MOVLW  02
-0226:  MOVWF  09
-0228:  RCALL  0164
+020E:  MOVLW  04
+0210:  MOVWF  FF6
+0212:  MOVLW  00
+0214:  MOVWF  FF7
+0216:  RCALL  01D6
+....................       delay_ms(500); 
+0218:  MOVLW  02
+021A:  MOVWF  05
+021C:  MOVLW  FA
+021E:  MOVWF  0A
+0220:  RCALL  001C
+0222:  DECFSZ 05,F
+0224:  BRA    021C
+....................       lcd_gotoxy(4,2); 
+0226:  MOVLW  04
+0228:  MOVWF  08
+022A:  MOVLW  02
+022C:  MOVWF  09
+022E:  RCALL  0164
 ....................       printf(lcd_putc, "Desconocido "); 
-022A:  MOVLW  0E
-022C:  MOVWF  FF6
-022E:  MOVLW  00
-0230:  MOVWF  FF7
-0232:  RCALL  01D8
+0230:  MOVLW  0E
+0232:  MOVWF  FF6
+0234:  MOVLW  00
+0236:  MOVWF  FF7
+0238:  RCALL  01D6
 ....................       delay_ms(800); 
-0234:  MOVLW  04
-0236:  MOVWF  05
-0238:  MOVLW  C8
-023A:  MOVWF  0A
-023C:  RCALL  001C
-023E:  DECFSZ 05,F
-0240:  BRA    0238
-0242:  BRA    0210
+023A:  MOVLW  04
+023C:  MOVWF  05
+023E:  MOVLW  C8
+0240:  MOVWF  0A
+0242:  RCALL  001C
+0244:  DECFSZ 05,F
+0246:  BRA    023E
+....................       printf(lcd_putc,"\f"); 
+0248:  MOVLW  0C
+024A:  MOVWF  07
+024C:  RCALL  0186
+....................       delay_ms(250); 
+024E:  MOVLW  FA
+0250:  MOVWF  0A
+0252:  RCALL  001C
+0254:  BRA    020E
 ....................    } 
 .................... } 
-0244:  SLEEP 
+0256:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO

@@ -13,7 +13,7 @@ void main()
    
    while(TRUE)
    {
-      if(input(PIN_B0) == 1){
+      if(input(PIN_B0) == 1 && !input(PIN_B1) ){
          output_high(PIN_C0);
          output_low(PIN_C1);
          
@@ -23,7 +23,7 @@ void main()
          output_c(0);
       }
       
-      if(input(PIN_B1) == 1 ){
+      if(input(PIN_B1) == 1 && !input(PIN_B0) ){
          output_low(PIN_C0);
          output_high(PIN_C1);
          delay_ms(5);
@@ -32,12 +32,12 @@ void main()
          output_c(0);
       }
       
-      if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código
+     /* if(input(PIN_B0) == 1 && input(PIN_B1) == 1){ //se puede optimizar el código
          output_low(PIN_C0);
          output_low(PIN_C1);
          
          while(input(PIN_B0) == 1 && input(PIN_B1) == 1){}
-      }
+      }*/
    }
 
 }

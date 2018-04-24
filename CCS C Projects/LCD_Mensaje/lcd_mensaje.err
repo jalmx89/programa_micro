@@ -1,3 +1,4 @@
+>>> Warning 225 "lcd_mensaje.c" Line 4(22,68): Duplicate #define
       Memory usage:   ROM=2%      RAM=0% - 1%
-      0 Errors,  0 Warnings.
+      0 Errors,  1 Warnings.
 Build Successful.

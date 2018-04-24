@@ -1,9 +1,9 @@
 
-ROM used:   2284/32768 (7%)
-            2284/32768 (7%) including unused fragments
+ROM used:   2298/32768 (7%)
+            2298/32768 (7%) including unused fragments
 
             1.7 Average locations per line
-            23.1 Average locations per statement
+            22.5 Average locations per statement
 
 RAM used:   12/2048 (1%) at main() level
             36/2048 (2%) worst case
@@ -13,12 +13,12 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   45    15  15  adc_lcd.c
+   50    18  18  adc_lcd.c
    12     0   0  adc_lcd.h
   837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
-  456    84  85  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  456    84  82  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1350    99 Total
+ 1355   102 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -30,7 +30,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    120   3    6   814  7.2  lcd_init
 0     34   1    4   208  6.3  lcd_gotoxy
 0     80   2    1   354  4.7  lcd_putc
-0    278   6    8   465  3.6  MAIN
+0    292   6    8   548  3.7  MAIN
 0     14   0    0             @const689
 0     34   1    2             @PSTRINGC_672
 0     12   0    0             @const691
@@ -48,20 +48,20 @@ Page ROM  %  RAM   Vol Diff  Functions:
 
 Program metrics:
     Functions               8
-    Statements              99
-    Comments                265
-    Volume (V)              4771
+    Statements              102
+    Comments                266
+    Volume (V)              4886
     Difficulty (D)          36.7
-    Effort to implement (E) 174931
-    Time to implement (T)   2 hours, 42 minutes
+    Effort to implement (E) 179096
+    Time to implement (T)   2 hours, 46 minutes
     Est Delivered Bugs (B)  1
     Cyclomatic Complexity   8
-    Maintainability (MI)    121
+    Maintainability (MI)    120
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE  2280  30484  
+00004-07FFE  2294  30470  
 
 
 

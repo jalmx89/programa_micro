@@ -13,14 +13,14 @@
 
 void main()
 {
-  /////configuración del ADC
+  /////configuraciï¿½n del ADC
    setup_adc(ADC_CLOCK_INTERNAL);
    setup_adc_ports(AN0);
    set_adc_channel(0);
    delay_ms(10);
    //termina config de ADC
    
-   ///configuranción de LCD
+   ///configuranciï¿½n de LCD
    lcd_init();
    delay_ms(100);
    
@@ -28,18 +28,18 @@ void main()
    delay_ms(500);
    
    //declaro la variables a usar
-   int16 valor = 0;  //variable en donde voy a guardar el valor del ADC
+   unsigned int16 valor = 0;  //variable en donde voy a guardar el valor del ADC
    float temperatura = 0;
    float voltaje = 0;
    
-   while(TRUE)
-   {
+   while(TRUE){//comienza while
       valor= read_adc();
       temperatura =  (5.0 * valor * 100.0) / 1024.0;
-      voltaje = (5 * valor)/1024.0; //convierto los bits en valor del voltaje
+      voltaje = (5.0 * valor)/1024.0; //convierto los bits en valor del voltaje
        
-      printf(lcd_putc, "\f%Lu bits %2.4fV\n%f C", valor, voltaje, temperatura);
+      printf(lcd_putc, "\f%Lu bits %2.4fV\n%f C", 
+        valor, voltaje, temperatura);
       delay_ms(200);
-   }
+   }//termina while
 
 }

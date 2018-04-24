@@ -1,5 +1,5 @@
 ÀÄadc_lcd
-   ÀÄMAIN  0/278  Ram=8
+   ÀÄMAIN  0/292  Ram=8
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/120  Ram=6
       ³  ÃÄ@delay_ms1  0/38  Ram=1

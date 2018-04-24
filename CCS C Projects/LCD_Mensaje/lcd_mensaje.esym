@@ -1,8 +1,7 @@
-D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
-D G "__PCH__" 3 136 ""5.015""
-D G "__DEVICE__" 3 136 "4550"
-D G "__DATE__" 3 136 ""03-abr-18""
-D G "__TIME__" 3 136 ""06:16:27"" "Standard Header file for the PIC18LF4550 device ////////////////"
+D G "__PCH__" 0 34 ""5.015""
+D G "__DEVICE__" 0 34 "4550"
+D G "__DATE__" 0 34 ""17-abr-18""
+D G "__TIME__" 0 34 ""13:33:02"" "Standard Header file for the PIC18LF4550 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 45 "int8" `54 
 f B "set_tris_a" 2 45 "void(int8 value)" `53 
@@ -970,6 +969,7 @@ V L "on" 3 443 "int8" `683
 F G "lcd_cursor_on" 3 444 "void(int8 on)" `682 
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
+D G "LCD_DATA_PORT" 0 4 "getenv("SFR:PORTD")" "seleccionamos el puerto"
 D G "LCD_ENABLE_PIN" 0 6 "PIN_D0"
 D G "LCD_RS_PIN" 0 7 "PIN_D1"
 D G "LCD_RW_PIN" 0 8 "PIN_D2"

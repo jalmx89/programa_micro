@@ -1,0 +1,32 @@
+#include <lcd_mensaje.h>
+#include <lcd.c>
+
+#define LCD_DATA_PORT getenv("SFR:PORTD") //seleccionamos el puerto
+
+#define LCD_ENABLE_PIN  PIN_D0                                    ////
+#define LCD_RS_PIN      PIN_D1                                    ////
+#define LCD_RW_PIN      PIN_D2              
+
+#define LCD_DATA4       PIN_D4    
+#define LCD_DATA5       PIN_D5   
+#define LCD_DATA6       PIN_D6   
+#define LCD_DATA7       PIN_D7 
+
+void main()
+{
+  
+   lcd_init(); //inicializo la LCD
+   
+   delay_ms(100); //se da ese tiempo para que la LCD se reestablesca
+   
+   while(TRUE)
+   {
+      printf(lcd_putc, "\fHola  :)");
+      delay_ms(500);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc, "Desconocido ");
+      delay_ms(800);
+      printf(lcd_putc,"\f");//limpia toda la pantalla
+      delay_ms(250);
+   }
+}
