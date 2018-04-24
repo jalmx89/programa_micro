@@ -47,7 +47,7 @@
 char const KEYS[4][4] = {{'7','4','1','N'}, //columna 1
                          {'8','5','2','0'}, //columna 2
                          {'9','6','3','='}, //columna 3
-                         {'/','*','-','+'} //columna 4
+                         {'A','B','C','D'} //columna 4
                          };
 
 #define KBD_DEBOUNCE_FACTOR 33    // Set this number to apx n/333 where

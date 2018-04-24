@@ -23,23 +23,23 @@ Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     38   5    1             @delay_ms1
 0     20   3    0             @const646
-0     20   3    0   181  4.0  @const649
-0     20   3    0   181  4.0  @const652
-0     24   3    0   181  4.0  @const655
-0    230  32    1   898  5.6  main
+0     20   3    0             @const649
+0     20   3    0             @const652
+0     24   3    0             @const655
+0    230  32    1   907  6.1  main
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               4
+    Functions               1
     Statements              30
-    Comments                151
-    Volume (V)              1892
-    Difficulty (D)          17.7
-    Effort to implement (E) 33486
-    Time to implement (T)   31 minutes
+    Comments                155
+    Volume (V)              924
+    Difficulty (D)          5.5
+    Effort to implement (E) 5124
+    Time to implement (T)   5 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   11
-    Maintainability (MI)    101
+    Cyclomatic Complexity   8
+    Maintainability (MI)    100
 
  Segment     Used  Free
 -----------  ----  ----

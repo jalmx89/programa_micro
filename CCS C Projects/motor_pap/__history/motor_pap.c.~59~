@@ -14,7 +14,6 @@ void main()
    set_tris_d(0);
    output_d(0);
    
-   +
    set_tris_b(0xff);
    output_b(0);
    
@@ -22,29 +21,29 @@ void main()
    {
       if(input_b() == 0x01){
          for(int x=0; x <4; x++){
-             output_d(forward[x]);
-             delay_ms(time);
+         output_d(forward[x]);
+         delay_ms(time);
         }
       }
       
       if(input_b() == 0x02){
          for(int x=0; x <4; x++){
-             output_d(backward[x]);
-             delay_ms(time);
+         output_d(backward[x]);
+         delay_ms(time);
         }
       }
       
       if(input_b() == 0x04){
          for(int x=0; x <8; x++){
-             output_d(half[x]);
-             delay_ms(time);
+         output_d(half[x]);
+         delay_ms(time);
         }
       }
       
        if(input_b() == 0x08){
-         for(int x=0; x <4; x++){
-             output_d(full[x]);
-             delay_ms(time);
+         for(int x=0; x <8; x++){
+         output_d(full[x]);
+         delay_ms(time);
         }
       }
    }

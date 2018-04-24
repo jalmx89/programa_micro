@@ -3,7 +3,7 @@
 #use fast_io(D)
 #use fast_io(B)
 
-#define time 500 //variable defina para el tiempo de retardo
+#define time 100 //variable defina para el tiempo de retardo
 const byte backward[] = {0x01, 0x02, 0x04, 0x08 }; //secuencia para ir adelante
 const byte forward[] = {0x08, 0x04, 0x02, 0x01 }; //secuencia para reversa
 const byte full[] = {0x03, 0x06, 0x0A, 0x09 }; //secuencia para full, de 45 en 45°

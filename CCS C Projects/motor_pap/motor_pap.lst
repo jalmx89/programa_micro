@@ -1,4 +1,4 @@
-CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
+CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 13:15
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\motor_pap\motor_pap.lst
 
@@ -104,11 +104,10 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 .................... #use fast_io(B) 
 ....................  
 .................... #define time 500 //variable defina para el tiempo de retardo 
-....................  
-.................... const byte backward[] = {0x01, 0x02, 0x04, 0x08 }; 
-.................... const byte forward[] = {0x08, 0x04, 0x02, 0x01 }; 
-.................... const byte full[] = {0x03, 0x06, 0x0A, 0x09 }; 
-.................... const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0C, 0x08, 0x09}; 
+.................... const byte backward[] = {0x01, 0x02, 0x04, 0x08 }; //secuencia para ir adelante 
+.................... const byte forward[] = {0x08, 0x04, 0x02, 0x01 }; //secuencia para reversa 
+.................... const byte full[] = {0x03, 0x06, 0x0A, 0x09 }; //secuencia para full, de 45 en 45° 
+.................... const byte half[] = {0x01, 0x03, 0x02, 0x06, 0x04,0x0C, 0x08, 0x09}; //secuencia de medio paso 
 ....................  
 .................... void main() 
 007E:  CLRF   FF8
@@ -126,6 +125,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 ....................    output_d(0); 
 0092:  CLRF   F8C
 ....................     
+....................    + 
 ....................    set_tris_b(0xff); 
 0094:  MOVLW  FF
 0096:  MOVWF  F93
@@ -142,7 +142,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 00A0:  MOVF   05,W
 00A2:  SUBLW  03
 00A4:  BNC   00CA
-....................          output_d(forward[x]); 
+....................              output_d(forward[x]); 
 00A6:  CLRF   03
 00A8:  MOVF   05,W
 00AA:  MOVFF  FF2,09
@@ -151,7 +151,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 00B2:  BTFSC  09.7
 00B4:  BSF    FF2.7
 00B6:  MOVWF  F8C
-....................          delay_ms(time); 
+....................              delay_ms(time); 
 00B8:  MOVLW  02
 00BA:  MOVWF  09
 00BC:  MOVLW  FA
@@ -173,7 +173,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 00D2:  MOVF   06,W
 00D4:  SUBLW  03
 00D6:  BNC   00FC
-....................          output_d(backward[x]); 
+....................              output_d(backward[x]); 
 00D8:  CLRF   03
 00DA:  MOVF   06,W
 00DC:  MOVFF  FF2,09
@@ -182,7 +182,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 00E4:  BTFSC  09.7
 00E6:  BSF    FF2.7
 00E8:  MOVWF  F8C
-....................          delay_ms(time); 
+....................              delay_ms(time); 
 00EA:  MOVLW  02
 00EC:  MOVWF  09
 00EE:  MOVLW  FA
@@ -204,7 +204,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 0104:  MOVF   07,W
 0106:  SUBLW  07
 0108:  BNC   012E
-....................          output_d(half[x]); 
+....................              output_d(half[x]); 
 010A:  CLRF   03
 010C:  MOVF   07,W
 010E:  MOVFF  FF2,09
@@ -213,7 +213,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 0116:  BTFSC  09.7
 0118:  BSF    FF2.7
 011A:  MOVWF  F8C
-....................          delay_ms(time); 
+....................              delay_ms(time); 
 011C:  MOVLW  02
 011E:  MOVWF  09
 0120:  MOVLW  FA
@@ -230,12 +230,12 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 012E:  MOVF   F81,W
 0130:  SUBLW  08
 0132:  BNZ   0160
-....................          for(int x=0; x <8; x++){ 
+....................          for(int x=0; x <4; x++){ 
 0134:  CLRF   08
 0136:  MOVF   08,W
-0138:  SUBLW  07
+0138:  SUBLW  03
 013A:  BNC   0160
-....................          output_d(full[x]); 
+....................              output_d(full[x]); 
 013C:  CLRF   03
 013E:  MOVF   08,W
 0140:  MOVFF  FF2,09
@@ -244,7 +244,7 @@ CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 01:40
 0148:  BTFSC  09.7
 014A:  BSF    FF2.7
 014C:  MOVWF  F8C
-....................          delay_ms(time); 
+....................              delay_ms(time); 
 014E:  MOVLW  02
 0150:  MOVWF  09
 0152:  MOVLW  FA

@@ -14,7 +14,8 @@ Type=4
 1=motor_pap.c
 [Opened Files]
 1=motor_pap.c
-2=
+2=motor_pap.h
+3=
 [motor_pap.c]
 Type=4
 [Units]

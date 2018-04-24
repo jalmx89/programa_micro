@@ -1,4 +1,4 @@
-CCS PCH C Compiler, Version 5.015, 5967               13-abr-18 04:47
+CCS PCH C Compiler, Version 5.015, 5967               24-abr-18 13:30
 
                Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\Teclado_01\teclado_uno.lst
 
@@ -38,8 +38,8 @@ CCS PCH C Compiler, Version 5.015, 5967               13-abr-18 04:47
 001A:  DATA 32,30
 001C:  DATA 39,36
 001E:  DATA 33,3D
-0020:  DATA 2F,2A
-0022:  DATA 2D,2B
+0020:  DATA 41,42
+0022:  DATA 43,44
 0024:  DATA 0C,43
 0026:  DATA 6F,6D
 0028:  DATA 65,6E
@@ -857,7 +857,7 @@ CCS PCH C Compiler, Version 5.015, 5967               13-abr-18 04:47
 .................... char const KEYS[4][4] = {{'7','4','1','N'}, //columna 1 
 ....................                          {'8','5','2','0'}, //columna 2 
 ....................                          {'9','6','3','='}, //columna 3 
-....................                          {'/','*','-','+'} //columna 4 
+....................                          {'A','B','C','D'} //columna 4 
 ....................                          }; 
 ....................  
 .................... #define KBD_DEBOUNCE_FACTOR 33    // Set this number to apx n/333 where 
