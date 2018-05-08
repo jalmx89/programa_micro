@@ -4,7 +4,7 @@
 void main(){
     set_tris_d(0);
     output_d(0);
-    int16 time = 20000;//tiempo que necesita el servo
+    int16 time = 20000;
 
     setup_adc(ADC_CLOCK_INTERNAL); 
     setup_adc_ports(AN0); 

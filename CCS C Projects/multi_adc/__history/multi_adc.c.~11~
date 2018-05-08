@@ -16,7 +16,7 @@ void main(){
     
     //configuración de ADCs
     setup_adc(ADC_CLOCK_INTERNAL); //se ajusta el oscilador del ADC
-    setup_adc_ports(AN0_TO_AN2_ANALOG);//aciva desde el AN0 hasta el AN3
+    setup_adc_ports(AN0_TO_AN3_ANALOG);//aciva desde el AN0 hasta el AN3
     delay_ms(10);
 
     while(TRUE){

@@ -16,7 +16,7 @@ void main()
     delay_ms(10);
     
     //configuracion 
-    setup_timer_2(T2_DIV_BY_16, 255, 1); //se ajusta PWM
+    setup_timer_2(T2_DIV_BY_16 255, 1); //se ajusta PWM
     setup_ccp1(CCP_PWM);//se ajusta el CCP para PWM  
     
     int16 valor;
