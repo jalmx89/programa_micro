@@ -23,5 +23,7 @@ void main(){
             output_low(PIN_D0);
             delay_us(complemento);
         }
+        
     }
+
 }
