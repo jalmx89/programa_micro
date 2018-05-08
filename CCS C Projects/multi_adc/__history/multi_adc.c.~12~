@@ -38,4 +38,5 @@ void main(){
         output_d(adc2);
         delay_ms(50);
     }
+
 }
