@@ -1,0 +1,92 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005-006 main.time
+007-008 main.value
+009-00A main.resultado
+00B-00C main.complemento
+00D     main.i
+00E-011 @MULFF.P1
+00E-011 @SFTOI.P2
+00E-00F @ITOF.P3
+00E     main.@SCRATCH1
+00F     @delay_us1.P1
+00F     main.@SCRATCH2
+010     main.@SCRATCH3
+011     main.@SCRATCH4
+012-015 @MULFF.P1
+012-015 @ADDFF.P2
+016-019 @ADDFF.P1
+016     @MULFF.@SCRATCH1
+017     @MULFF.@SCRATCH2
+018     @MULFF.@SCRATCH3
+01A     @ADDFF.@SCRATCH1
+01B     @ADDFF.@SCRATCH2
+01C     @ADDFF.@SCRATCH3
+01D     @ADDFF.@SCRATCH4
+01E     @ADDFF.@SCRATCH5
+01F     @ADDFF.@SCRATCH6
+020     @ADDFF.@SCRATCH7
+021     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @ITOF
+00003C  @MULFF
+000130  @ADDFF
+00039C  @SFTOI
+0003D6  @delay_us1
+0003F0  @cinit1
+0003F0  main
+000400  @cinit2
+
+Project Directory:
+    C:\Users\VAIO\Desktop\class_micro\CCS C Projects\servo_adc\
+
+Project Files:
+    servo_adc.c                                             [08-may-18 03:06  CRC=E9D7A3AB]
+    servo_adc.h                                             [08-may-18 02:48  CRC=DB2CC855]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 15:35  CRC=5337E248]
+
+Source signature=6B743090
+
+Units:
+    servo_adc (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   servo_adc.xsym
+    Errors:      servo_adc.err
+    Ext Symbols: servo_adc.esym
+    INHX32:      servo_adc.hex
+    Symbols:     servo_adc.sym
+    List:        servo_adc.lst
+    Debug/COFF:  servo_adc.cof
+    Project:     servo_adc.ccspjt
+    Call Tree:   servo_adc.tre
+    Statistics:  servo_adc.STA

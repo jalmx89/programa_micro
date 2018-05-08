@@ -1,0 +1,193 @@
+CCS PCH C Compiler, Version 5.015, 5967               07-may-18 04:35
+
+               Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\multi_adc\multi_adc.lst
+
+               ROM used:   228 bytes (1%)
+                           Largest free fragment is 32540
+               RAM used:   4 (0%) at main() level
+                           11 (1%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002A
+.................... #include <multi_adc.h> 
+.................... #include <18F4550.h> 
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 
+....................  
+.................... #FUSES NOWDT                     //No Watch Dog Timer 
+.................... #FUSES WDT128                    //Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT                //No brownout reset 
+.................... #FUSES NOLVP                     //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOXINST                   //Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
+....................  
+.................... #use delay(crystal=20000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  0B
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    0028
+000E:  MOVLW  06
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  7B
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  DECFSZ FEF,F
+0026:  BRA    000E
+0028:  RETURN 0
+....................  
+....................  
+....................  
+.................... #use fast_io(B) 
+.................... #use fast_io(C) 
+.................... #use fast_io(D) 
+....................  
+.................... //configuración de multiples entradas analógicas 
+.................... void main(){ 
+002A:  CLRF   FF8
+002C:  BCF    FD0.7
+002E:  MOVF   FC1,W
+0030:  ANDLW  C0
+0032:  IORLW  0F
+0034:  MOVWF  FC1
+0036:  MOVLW  07
+0038:  MOVWF  FB4
+....................      
+....................     set_tris_b(0); 
+003A:  MOVLW  00
+003C:  MOVWF  F93
+....................     set_tris_c(0); 
+003E:  MOVWF  F94
+....................     set_tris_d(0); 
+0040:  MOVWF  F95
+....................     output_b(0); 
+0042:  CLRF   F8A
+....................     output_c(0); 
+0044:  CLRF   F8B
+....................     output_d(0); 
+0046:  CLRF   F8C
+....................      
+....................     //configuración de ADCs 
+....................     setup_adc(ADC_CLOCK_INTERNAL); //se ajusta el oscilador del ADC 
+0048:  MOVF   FC0,W
+004A:  ANDLW  C0
+004C:  IORLW  07
+004E:  MOVWF  FC0
+0050:  BSF    FC0.7
+0052:  BSF    FC2.0
+....................     setup_adc_ports(AN0_TO_AN3_ANALOG); 
+0054:  MOVF   FC1,W
+0056:  ANDLW  C0
+0058:  IORLW  0B
+005A:  MOVWF  FC1
+....................     delay_ms(10); 
+005C:  MOVLW  0A
+005E:  MOVWF  0B
+0060:  RCALL  0004
+....................  
+....................     while(TRUE){ 
+....................         set_adc_channel(0); 
+0062:  MOVLW  00
+0064:  MOVWF  01
+0066:  MOVF   FC2,W
+0068:  ANDLW  C3
+006A:  IORWF  01,W
+006C:  MOVWF  FC2
+....................         delay_ms(10);//tiempo para configurar el canal 
+006E:  MOVLW  0A
+0070:  MOVWF  0B
+0072:  RCALL  0004
+....................         int16 adc0 = read_adc(); 
+0074:  BSF    FC2.1
+0076:  BTFSC  FC2.1
+0078:  BRA    0076
+007A:  MOVFF  FC3,05
+007E:  MOVFF  FC4,06
+....................         output_b(adc0); 
+0082:  MOVFF  05,F8A
+....................         delay_ms(50); 
+0086:  MOVLW  32
+0088:  MOVWF  0B
+008A:  RCALL  0004
+....................          
+....................         set_adc_channel(1); 
+008C:  MOVLW  04
+008E:  MOVWF  01
+0090:  MOVF   FC2,W
+0092:  ANDLW  C3
+0094:  IORWF  01,W
+0096:  MOVWF  FC2
+....................         delay_ms(10);//tiempo para configurar el canal  
+0098:  MOVLW  0A
+009A:  MOVWF  0B
+009C:  RCALL  0004
+....................         int16 adc1 = read_adc(); 
+009E:  BSF    FC2.1
+00A0:  BTFSC  FC2.1
+00A2:  BRA    00A0
+00A4:  MOVFF  FC3,07
+00A8:  MOVFF  FC4,08
+....................         output_c(adc1); 
+00AC:  MOVFF  07,F8B
+....................         delay_ms(50); 
+00B0:  MOVLW  32
+00B2:  MOVWF  0B
+00B4:  RCALL  0004
+....................          
+....................         set_adc_channel(2); 
+00B6:  MOVLW  08
+00B8:  MOVWF  01
+00BA:  MOVF   FC2,W
+00BC:  ANDLW  C3
+00BE:  IORWF  01,W
+00C0:  MOVWF  FC2
+....................         delay_ms(10);//tiempo para configurar el canal  
+00C2:  MOVLW  0A
+00C4:  MOVWF  0B
+00C6:  RCALL  0004
+....................         int16 adc2 = read_adc(); 
+00C8:  BSF    FC2.1
+00CA:  BTFSC  FC2.1
+00CC:  BRA    00CA
+00CE:  MOVFF  FC3,09
+00D2:  MOVFF  FC4,0A
+....................         output_d(adc2); 
+00D6:  MOVFF  09,F8C
+....................         delay_ms(50); 
+00DA:  MOVLW  32
+00DC:  MOVWF  0B
+00DE:  RCALL  0004
+00E0:  BRA    0062
+....................     } 
+....................  
+.................... } 
+00E2:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO
+   Word  2: 0E38   PUT NOBROWNOUT BORV21 VREGEN NOWDT WDT128
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

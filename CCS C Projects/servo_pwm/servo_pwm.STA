@@ -1,0 +1,50 @@
+
+ROM used:   1272/32768 (4%)
+            1272/32768 (4%) including unused fragments
+
+            1.4 Average locations per line
+            97.8 Average locations per statement
+
+RAM used:   8/2048 (0%) at main() level
+            28/2048 (1%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   32    13 100  servo_pwm.c
+   12     0   0  servo_pwm.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  881    13 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   1    1             @delay_ms1
+0    252  10    4   335  4.2  main
+0     56   2    2             @ITOF
+0    244  10   11   119  2.1  @MULFF
+0    620  24   16             @ADDFF
+0     58   2    4             @SFTOI
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              13
+    Comments                162
+    Volume (V)              546
+    Difficulty (D)          5.7
+    Effort to implement (E) 3134
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    160
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1268  31496  
+
+
+

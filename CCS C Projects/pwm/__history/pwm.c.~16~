@@ -1,0 +1,22 @@
+#include <pwm.h>
+
+void main()
+{
+    setup_adc(ADC_CLOCK_INTERNAL);            
+    setup_adc_ports(AN0);          
+    set_adc_channel(0);
+    delay_ms(10);
+            
+    setup_timer_2(T2_DIV_BY_4 249, 1);  
+    setup_ccp1(CCP_PWM);          
+    
+    float valor;
+    
+    while(TRUE){
+        valor = read_adc();
+        delay_ms(100);
+        set_pwm1_duty(valor); 
+        delay_ms(100);
+       
+    }
+}

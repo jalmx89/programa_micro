@@ -1,0 +1,46 @@
+
+ROM used:   180/32768 (1%)
+            180/32768 (1%) including unused fragments
+
+            0.2 Average locations per line
+            15.0 Average locations per statement
+
+RAM used:   4/2048 (0%) at main() level
+            7/2048 (0%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   31    12 100  pwm.c
+   12     0   0  pwm.h
+  837     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  880    12 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38  11    1             @delay_ms1
+0    138  38    0   243  2.8  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              12
+    Comments                163
+    Volume (V)              247
+    Difficulty (D)          2.6
+    Effort to implement (E) 632
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    142
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   176  32588  
+
+
+

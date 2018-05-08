@@ -1,0 +1,31 @@
+#include <multi_adc.h>
+
+#use fast_io(B)
+#use fast_io(D)
+
+//configuración de multiples entradas analógicas
+void main(){
+    
+    set_tris_b(0);
+    set_tris_d(0);
+    output_b(0);
+    output_d(0);
+    
+    //configuración de ADCs
+    setup_adc(ADC_CLOCK_INTERNAL); //se ajusta el oscilador del ADC
+    setup_adc_ports(AN0_TO_AN3_ANALOG);
+    delay_ms(10);
+
+    while(TRUE){
+        set_adc_channel(0);
+        int16 adc0 = read_adc();
+        output_b(adc0);
+        delay_ms(50);
+        
+        set_adc_channel(1);
+        int16 adc1 = read_adc();
+        output_d(adc1);
+        delay_ms(50);
+    }
+
+}

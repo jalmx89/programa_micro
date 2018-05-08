@@ -1,0 +1,19 @@
+#include <servo_pwm.h>
+
+void main()
+{
+    setup_adc(ADC_CLOCK_INTERNAL);
+    setup_adc_ports(AN0);
+    set_adc_channel(0);
+    delay_ms(10);
+    
+    //configuración de pwm
+    setup_ccp1(CCP_PWM);
+    
+    
+    while(TRUE)
+    {
+        //TODO: User Code
+    }
+
+}

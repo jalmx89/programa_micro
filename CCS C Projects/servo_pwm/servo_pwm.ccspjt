@@ -1,0 +1,23 @@
+[PROJECT]
+Target=servo_pwm.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=servo_pwm.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\VAIO\Desktop\class_micro\CCS C Projects\servo_pwm\servo_pwm]
+Type=4
+[mru-list]
+1=servo_pwm.c
+[Opened Files]
+1=servo_pwm.c
+2=servo_pwm.h
+3=
+[servo_pwm.c]
+Type=4
+[Units]
+Count=1
+1=servo_pwm (main)

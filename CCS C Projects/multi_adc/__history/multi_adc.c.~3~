@@ -1,0 +1,13 @@
+#include <multi_adc.h>
+
+//configuración de multiples entradas analógicas
+void main(){
+
+    setup_adc(ADC_CLOCK_INTERNAL); //se ajusta el oscilador del ADC
+    setup_adc_ports(AN0_TO_AN3_ANALOG);
+
+    while(TRUE){
+        
+    }
+
+}

@@ -1,0 +1,16 @@
+#include <servo_adc.h>
+
+void main()
+{
+
+    setup_adc(ADC_CLOCK_INTERNAL); 
+    setup_adc_ports(AN0); 
+    set_adc_channel(0);
+    delay_us(10);
+ 
+    while(TRUE)
+    {
+        int16 value=read_adc();
+    }
+
+}

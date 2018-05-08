@@ -1,0 +1,18 @@
+#include <pwm.h>
+
+void main()
+{
+    setup_adc(ADC_CLOCK_INTERNAL);            
+    setup_adc_ports(AN0);          
+    set_adc_channel(0);
+    delay_ms(10);
+    
+    setup_ccp1(CCP_PWM);                   // Configuro CCP1 como PWM
+    setup_timer_2(T2_DIV_BY_16, 250, 1);   // Set PWM frequency to 500Hz
+    
+    while(TRUE){
+        float valor = read_adc();
+        set_pwm1_duty(valor); 
+        delay_ms(1);
+    }
+}

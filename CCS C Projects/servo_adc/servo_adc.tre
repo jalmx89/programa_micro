@@ -1,0 +1,11 @@
+읕servo_adc
+   읕main  0/288  Ram=4
+      쳐@cinit1  (Inline)  Ram=0
+      쳐@ITOF  0/56  Ram=2
+      쳐@MULFF  0/244  Ram=11
+      쳐@ADDFF  0/620  Ram=16
+      쳐@SFTOI  0/58  Ram=4
+      쳐@delay_us1  0/26  Ram=1
+      쳐@delay_us1  0/26  Ram=1
+      쳐@delay_us1  0/26  Ram=1
+      읕@delay_us1  0/26  Ram=1

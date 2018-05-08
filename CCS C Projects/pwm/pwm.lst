@@ -1,0 +1,161 @@
+CCS PCH C Compiler, Version 5.015, 5967               08-may-18 05:40
+
+               Filename:   C:\Users\VAIO\Desktop\class_micro\CCS C Projects\pwm\pwm.lst
+
+               ROM used:   180 bytes (1%)
+                           Largest free fragment is 32588
+               RAM used:   4 (0%) at main() level
+                           7 (0%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002A
+.................... #include <pwm.h> 
+.................... #include <18F4550.h> 
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 
+....................  
+.................... #FUSES NOWDT                     //No Watch Dog Timer 
+.................... #FUSES WDT128                    //Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT                //No brownout reset 
+.................... #FUSES NOLVP                     //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOXINST                   //Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
+....................  
+.................... #use delay(crystal=20000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  07
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    0028
+000E:  MOVLW  06
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  7B
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  DECFSZ FEF,F
+0026:  BRA    000E
+0028:  RETURN 0
+....................  
+....................  
+.................... //recordar hacer el cambio en el archivo .h del ADC, ajustar a 10 
+....................  
+.................... /* CONFIG PWM PERIOD 
+.................... PWM period = Fosc / [(PR2) + 1] � 4 � (TMR2 Prescale Value) 
+.................... Where PWM frequency is defined as 1/[PWM period]. 
+.................... PR2 is Timer2 preload value, 8 bits -> value max 255 
+.................... Fosc = MCU_frequency -> XT 
+.................... TMR2 Prescale Value can be 1, 4 or 16. 
+.................... */ 
+.................... void main() 
+002A:  CLRF   FF8
+002C:  BCF    FD0.7
+002E:  MOVF   FC1,W
+0030:  ANDLW  C0
+0032:  IORLW  0F
+0034:  MOVWF  FC1
+0036:  MOVLW  07
+0038:  MOVWF  FB4
+.................... { 
+....................     setup_adc(ADC_CLOCK_INTERNAL);             
+003A:  MOVF   FC0,W
+003C:  ANDLW  C0
+003E:  IORLW  07
+0040:  MOVWF  FC0
+0042:  BSF    FC0.7
+0044:  BSF    FC2.0
+....................     setup_adc_ports(AN0);           
+0046:  MOVF   FC1,W
+0048:  ANDLW  C0
+004A:  IORLW  0E
+004C:  MOVWF  FC1
+....................     set_adc_channel(0); 
+004E:  MOVLW  00
+0050:  MOVWF  01
+0052:  MOVF   FC2,W
+0054:  ANDLW  C3
+0056:  IORWF  01,W
+0058:  MOVWF  FC2
+....................     delay_ms(10); 
+005A:  MOVLW  0A
+005C:  MOVWF  07
+005E:  RCALL  0004
+....................      
+....................     //configuraci�n  
+....................     setup_timer_2(T2_DIV_BY_16 255, 1); //se ajusta PWM 
+0060:  MOVLW  00
+0062:  IORLW  06
+0064:  MOVWF  FCA
+0066:  MOVLW  FF
+0068:  MOVWF  FCB
+....................     setup_ccp1(CCP_PWM);//se ajusta el CCP para PWM   
+006A:  BCF    F94.2
+006C:  BCF    F8B.2
+006E:  MOVLW  0C
+0070:  MOVWF  FBD
+0072:  CLRF   FB7
+0074:  CLRF   FB6
+....................      
+....................     int16 valor; 
+....................      
+....................     while(TRUE){ 
+....................         valor = read_adc(); 
+0076:  BSF    FC2.1
+0078:  BTFSC  FC2.1
+007A:  BRA    0078
+007C:  MOVFF  FC3,05
+0080:  MOVFF  FC4,06
+....................         delay_ms(100); 
+0084:  MOVLW  64
+0086:  MOVWF  07
+0088:  RCALL  0004
+....................         set_pwm1_duty(valor); //se asigna el valor del PWM 
+008A:  MOVFF  06,02
+008E:  MOVFF  05,01
+0092:  RRCF   02,F
+0094:  RRCF   01,F
+0096:  RRCF   02,F
+0098:  RRCF   01,F
+009A:  RRCF   02,F
+009C:  MOVFF  01,FBE
+00A0:  RRCF   02,F
+00A2:  RRCF   02,W
+00A4:  ANDLW  30
+00A6:  MOVWF  00
+00A8:  MOVF   FBD,W
+00AA:  ANDLW  CF
+00AC:  IORWF  00,W
+00AE:  MOVWF  FBD
+00B0:  BRA    0076
+....................         
+....................     } 
+.................... } 
+00B2:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC04   PLL5 CPUDIV1 NOUSBDIV HS FCMEN IESO
+   Word  2: 0E38   PUT NOBROWNOUT BORV21 VREGEN NOWDT WDT128
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
